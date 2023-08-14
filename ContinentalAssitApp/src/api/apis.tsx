@@ -1,6 +1,33 @@
 //Apis para la aplicación
 import axios from 'axios';
 
+
+export const consultaGenral = async () => {
+  const baseURL = 'https://continentalassist.co/backmin/restapp';
+}
+
+
+
+const API_URL = 'https://continentalassist.co/backmin/restapp/app_registro_usuario';
+
+export const consultarRegistro = async (datosUsuario:{}) => {
+  try {
+    const headers = {
+      'Content-Type': 'application/json',
+      'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+    };
+
+    const response = await axios.post(API_URL, datosUsuario, { headers });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
+
+
 // api para obtener los motivos de la consulta del chat
 export const apiConsultaMotivosChat = async () => {
   const baseURL = 'https://continentalassist.co/backmin/restapp/app_consulta_motivos_chat';
@@ -9,7 +36,6 @@ export const apiConsultaMotivosChat = async () => {
     const response = await axios.post(baseURL, { ps: 'www.continentalassist.com' });
     return response.data.resultado;
   } catch (error) {
-    console.error('Error al obtener motivos de chat:', error);
     return [];
   }
 };
@@ -95,12 +121,12 @@ export const apiConsultaBeneficiosVoucher = async (limiteBeneficios: number, idi
 // api para consultar los  beneficiarios de asistencias
 export const apiBeneficiariosAsistencias = async (voucher?: string) => {
   const baseURL = 'https://asistencia2.continentalassist.com/api/beneficiarios_asistencias';
-  const authorizationHeader = this.state.session.configuracion.intro_authorization;
+  // const authorizationHeader = this.state.session.configuracion.intro_authorization;
 
   const headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Authorization': authorizationHeader,
+    // 'Authorization': authorizationHeader,
   };
 
   const data = voucher ? { voucher } : {};
@@ -188,7 +214,7 @@ export const apiEnviarNotificacionReembolsoEnviado = async (idUsuario:string) =>
     };
 
     const data = {
-        ps: "www.continentalassist.com",
+        ps: 'www.continentalassist.com',
         idUsuario: idUsuario,
     };
 

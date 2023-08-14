@@ -1,0 +1,223 @@
+{
+    "app": {
+      "miCuenta": "Mi Cuenta",
+      "miPlan": "Mi Plan",
+      "emergencia": "Emergencia",
+      "extras": "Extras",
+      "condicionesGenerales": "Condiciones Generales",
+      "clima": "Clima",
+      "conversorMoneda": "Convertidor de Moneda",
+      "faqs": "Preguntas Frecuentes",
+      "reembolsos": "Reembolsos",
+      "detallesReembolsos": "Detalles de Reembolso",
+      "nuevoReembolsos": "Nuevo Reembolso",
+      "datosChat": "Datos para el Chat",
+      "chat": "Chat"
+    },
+  
+    "intro": {
+        "bienvenida": "Bienvenido a la mejor cobertura de asistencia en viaje a nivel mundial",
+        "boton_registro": "Regístrate",
+        "boton_inicio": "Iniciar Sesión",
+        "boton_ingresar": "Ingresar",
+        "boton_cerrar": "Cerrar Sesión"
+    },
+  
+    "registro": {
+      "nombreApellido": "Nombre y Apellido",
+      "fechaNacimiento": "Fecha de Nacimiento",
+      "seleccionePais": "Seleccione el país",
+      "correo": "Correo Electrónico",
+      "contrasena": "Contraseña",
+      "botonContinuar": "Continuar",
+      "texto1": "Al presionar el botón 'Continuar', confirmas que entiendes y aceptas las",
+      "texto2": " Condiciones de Uso de Continental Assist",
+      "texto3": ", así como las políticas de privacidad y cookies.",
+      "yaEresCliente": "¿Ya eres cliente?",
+      "iniciaSesion": "Inicia Sesión",
+      "pais":"País",
+      "cod":"Cod.",
+      "telefono":"Teléfono Celular",
+      "hemosEncontrado": "Hemos encontrado un voucher con tus datos, por favor verifíca que sean correctos y presiona el botón de 'Confirmar'.",
+      "numeroVoucher": "Número de Voucher",
+      "categoria": "Categoria",
+      "plan": "Plan",
+      "origen": "Origen",
+      "destino": "Destino",
+      "fechaSalida": "Fecha de Salida",
+      "fechaRetorno": "Fecha de Retorno",
+      "titulares": "Titulares",
+      "nombreTitular": "Nombre y Apellido",
+      "correoTitular": "Correo Electrónico",
+      "telefonoTitular": "Teléfono",
+      "nacimientoTitular": "Nacimiento",
+      "confirmar": "Confirmar",
+      "cancelar": "Cancelar"
+    },
+  
+    "registroCodigo": {
+      "texto1": "Hemos enviado al correo {{correo}} un código de confirmación de 5 dígitos para certificar que seas el propietario de dicho correo electrónico",
+      "codigo": "Código",
+      "validarCodigo": "Validar Código",
+      "volverAEnviar": "Volver a Enviar Código"
+    },
+  
+    "menu": {
+      "miCuenta": "Mi Cuenta",
+      "miPlan": "Mi Plan",
+      "emergencia": "Emergencia",
+      "reembolsos": "Reembolsos",
+      "extras": "Extras",
+      "alertEmergencia": "Tu plan no se encuentra activo para reportar Emergencias"
+    },
+  
+    "miCuenta": {
+      "nombreApellido": "Nombre y Apellido",
+      "fechaNacimiento": "Fecha de Nacimiento",
+      "correoElectronico": "Correo Electrónico",
+      "telefonos": "Teléfonos",
+      "seleccionesPais": "Seleccione el país",
+      "botonAgregar": "Agregar",
+      "botonCancelar": "Cancelar",
+      "notificacion": "Notificación",
+      "estaSeguroEliminar": "¿Está seguro de eliminar este número de teléfono?",
+      "si": "Si",
+      "no": "No",
+      "accedeA": "Accede a ",
+      "miPlan": "Mi Plan",
+      "paraObtener": " para obtener la información detallada de tu asistencia"
+    },
+  
+    "miPlan": {
+      "numeroVoucher": "Numero del Voucher",
+      "categoria": "Categoría",
+      "fechaInicio": "Fecha de Inicio",
+      "fechaRegreso": "Fecha de Regreso",
+      "plan": "Plan",
+      "voucher": "Voucher",
+      "nombreBeneficiario": "Nombre del Beneficiario",
+      "nacimientoBeneficiario": "Nacimiento",
+      "edad": "Edad",
+      "beneficios": "Beneficios"
+    }, 
+  
+    "emergencia": {
+      "paraComunicarte" : "Para comunicarte con nosotros, puedes hacerlo a través de los siguientes medios:",
+      "chatEmergencia" : "Chat de Emergencia",
+      "infoEmergencia" : "Información de Emergencia",
+      "numeroNuestra" : "Número de Nuestra Central de Asistencia en ",
+      "elNumeroTelefonico" : "El número telefónico de nuestra Central de Asistencia para el país donde te encuentras es:",
+      "siNoTeEncuentras1": "Si no te encuentras en ",
+      "siNoTeEncuentras2": ", puedes contactar a la Central de Asistencia según se indica en esta sección",
+      "numeroNuestraMundo" : "Número de Nuestra Central de Asistencia en el Mundo",
+      "siElServicio" : "Si el servicio telefónico desde donde te comunicas no permite que realices esta llamada de forma gratuita, puedes pedir una llamada por cobrar a Estados unidos al número +786-613-7102 o puedes contactarnos por correo electrónico a la dirección:"
+    },
+  
+    "reembolsos": {
+      "codigo": "Código:",
+      "estatus": "Estatus:",
+      "motivo": "Motivo:",
+      "solicitud": "Solicitud",
+      "respuesta": "Finalización",
+      "fechaRechazo": "Fecha de Rechazo",
+      "noExistenReembolsos": "No existen reembolsos solicitados",
+      "solicitarNuevoReembolso": "Solicitar Nuevo Reembolso",
+      "descripcion": "Descripción",
+      "verMas": "Ver más"
+    },
+  
+    "nuevoReembolso": {
+      "beneficiario": "Beneficiario",
+      "placeholderBeneficiario": "Seleccione Beneficiario",
+      "fechaEvento": "Fecha del Evento",
+      "placeholderFecha": "01-Ene-2020",
+      "paisEvento": "País del Evento",
+      "placeholderPais": "Seleccione el país",
+      "direccionEvento": "Dirección del Evento",
+      "placeholderDireccion": "Domicilio, dirección",
+      "motivoSolicitud": "Motivo de la Solicitud",
+      "placeholderMotivo": "Seleccione el motivo",
+      "informacionBancaria": "Información Bancaria",
+      "indiqueAcaInformacion": "En este espacio debes indicarnos toda la información necesaria para la ejecución el reembolso, esto incluye (cuando aplique) nombre del banco, número de cuenta, tipo de cuenta, titular de la cuenta, CLABE interbancaria, SWIFT, número de routing, número ABA y cualquier otro dato que aplique y sea relevante para la transacción. Recuerda que estos datos serán usados para el pago, por lo que te agradecemos los verifiques varias veces antes de guardar la solicitud. Adicionalmente te garantizamos estricta confidencialidad en esta información y así mismo nos comprometemos a usarla únicamente para la solicitud que estás realizando",
+      "placeholderDatosBancarios": "Datos Bancarios",
+      "gastosReclamados": "Gastos Reclamados:",
+      "comprobantesGastos": "Comprobantes de Gastos",
+      "concepto": "Concepto",
+      "placeholderArchivo": "Ej: Factura de Farmacia...",
+      "buscarArchivo": "Buscar Archivo",
+      "adjunteaqui": "Adjunte aquí fotografías o escaneos de cada uno de los documentos necesarios para su reembolso",
+      "adjuntarComprobante": "Adjuntar Comprobante",
+      "adjuntarOtroComprobante": "Adjuntar Otro",
+      "documentacionRequerida": "Documentación Requerida",
+      "laSiguienteDocumentacion": "(La siguiente documentación deberá ser adjuntada sin excepción)",
+      "documentacion1": "1. Fotografía del pasaporte; Hoja con sellos de entrada y salida del país",
+      "documentacion2": "2. Itinerario del viaje contratado/Fotografía de los tickets aéreos y/o cualquier medio de transporte internacional.",
+      "documentacion3": "3. Datos de la cuenta bancaria para la transferencia. Si no posee, presente por favor los datos de la cuenta de un tercero debidamente autorizado mediante carta firmada.",
+      "documentacion4-1": "4. Comprobantes de los gastos efectuados (copia legible).",
+      "documentacion5-1": "5. Constancia del vínculo o parentesco (partida de nacimiento sólo en el caso que la persona asistida sea menor de edad).",
+      "documentacion6-1": "6. Notas médicas y/o informe médico completo de la asistencia recibida.",
+      "documentacion4-2": "4. Comprobantes originales de los gastos en artículos de primera necesidad.",
+      "documentacion5-2": "5. Finiquito (original del recibo de indemnización por la línea aérea y/o acreditación de cobro de dicha indemnización o copia de cheque).",
+      "enCasoDemora": "En caso de Demora de equipaje además adjuntar",
+      "enCasoPerdida": "En caso de Pérdida adjuntar:",
+      "enAmbosCasos": "En ambos casos deberá presentar la denuncia hecha ante la aerolínea conocida como PIR (Property Irregularity Report).",
+      "nombreDocumento": "Nombre Documento",
+      "adjuntarOtroDocumento": "Adjuntar Otro",
+      "placeholderDocumento": "Ej: Pasaporte, Itinerario, ...",
+      "buscarDocumento": "Buscar Documento",
+      "elTiempoAproximado": "El tiempo apróximado de respuesta para los reembolsos es de 48 horas. Si no recibes una respuesta transcurrido ese tiempo, comunícate con nosotros.",
+      "enviarSolicitudReembolso": "Enviar Solicitud de Reembolso",
+      "comprobantes": "Comprobantes",
+      "adjuntarComprobantes": "Adjuntar Comprobante",
+      "adjuntarDocumento": "Adjuntar Documento",
+      "documentacion": "Documentación"
+    },
+  
+    "extras": {
+      "condicionesGenerales" : "Condiciones Generales",
+      "clima": "Clima",
+      "conversorMoneda" : "Conversor de Moneda",
+      "faqs" : "Preguntas Frecuentes"
+    },
+  
+    "conversor": {
+      "de": "De:",
+      "a": "A:",
+      "cantidad": "Cantidad:",
+      "seleccioneMoneda": "Seleccione Moneda"
+    },
+  
+    "clima": {
+      "hoy": "HOY",
+      "humedad": "Humedad:",
+      "min": "Min",
+      "max": "Max",
+      "seleccioneCiudad": "Mi Ubicación",
+      "dia": "Día"
+    },
+  
+    "chat": {
+      "seleccioneMotivoChat": "Seleccione el motivo del chat",
+      "seleccioneMotivo": "Seleccione el motivo",
+      "entrarChat": "Entrar al Chat",
+      "escribeMensaje": "Escribe un Mensaje",
+      "enviar": "Enviar",
+      "cerrarChat": "Cerrar Chat",
+      "adjuntarArchivo": "Adjuntar Archivo"
+    },
+    
+    "meses": {
+      "enero": "Ene",
+      "febrero": "Feb",
+      "marzo": "Mar",
+      "abril": "Abr",
+      "mayo": "May",
+      "junio": "Jun",
+      "julio": "Jul",
+      "agosto": "Aug",
+      "septiembre": "Sep",
+      "octubre": "Oct",
+      "noviembre": "Nov",
+      "diciembre": "Dic"
+    }
+  }

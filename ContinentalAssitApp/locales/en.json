@@ -1,0 +1,223 @@
+{
+    "app": {
+      "miCuenta": "My Account",
+      "miPlan": "My Plan",
+      "emergencia": "Emergency",
+      "extras": "Tools",
+      "condicionesGenerales": "General Conditions",
+      "clima": "Weather",
+      "conversorMoneda": "Currency Converter",
+      "faqs": "Faqs",
+      "reembolsos": "Refunds",
+      "detallesReembolsos": "Refund Details",
+      "nuevoReembolsos": "New Refund",
+      "datosChat": "Data for Chat",
+      "chat": "Chat"
+    },
+  
+    "intro": {
+        "bienvenida": "Welcome to the best travel assistance with the best coverage worldwide",
+        "boton_registro": "Register",
+        "boton_inicio": "Login",
+        "boton_ingresar": "Enter",
+        "boton_cerrar": "Close Session"
+    },
+    
+    "registro": {
+      "nombreApellido": "Name",
+      "fechaNacimiento": "Birthdate",
+      "seleccionePais": "Select Country",
+      "correo": "Email",
+      "contrasena": "Password",
+      "botonContinuar": "Continue",
+      "texto1": "By pressing Continue, you confirm that you accept the",
+      "texto2": " Conditions of Use of Continental Assist",
+      "texto3": ". We will manage the information as described in the Privacy Policy and the Cookies Policy",
+      "yaEresCliente": "Already a Client?",
+      "iniciaSesion": "Login",
+      "pais":"Country",
+      "cod":"Cod.",
+      "telefono":"Cellphone",
+      "hemosEncontrado": "We have found a voucher with your information, please verify that it is correct and press the 'Confirm' button.",
+      "numeroVoucher": "Voucher Number",
+      "categoria": "Category",
+      "plan": "Plan",
+      "origen": "Origin",
+      "destino": "Destination",
+      "fechaSalida": "Start Date", 
+      "fechaRetorno": "End Date",
+      "titulares": "Headlines",
+      "nombreTitular": "Complete Name",
+      "correoTitular": "Email",
+      "telefonoTitular": "Phone Number",
+      "nacimientoTitular": "Birthdate",
+      "confirmar": "Confirm",
+      "cancelar": "Cancel"
+    },
+  
+    "registroCodigo": {
+      "texto1": "We have sent to the email {{correo}} a 5-digit confirmation code to certify that you are the owner of this email",
+      "codigo": "Code",
+      "validarCodigo": "Validate Code",
+      "volverAEnviar": "Resend Code"
+    },
+  
+    "menu": {
+      "miCuenta": "Account",
+      "miPlan": "My Plan",
+      "emergencia": "Emergency",
+      "reembolsos": "Refunds",
+      "extras": "Tools",
+      "alertEmergencia": "Your plan is not active to report Emergencies"
+    },
+  
+    "miCuenta": {
+      "nombreApellido": "Full Name",
+      "fechaNacimiento": "Birthday",
+      "correoElectronico": "Email",
+      "telefonos": "Cellphone",
+      "seleccionesPais": "Select country",
+      "botonAgregar": "Add",
+      "botonCancelar": "Cancel",
+      "notificacion": "Notification",
+      "estaSeguroEliminar": "Are you sure to delete this phone number?",
+      "si": "Yes",
+      "no": "No",
+      "accedeA": "Access ",
+      "miPlan": "My Plan",
+      "paraObtener": " to get detailed information about your assist"
+    },
+  
+    "miPlan": {
+      "numeroVoucher": "Voucher Number",
+      "categoria": "Category",
+      "fechaInicio": "Start Date",
+      "fechaRegreso": "End Date",
+      "plan": "Plan",
+      "voucher": "Voucher",
+      "nombreBeneficiario": "Beneficiary Full Name",
+      "nacimientoBeneficiario": "Birthday",
+      "edad": "Age",
+      "beneficios": "Benefits"
+    },
+  
+    "emergencia": {
+      "paraComunicarte" : "To communicate with us, you can do it through the following means:",
+      "chatEmergencia" : "Emergency Chat",
+      "infoEmergencia" : "Emergency Information",
+      "numeroNuestra" : "Number of Our Assistance Center in ",
+      "elNumeroTelefonico" : "The telephone number of our Assistance Center for the country where you are located is:",
+      "siNoTeEncuentras1": "If you are not in ",
+      "siNoTeEncuentras2": ", you can contact the Assistance Center as indicated in this section",
+      "numeroNuestraMundo" : "Number of Our Assistance Center in the World",
+      "siElServicio" : "If the telephone service from which the holder called does not allow this call for free, request a collect call for the United States at 786-613-7102. You can also contact us by email at the address: "
+    },
+  
+    "reembolsos": {
+      "codigo": "Code:",
+      "estatus": "Status:",
+      "motivo": "Reason:",
+      "solicitud": "Request",
+      "respuesta": "Response",
+      "fechaRechazo": "Rejection Date",
+      "noExistenReembolsos": "There are no refunds requested",
+      "solicitarNuevoReembolso": "Request New Refund",
+      "descripcion": "Description",
+      "verMas": "See more"
+    },
+  
+    "nuevoReembolso": {
+      "beneficiario": "Beneficiarie",
+      "placeholderBeneficiario": "Select Beneficiarie",
+      "fechaEvento": "Event Date",
+      "placeholderFecha": "01-Jan-2020",
+      "paisEvento": "Event Country",
+      "placeholderPais": "Select Country",
+      "direccionEvento": "Event Address",
+      "placeholderDireccion": "Home, Address",
+      "motivoSolicitud": "Reason for the request",
+      "placeholderMotivo": "Select the reason",
+      "informacionBancaria": "Bank Information",
+      "indiqueAcaInformacion": "(Indicate here the information to receive your refund, you must register ALL the necessary data to make a bank transfer)",
+      "placeholderDatosBancarios": "Bank Data",
+      "gastosReclamados": "Claimed Expenses:",
+      "comprobantesGastos": "Proof of Expenses",
+      "concepto": "Concept",
+      "placeholderArchivo": "Ex: Pharmacy Invoice...",
+      "buscarArchivo": "Search File",
+      "adjunteaqui": "Attach photographs or scans of each of the documents necessary for reimbursement here",
+      "adjuntarComprobante": "Attach Voucher",
+      "adjuntarOtroComprobante": "Attach Other",
+      "documentacionRequerida": "Required Documentation",
+      "laSiguienteDocumentacion": "(The following documentation must be attached without exception)",
+      "documentacion1": "1. Passport photograph; Sheet with stamps entering and leaving the country",
+      "documentacion2": "2. Itinerary of the contracted trip / Photograph of the air tickets and / or any means of international transport.",
+      "documentacion3": "3. Bank account details for the transfer. If you do not have one, please present the account information of a duly authorized third party by signed letter.",
+      "documentacion4-1": "4. Proof of expenses incurred (legible copy).",
+      "documentacion5-1": "5. Proof of the bond or relationship (birth certificate only if the person assisted is a minor).",
+      "documentacion6-1": "6. Medical notes and / or full medical report of the assistance received.",
+      "documentacion4-2": "4. Original proof of expenses on essential items.",
+      "documentacion5-2": "5. Settlement (original of the compensation receipt by the airline and / or proof of payment of said compensation or copy of check).",
+      "enCasoDemora": "In case of baggage delay also attach",
+      "enCasoPerdida": "In case of loss attach:",
+      "enAmbosCasos": "In both cases, you must file a complaint with the airline known as PIR (Property Irregularity Report).",
+      "nombreDocumento": "Document Name",
+      "adjuntarOtroDocumento": "Attach Other",
+      "placeholderDocumento": "Ex: Passport, Itinerary, ...",
+      "buscarDocumento": "Search Document",
+      "elTiempoAproximado": "The approximate response time for refunds is 48 hours. If you do not receive a response after that time, contact us.",
+      "enviarSolicitudReembolso": "Send Refund",
+      "comprobantes": "Vouchers",
+      "adjuntarComprobantes": "Attach Vouchers",
+      "adjuntarDocumento": "Attach Document",
+      "documentacion": "Documentation"
+    },
+  
+    "extras": {
+      "condicionesGenerales" : "General Conditions",
+      "clima": "Weather",
+      "conversorMoneda" : "Currency Converter",
+      "faqs" : "FAQs"
+    },
+  
+    "conversor": {
+      "de": "From:",
+      "a": "To:",
+      "cantidad": "Quantity:",
+      "seleccioneMoneda": "Select Currency"
+    },
+  
+    "clima": {
+      "hoy": "TODAY",
+      "humedad": "Humidity:",
+      "min": "Min",
+      "max": "Max",
+      "seleccioneCiudad": "My Ubication",
+      "dia": "Day"
+    }, 
+  
+    "chat": {
+      "seleccioneMotivoChat": "Select the reason for the chat",
+      "seleccioneMotivo": "Select the reason",
+      "entrarChat": "Enter the chat",
+      "escribeMensaje": "Write a Message",
+      "enviar": "Send",
+      "cerrarChat": "Close Chat",
+      "adjuntarArchivo": "Attach File"
+    },
+    
+    "meses": {
+      "enero": "Jan",
+      "febrero": "Feb",
+      "marzo": "Mar",
+      "abril": "Apr",
+      "mayo": "May",
+      "junio": "Jun",
+      "julio": "Jul",
+      "agosto": "Aug",
+      "septiembre": "Sep",
+      "octubre": "Oct",
+      "noviembre": "Nov",
+      "diciembre": "Dec"
+    }
+  }
