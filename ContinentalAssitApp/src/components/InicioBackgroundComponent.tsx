@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ImageBackground, Image, KeyboardAvoidingView, Platform } from 'react-native';
+import { ImageBackground, KeyboardAvoidingView, Platform } from 'react-native';
 import { Style } from '../theme/themeStyle';
 
 const image = require('../../assets/imagenes/bg-01.jpg');
@@ -11,15 +11,11 @@ interface InicioBackgroundComponentProps {
 export const InicioBackgroundComponent = ({ children }: InicioBackgroundComponentProps ) => {
   return (
 
-    <ImageBackground source={image || null }  style={Style.background}>
+    <ImageBackground source={image || null }  style={Style.container}>
       <KeyboardAvoidingView
         style={Style.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-      <Image  
-        source={require('../../assets/imagenes/logo.png')}
-        style={Style.imgFondo}
-      />
       {children}
      </KeyboardAvoidingView>
     </ImageBackground>

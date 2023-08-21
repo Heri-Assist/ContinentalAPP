@@ -16,7 +16,8 @@
     },
   
     "intro": {
-        "bienvenida": "Bienvenido a la mejor cobertura de asistencia en viaje a nivel mundial",
+        "bienvenida": "Te damos la bienvenidad a la asistencia en viaje ",
+        "bienvenida2": "que protege los momentos que valen la pena vivir con cobertura global",
         "boton_registro": "Regístrate",
         "boton_inicio": "Iniciar Sesión",
         "boton_ingresar": "Ingresar",
@@ -49,10 +50,14 @@
       "titulares": "Titulares",
       "nombreTitular": "Nombre y Apellido",
       "correoTitular": "Correo Electrónico",
-      "telefonoTitular": "Teléfono",
+      "telefonoTitular": "Numero Teléfono",
       "nacimientoTitular": "Nacimiento",
       "confirmar": "Confirmar",
-      "cancelar": "Cancelar"
+      "cancelar": "Cancelar",
+      "errorRequerido": "El número de teléfono es requerido",
+      "errorNumerico":" El número de teléfono debe ser numérico",
+      "errorMinimo": "El número de teléfono debe tener al menos 9 dígitos",
+      "errorMaximo": "El número de teléfono debe tener máximo 12 dígitos"
     },
   
     "registroCodigo": {

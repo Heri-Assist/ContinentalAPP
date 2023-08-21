@@ -26,8 +26,6 @@ export const consultarRegistro = async (datosUsuario:{}) => {
 
 
 
-
-
 // api para obtener los motivos de la consulta del chat
 export const apiConsultaMotivosChat = async () => {
   const baseURL = 'https://continentalassist.co/backmin/restapp/app_consulta_motivos_chat';

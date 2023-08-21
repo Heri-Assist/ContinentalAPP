@@ -6,7 +6,6 @@ import { EmergenciaScreen } from '../screens/EmergenciaScreen';
 import { ReembolsosScreen } from '../screens/ReembolsosScreen';
 import { ExtrasScreen } from '../screens/ExtrasScreen';
 import { Image, Platform } from 'react-native';
-import { LoginScreen } from '../screens/LoginScreen';
 import { InicioScreen } from '../screens/InicioScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -60,8 +59,8 @@ const NavigationTabMemuInferiorAndroid = () => {
     })}
      
     >
-      <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
-      {/* <TabButtonAndroid.Screen name="MiCuenta" options={{title: 'Mi Cuenta'}} component={MiCuentaScreen} /> */}
+    <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
+      <TabButtonAndroid.Screen name="MiCuenta" options={{title: 'Mi Cuenta'}} component={MiCuentaScreen} />
       <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} />
       <TabButtonAndroid.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
       <TabButtonAndroid.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />

@@ -16,7 +16,8 @@
     },
   
     "intro": {
-        "bienvenida": "Welcome to the best travel assistance with the best coverage worldwide",
+        "bienvenida": "We welcome you to travel assistance ",
+        "bienvenida2": "that protects moments worth living with global coverage",
         "boton_registro": "Register",
         "boton_inicio": "Login",
         "boton_ingresar": "Enter",
@@ -52,7 +53,11 @@
       "telefonoTitular": "Phone Number",
       "nacimientoTitular": "Birthdate",
       "confirmar": "Confirm",
-      "cancelar": "Cancel"
+      "cancelar": "Cancel",
+      "errorRequerido": "Phone number is required",
+      "errorNumerico": "Phone number must be numeric",
+      "errorMinimo": "The phone number must have at least 9 digits",
+      "errorMaximo": "The phone number must have a maximum of 12 digits"
     },
   
     "registroCodigo": {
