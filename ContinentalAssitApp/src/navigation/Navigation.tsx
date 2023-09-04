@@ -113,8 +113,8 @@ const NavigationTabMenuInferior = () => {
           }
       })}
     > 
-      <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
-      {/* <TabBottonIos.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} /> */}
+    <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
+      <TabBottonIos.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} /> 
       <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta'}} component={MiCuentaScreen} />
       <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
       <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />

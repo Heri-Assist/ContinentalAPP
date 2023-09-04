@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Style } from '../theme/component';
+import { Style } from '../theme/componentCSS';
 
 interface TitleComponentProps {
   titulo: string;

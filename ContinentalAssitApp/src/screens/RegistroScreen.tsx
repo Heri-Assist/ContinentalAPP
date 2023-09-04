@@ -7,48 +7,104 @@
  * Pantalla de inicio de sesión de @exports
  */
 // Imports de dependencias
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {InicioBackgroundComponent} from '../components/InicioBackgroundComponent';
-import {View, Text, TextInput, TouchableOpacity, Platform, Keyboard, Image, ScrollView, SafeAreaView } from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Platform, Keyboard, Image, Alert } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import {useForm, Controller} from 'react-hook-form';
-import {Style} from '../theme/registro';
+import {Style} from '../theme/registroCSS';
 import {StackScreenProps} from '@react-navigation/stack';
 import {usePhone} from '../hooks/usePhone';
-import {UsuarioLogin} from '../interfaces/usuarioRegistro';
+import {UsuarioRegistro} from '../interfaces/usuarioRegistro';
 import {AuthContext} from '../context/authContext';
 import {useTranslation } from 'react-i18next';
+import LoadingComponent from '../components/LoadingComponent';
+import { ICountry } from 'react-native-international-phone-number';
+import { set } from 'date-fns';
+import { id } from 'date-fns/locale';
+
+
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const RegistroScreen = ({navigation}: Props) => {
-  const {signUp} = useContext(AuthContext);
-  const { t } = useTranslation();
-  const [fechaNacimiento, setFechaNacimiento] = useState<Date>(new Date());
-  const [open, setOpen] = useState(false);
 
+  const { signUp, errorMessage, removeError, usuario, idioma } = useContext(AuthContext);
+  // Inicializa selectedCountry con valores vacíos o los valores adecuados
+  const { t } = useTranslation();
+
+
+  useEffect(() => {
+    if (errorMessage.length === 0) return;
+      Alert.alert('Registro Incorrecto', errorMessage, [
+        { text: 'Ok', onPress: removeError },
+      ]);
+  
+  }, [errorMessage]);
+  
+  const [fechaNacimiento, setFechaNacimiento] = useState<Date>(new Date());
+  const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  
   const {
     control,
     handleSubmit,
     setValue,
     getValues,
     formState: {errors},
-  } = useForm<UsuarioLogin>({
+  } = useForm<UsuarioRegistro>({
     defaultValues: {
-      fechaNacimiento: new Date(), // Establece la fecha de nacimiento inicial como una fecha
+      nacimiento: new Date(), // Establece la fecha de nacimiento inicial como una fecha
     },
   });
+  
 
   // ...
-  const onLogin = async (data: UsuarioLogin) => {
+  const onRegistro = async (data: UsuarioRegistro) => {
     Keyboard.dismiss();
-    signUp(data);
+   
+      setIsLoading(true); // Activar el indicador de carga
+
+      data.pais_callingCode = selectedCountryData.pais_callingCode;
+      data.pais_flag = selectedCountryData.pais_flag;
+      data.pais_name = selectedCountryData.pais_name;
+      try {
+        await signUp(data);
+        setIsLoading(false); // Desactivar el indicador de carga después de obtener la respuesta
+       
+          navigation.navigate('Respuesta')
+          // Navegar si no hay errores
+      
+        } catch (error) {
+          setIsLoading(false); // Desactivar el indicador de carga en caso de error
+        }
+  };
+
+  const [selectedCountryData, setSelectedCountryData] = useState<{
+    pais_callingCode: string;
+    pais_flag: string;
+    pais_name: string;
+  }>({
+    pais_callingCode: '',
+    pais_flag: '',
+    pais_name: '',
+  });
+
+  const handleCountryChange = (country: ICountry) => {
+    // Aquí puedes hacer lo que necesites con el país seleccionado
+    setSelectedCountryData({
+      pais_callingCode: country.callingCode || '',
+      pais_flag: country.flag || '',
+      pais_name: country.name || '',
+    });
   };
 
   return (
     <>
       {/* pantalla de Formulario de registro  */}
       <InicioBackgroundComponent>
+        {/* Indicador de carga */}
+        {isLoading && <LoadingComponent />}
         <Image
           source={require('../../assets/imagenes/logo.png')}
           style={Style.imgFondo}
@@ -58,6 +114,7 @@ export const RegistroScreen = ({navigation}: Props) => {
           style={
             Platform.OS === 'ios' ? Style.regresarIOS : Style.regresarAndroid
           }>
+            
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigation.navigate('Dashboard')}>
@@ -92,7 +149,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                     value={field.value}
                     autoCapitalize="words"
                     autoCorrect={false}
-                    onSubmitEditing={handleSubmit(onLogin)}
+                    onSubmitEditing={handleSubmit(onRegistro)}
                     editable={true}
                   />
                 )}
@@ -119,7 +176,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                 onConfirm={newDate => {
                   setOpen(false);
                   setFechaNacimiento(newDate);
-                  setValue('fechaNacimiento', newDate);
+                  setValue('nacimiento', newDate);
                 }}
                 onCancel={() => {
                   setOpen(false);
@@ -153,7 +210,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                     value={field.value}
                     autoCapitalize="none"
                     autoCorrect={false}
-                    onSubmitEditing={handleSubmit(onLogin)}
+                    onSubmitEditing={handleSubmit(onRegistro)}
                     editable={true}
                   />
                 )}
@@ -167,7 +224,7 @@ export const RegistroScreen = ({navigation}: Props) => {
           <View style={Style.formContainer}>
             <View style={Style.columnas}>
               <Text style={Style.label}>{t('registro.telefono')}</Text>
-              {usePhone({control})}
+              {usePhone({ control, defaultValue: '', onCountryChange: handleCountryChange })}
             </View>
           </View>
           {/* texto  */}
@@ -188,11 +245,14 @@ export const RegistroScreen = ({navigation}: Props) => {
               <TouchableOpacity
                 style={Style.buttonContinuar}
                 activeOpacity={0.8}
-                onPress={handleSubmit(onLogin)}>
+                onPress={handleSubmit(onRegistro)}
+                disabled={isLoading} // Deshabilita el botón cuando el indicador de carga está activo
+              >
                 <Text style={Style.textButton}>{t('registro.botonContinuar')}</Text>
               </TouchableOpacity>
             </View>
           </View>
+            
         </View>
       </InicioBackgroundComponent>
     </>

@@ -1,4 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
+
 import { InicioScreen } from '../screens/InicioScreen';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RegistroScreen } from '../screens/RegistroScreen';
@@ -8,6 +9,12 @@ import { DashboardScreen } from '../screens/DashboardScreen';
 
 const Stack = createStackNavigator();
 
+
+
+/**
+ * Navigator for the dashboard screens.
+ * @returns A stack navigator for the dashboard screens.
+ */
 export const NavigatorDashboard = () => {
   return (
     <Stack.Navigator
@@ -19,6 +26,7 @@ export const NavigatorDashboard = () => {
             }   
         }}
     >
+
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
       <Stack.Screen name="Inicio" component={InicioScreen} />

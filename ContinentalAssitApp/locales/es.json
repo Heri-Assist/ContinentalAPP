@@ -64,7 +64,11 @@
       "texto1": "Hemos enviado al correo {{correo}} un código de confirmación de 5 dígitos para certificar que seas el propietario de dicho correo electrónico",
       "codigo": "Código",
       "validarCodigo": "Validar Código",
-      "volverAEnviar": "Volver a Enviar Código"
+      "volverAEnviar": "Volver a Enviar Código",
+      "ingreseCodigo":"Ingrese Código",
+      "errorRequerido": "El código es requerido",
+      "errorNumerico": "El código debe ser numérico",
+      "errorMinimo": "El código debe tener 5 dígitos"
     },
   
     "menu": {

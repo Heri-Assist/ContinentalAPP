@@ -10,13 +10,26 @@ import { useTranslation } from 'react-i18next';
 
 
 
-const { t } = useTranslation();
 
 interface Props extends StackScreenProps <any, any> { } 
 
 export const InicioScreen = ( {navigation} : Props ) => {
+  
+  const { t } = useTranslation();
+  const { session, isGeolocation, idioma } = useContext(AuthContext);
 
-  const { session } = useContext(AuthContext);
+  // console.log('idioma', idioma);
+
+  useEffect(() => {
+    if (isGeolocation?.location) {
+      const { latitude, longitude } = isGeolocation.location;
+      // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    } else if (isGeolocation?.error) {
+      console.error('Error de geolocalización:', isGeolocation.error);
+    }
+   
+  }, [isGeolocation]);
+
 
   useEffect(() => {
     detectarInternet(); // Llamar a la función detectarInternet al iniciar la pantalla
@@ -70,13 +83,13 @@ export const InicioScreen = ( {navigation} : Props ) => {
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={Style.buttonInicio}
-                  onPress={() => navigation.replace('Dashboard')}>
+                  onPress={() => navigation.navigate('Dashboard')}>
                   <Text style={Style.textButton}>{t('intro.boton_inicio')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={Style.buttonCerrar}
-                  onPress={() => navigation.replace('Respuesta')}>
+                  onPress={() => navigation.replace('Registro')}>
                   <Text style={Style.textButton}>{t('intro.boton_cerrar')}</Text>
                 </TouchableOpacity>
               </>

@@ -61,10 +61,11 @@
     },
   
     "registroCodigo": {
-      "texto1": "We have sent to the email {{correo}} a 5-digit confirmation code to certify that you are the owner of this email",
+      "texto1": "We have sent to the email {{data.email}} a 5-digit confirmation code to certify that you are the owner of this email",
       "codigo": "Code",
       "validarCodigo": "Validate Code",
-      "volverAEnviar": "Resend Code"
+      "volverAEnviar": "Resend Code",
+      "ingreseCodigo":"Enter Code"
     },
   
     "menu": {

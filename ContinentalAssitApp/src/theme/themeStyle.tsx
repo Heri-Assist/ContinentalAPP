@@ -62,7 +62,7 @@ export const Style = StyleSheet.create({
 
   buttonRegistro: {
     marginBottom: 10, 
-    paddingHorizontal: 115,
+    width:'100%',
     paddingVertical: 12,
     backgroundColor: SECONDARY_COLOR,
     borderRadius: 100,   
@@ -70,7 +70,7 @@ export const Style = StyleSheet.create({
 
   buttonInicio: {
     marginBottom: 10, 
-    paddingHorizontal: 115,
+    width:'100%',
     paddingVertical: 12,
     backgroundColor: BACKGROUND_COLOR,
     borderRadius: 100,
@@ -78,7 +78,7 @@ export const Style = StyleSheet.create({
 
   buttonCerrar: {
     marginBottom: 10, 
-    paddingHorizontal: 115,
+    width:'100%',
     paddingVertical: 12,
     backgroundColor: SECONDARY_COLOR,
     borderRadius: 100,   

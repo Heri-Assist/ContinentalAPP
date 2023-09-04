@@ -14,6 +14,20 @@ export const Style = StyleSheet.create({
     paddingHorizontal: 10,
   },
 
+  containerCenter2: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    zIndex: 999,
+  },
+
+  containerCenter: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+
   container: {
     flex: 1,
     alignItems: 'center',
@@ -104,7 +118,7 @@ export const Style = StyleSheet.create({
   
   textButton: {
     color: PRIMARY_COLOR,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -164,14 +178,29 @@ export const Style = StyleSheet.create({
   buttonContinuar: {
     color: PRIMARY_COLOR,
     backgroundColor: SECONDARY_COLOR,
-    borderRadius: 20,
-    fontSize: 20,
+    borderRadius: 30,
     fontWeight: 'bold',
-    marginBottom: 10, 
-    paddingHorizontal: 100,
+    marginBottom: 10,  
+    alignItems: 'center',
+    width: '100%',
     paddingVertical: 16,
     textAlign: 'center',
   },
+
+
+  buttonCancelar: {
+    color: PRIMARY_COLOR,
+    backgroundColor: '#f05475',
+    borderRadius: 30,
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10, 
+    alignItems: 'center',
+    width: '100%',
+    paddingVertical: 16,
+    textAlign: 'center',
+  },
+
 
   doneButtonText: {
     backgroundColor: "#2196F3",
@@ -185,7 +214,16 @@ export const Style = StyleSheet.create({
     color: 'red',
     marginTop: 5,
     textAlign: 'center',
-	fontStyle: 'italic',
+	  fontStyle: 'italic',
   },
 
+  hiddenInput: {
+    width: 0,
+    height: 0,
+    opacity: 0,
+  },
+
+  
+
 });
+
