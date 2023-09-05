@@ -85,7 +85,7 @@ export const DashboardScreen = () => {
                       screenOptions={ ({route}) => ({
                           tabBarStyle: {
                             backgroundColor: 'white',
-                            elevation:0,
+                            elevation: 0,
                             height: 80,
                             marginBottom: 10,
                           },
@@ -118,8 +118,8 @@ export const DashboardScreen = () => {
                           }
                       })}
                     > 
-                      <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan', }} component={MiPlanScreen} />
                       <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta', }} component={MiCuentaScreen} />
+                      <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan', }} component={MiPlanScreen} />
                       <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
                       <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />
                       <TabBottonIos.Screen name="Extras" options={{title:'Extras'}} component={ExtrasScreen} />

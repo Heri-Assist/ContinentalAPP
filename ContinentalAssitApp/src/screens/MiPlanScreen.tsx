@@ -1,3 +1,16 @@
+/**
+ * @component MiPlanScreen
+ * Pantalla que muestra la información del plan del usuario, incluyendo su número de bono, categoría, fechas de viaje, detalles del plan y beneficiarios.
+ * También busca y muestra una lista de beneficios asociados con el plan del usuario.
+ * @returns Un componente React Native ScrollView que contiene la información del plan del usuario y una lista de beneficios.
+ */
+/**
+ * @component MiPlanScreen
+ * Pantalla que muestra la información del plan del usuario, incluyendo su número de bono, categoría, fechas de viaje, detalles del plan y beneficiarios.
+ * También busca y muestra una lista de beneficios asociados con el plan del usuario.
+ * @returns Un componente React Native ScrollView que contiene la información del plan del usuario y una lista de beneficios.
+ */
+
 import React, { useContext, useEffect, useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
 import { Style } from '../theme/dashboardCSS';
@@ -12,6 +25,7 @@ import { ListBeneficiosComponent } from '../components/ListBeneficiosComponent';
 import continentalApi from '../api/continentalApi';
 import { BeneficiosRespuesta } from '../interfaces/Beneficios';
 
+
 const { t } = useTranslation();
 
 export const MiPlanScreen = () => {
@@ -20,6 +34,7 @@ export const MiPlanScreen = () => {
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
 
 
+   
     useEffect(() => {
         console.log("Ejecutando useEffect en MiPlanScreen");
         const fetchBeneficios = async () => {
@@ -36,9 +51,6 @@ export const MiPlanScreen = () => {
     
         fetchBeneficios();
     }, []);
-
-
-
 
     const consultarBeneficios = async() => {
         const headers = {
@@ -62,11 +74,10 @@ export const MiPlanScreen = () => {
     }
 
 
-
     return (
-        <>
+        
         <ScrollView>
-                <InicioBackgroundComponent>
+            <InicioBackgroundComponent>
                 <View style={Style.container4}>
                     <View style={Style.column}>
                         <Text style={Style.text}>{t('miPlan.numeroVoucher')}</Text>
@@ -112,19 +123,18 @@ export const MiPlanScreen = () => {
                         ))}
                     </Swiper>
                 </View>
-               
-                
+                            
+                <View style={{paddingHorizontal:10, flex: 3}}>
+                    {
+                        beneficiosRespuesta.resultado? ( 
+                            <ListBeneficiosComponent beneficiosRespuesta= { beneficiosRespuesta }  /> 
+                        ) : ( <ActivityIndicator />)
+                    }
+                </View>     
             </InicioBackgroundComponent>
-            <View style={{paddingHorizontal:5}}>
-                {
-                    beneficiosRespuesta.resultado? (
-                        <ListBeneficiosComponent beneficiosRespuesta= {beneficiosRespuesta}  /> 
-                    ):( <ActivityIndicator />)
-                }
-                         
-            </View> 
+
          </ScrollView>
-           
-        </>
+        
     );
 };
+

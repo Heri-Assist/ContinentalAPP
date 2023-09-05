@@ -59,7 +59,7 @@ const NavigationTabMemuInferiorAndroid = () => {
     })}
      
     >
-    <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
+      <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
       <TabButtonAndroid.Screen name="MiCuenta" options={{title: 'Mi Cuenta'}} component={MiCuentaScreen} />
       <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} />
       <TabButtonAndroid.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
@@ -82,7 +82,7 @@ const NavigationTabMenuInferior = () => {
           tabBarStyle: {
             backgroundColor: 'white',
             borderWidth: 1,
-            elevation:0,
+            // elevation:0,
             borderTopWidth: 1,
             borderRightWidth:1,
             height: 100,
@@ -114,8 +114,8 @@ const NavigationTabMenuInferior = () => {
       })}
     > 
     <TabButtonAndroid.Screen name="Login" options={{title: 'Login'}} component={InicioScreen} />
-      <TabBottonIos.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} /> 
       <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta'}} component={MiCuentaScreen} />
+      <TabBottonIos.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} /> 
       <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
       <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />
       <TabBottonIos.Screen name="Extras" options={{title:'Extras'}} component={ExtrasScreen} />

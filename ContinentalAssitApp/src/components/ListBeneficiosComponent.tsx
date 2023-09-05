@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+// import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Style } from '../theme/componentCSS';
 import { BeneficiosRespuesta, Beneficios, TiposBeneficio } from '../interfaces/Beneficios';
+import { ListItem } from '@rneui/themed';
 
 interface ListBeneficiosProps {
   beneficiosRespuesta: BeneficiosRespuesta;
@@ -51,9 +52,9 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
         </View>
         <View style={{ alignContent: 'flex-end' }}>
           {isExpanded(index) ? (
-            <Icon name="chevron-up" size={20} color="white" />
+            <Icon name="arrow-up" size={18} color="white" />
           ) : (
-            <Icon name="chevron-down" size={20} color="white" />
+            <Icon name="arrow-down" size={18} color="white" />
           )}
         </View>
       </View>
@@ -70,14 +71,13 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
             <TouchableOpacity onPress={() => toggleExpansion(index)}>
           <View style={Style.itemContent}>
             <View style={Style.listRow}>
-                <View>
+                <View style={Style.column}>
                   <Text style={ Style.textItem }>{beneficio.nombre}</Text>
                 </View>
-                <View style={{alignContent: 'flex-end'}}>
-                  <Text style={ Style.textItem }>{ beneficio.valor} </Text>
+                <View style={ Style.column2} >
+                  <Text style={ Style.textItem2 }>{ beneficio.valor} </Text>
                 </View>
             </View>
-
           </View>       
         </TouchableOpacity>
           </View>
@@ -87,7 +87,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
   };
 
   return (
-    <View>
+    <View style={{}}>
       {tipos_beneficios.map((content, index) => (
         <ListItem.Accordion
           icon={{ disabled: false }}

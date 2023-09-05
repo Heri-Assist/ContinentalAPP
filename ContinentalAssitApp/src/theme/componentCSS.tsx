@@ -27,8 +27,15 @@ export const Style = StyleSheet.create({
 
 
 	textItem: {
-		fontSize: 16,
+		fontSize: 14,
 		color: PRIMARY_COLOR,
+		
+	},
+
+	textItem2: {
+		fontSize: 14,
+		color: PRIMARY_COLOR,
+		textAlign: 'right',
 	},
 
 	cardContainer: {
@@ -148,6 +155,7 @@ export const Style = StyleSheet.create({
 		top: '50%',
 		zIndex: 9999,
 	},	
+
 	listContainer: {
 		flex: 1,
 		backgroundColor: PRIMARY_COLOR,
@@ -155,27 +163,31 @@ export const Style = StyleSheet.create({
 		paddingHorizontal: 10,
 		width: '100%',
 		marginBottom: 4,
-		borderRadius: 5,
-			
+		borderRadius: 5,	
 	},
 
 	itemContent:{
-		flex: 1,
 		backgroundColor: BACKGROUND_COLOR,
 		paddingHorizontal: 20,
-		paddingVertical: 20,
+		paddingVertical: 10,
 		width: '100%',
 		borderBottomWidth: 2,
 		borderBottomColor: AZUL_CLARO_COLOR,
-		borderBottomLeftRadius: 20, // Redondea la esquina inferior izquierda
-		borderBottomRightRadius: 20,
 	},
 
 	imgList:{
 		width: 30, 
 		height: 30, 
 		marginRight: 10
-	}
+	},
 
+	column: {
+		flex: 7,
+	},
+
+	column2: {
+		flex: 3,
+		alignContent: 'flex-end'
+	},	
   
 });  
