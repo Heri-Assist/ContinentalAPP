@@ -1,6 +1,6 @@
 
 // interface para el motivo del chat
-export interface motivoChat {
+export interface MotivoChat {
     resultado: ChatMotivo[];
     cantidad:  number;
     error:     boolean;

@@ -12,7 +12,8 @@
       "detallesReembolsos": "Detalles de Reembolso",
       "nuevoReembolsos": "Nuevo Reembolso",
       "datosChat": "Datos para el Chat",
-      "chat": "Chat"
+      "chat": "Chat",
+      "conversaciones": "Conversaciones"
     },
   
     "intro": {
@@ -81,7 +82,7 @@
     },
   
     "miCuenta": {
-      "nombreApellido": "Nombre y Apellido",
+      "nombreApellido": "Nombre(s) y Apellido(s)",
       "fechaNacimiento": "Fecha de Nacimiento",
       "correoElectronico": "Correo Electrónico",
       "telefonos": "Teléfonos",
@@ -113,6 +114,10 @@
     "emergencia": {
       "paraComunicarte" : "Para comunicarte con nosotros, puedes hacerlo a través de los siguientes medios:",
       "chatEmergencia" : "Chat de Emergencia",
+      "inciarChat" : "Iniciar Chat",
+      "telefonoEmergencia" : "Llamada de Emergencia",
+      "listadoTelefonos" : "Listado de Teléfonos",
+      "correoEmergencia" : "Correo de Emergencia",
       "infoEmergencia" : "Información de Emergencia",
       "numeroNuestra" : "Número de Nuestra Central de Asistencia en ",
       "elNumeroTelefonico" : "El número telefónico de nuestra Central de Asistencia para el país donde te encuentras es:",

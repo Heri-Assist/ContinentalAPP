@@ -29,12 +29,11 @@ import { BeneficiosRespuesta } from '../interfaces/Beneficios';
 const { t } = useTranslation();
 
 export const MiPlanScreen = () => {
-    const {  usuario, idioma } = useContext(AuthContext);
-    const beneficiarios: Beneficiario[] = usuario?.beneficiarios || [];
+    const {  usuarioRegistro, idioma } = useContext(AuthContext);
+    const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
 
 
-   
     useEffect(() => {
         console.log("Ejecutando useEffect en MiPlanScreen");
         const fetchBeneficios = async () => {
@@ -45,7 +44,6 @@ export const MiPlanScreen = () => {
             } catch (error) {
                 // Manejar errores de la petición
                 console.log(error);
-                
             }
         };
     
@@ -62,7 +60,7 @@ export const MiPlanScreen = () => {
         
         const datosRegistro: UsuarioRegistro = {
             ps: 'www.continentalassist.com',
-            codigo_voucher: usuario?.codigo,
+            codigo_voucher: usuarioRegistro?.codigo,
             limite_beneficios: 100,
             idioma:  idioma === 'es' ? 'spa' : 'eng'
         };
@@ -81,11 +79,11 @@ export const MiPlanScreen = () => {
                 <View style={Style.container4}>
                     <View style={Style.column}>
                         <Text style={Style.text}>{t('miPlan.numeroVoucher')}</Text>
-                        <Text style={Style.textBoldAzul}>{usuario?.codigo} </Text>
+                        <Text style={Style.textBoldAzul}>{usuarioRegistro?.codigo} </Text>
                     </View>
                     <View style={Style.column}>
                         <Text style={Style.text}>{t('miPlan.categoria')}</Text>
-                        <Text style={Style.textBold}>{usuario?.categoria} </Text>
+                        <Text style={Style.textBold}>{usuarioRegistro?.categoria} </Text>
                     </View>
                 </View>
         
@@ -93,12 +91,12 @@ export const MiPlanScreen = () => {
                     <Icon name="calendar" size={35} style={Style.icon}></Icon>
                     <View style={Style.textContainer}>
                         <Text style={Style.title}>{t('miPlan.fechaInicio')}</Text>
-                        <Text style={Style.content}>{usuario?.salida}</Text>
+                        <Text style={Style.content}>{usuarioRegistro?.salida}</Text>
                     </View>
                     <Icon name="calendar" size={35} style={Style.icon}></Icon>
                     <View style={Style.textContainer}>
                         <Text style={Style.title}>{t('miPlan.fechaRegreso')}</Text>
-                        <Text style={Style.content}>{usuario?.retorno}</Text>
+                        <Text style={Style.content}>{usuarioRegistro?.retorno}</Text>
                     </View>
                 </View>
                 <View style={Style.container}>
@@ -113,7 +111,7 @@ export const MiPlanScreen = () => {
                         </View>
                     </View>
                     <View style={Style.column2}>
-                        <Text style={Style.textBold2}>{usuario?.plan}</Text>
+                        <Text style={Style.textBold2}>{usuarioRegistro?.plan}</Text>
                     </View>
                 </View>
                 <View style={Style.container3}>

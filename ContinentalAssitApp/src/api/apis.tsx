@@ -7,7 +7,6 @@ export const consultaGenral = async () => {
 }
 
 
-
 const API_URL = 'https://continentalassist.co/backmin/restapp/app_registro_usuario';
 
 export const consultarRegistro = async (datosUsuario:{}) => {
@@ -23,7 +22,6 @@ export const consultarRegistro = async (datosUsuario:{}) => {
     throw error;
   }
 };
-
 
 
 // api para obtener los motivos de la consulta del chat

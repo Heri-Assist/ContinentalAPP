@@ -8,6 +8,7 @@ import { AuthContext } from '../context/authContext';
 import { UsuarioRegistro, CodigoRegistro, Usuario } from '../interfaces/usuarioRegistro';
 import continentalApi from '../api/continentalApi';
 import LoadingCompoment from '../components/LoadingComponent';
+import { InicioBackgroundComponent } from '../components/InicioBackgroundComponent';
 
 
 interface PropsStack extends StackScreenProps <any, any> { } 
@@ -15,7 +16,7 @@ interface PropsStack extends StackScreenProps <any, any> { }
 
 export const RegistroCodigo = ({navigation} : PropsStack) => {
 
-  const { errorMessage, removeError, usuario, formData } = useContext(AuthContext);
+  const { errorMessage, removeError, usuarioRegistro, formData } = useContext(AuthContext);
   const { t } = useTranslation();
   const { idUsuario, login } = useContext(AuthContext);
 
@@ -58,9 +59,12 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
             { headers }
         );
         if(enviarCodigo.data.error === false){
+          
+          await login(dataForm as UsuarioRegistro)
           setIsLoading(false);
-          login(dataForm as UsuarioRegistro)
+          
           navigation.replace('Dashboard') 
+         
         }else{
           
         }
@@ -91,79 +95,81 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
   } 
 
   return (
-	  <View style={Style.containerCenter}>
-      {isLoading && <LoadingCompoment />}
-      <View>
-        <Image
-            source={require('../../assets/imagenes/logo.png')}
-            style={Style.imgFondo}
-          />
-      </View>
-
-      <View style={{marginVertical:30, paddingHorizontal:20}}>
-         <Text style={Style.texto}>
-            {t('registroCodigo.texto1', {correo: dataForm.email})}
-         </Text>
-      </View>
-      <View style={Style.formContainer}>
-          <View style={Style.columnas}>
-            <Text style={Style.label}>{t('registroCodigo.codigo')}</Text>
-            <Controller
-              control={control}
-              name="codigo"
-              defaultValue=""
-              rules={{
-                required: t('registroCodigo.errorRequerido'),
-                pattern: {
-                  value: /^[0-9]*$/,
-                  message: t('registroCodigo.errorNumerico'),
-                },
-                minLength: {
-                  value: 5,
-                  message: t('registroCodigo.errorMinimo'),
-                }
-              }}
-              render={({field}) => (
-                <TextInput
-                  placeholder={t('registroCodigo.ingreseCodigo')}
-                  placeholderTextColor="#00184C"
-                  underlineColorAndroid="white"
-                  style={Style.input}
-                  keyboardType="numeric"
-                  selectionColor="white"
-                  onChangeText={field.onChange}
-                  value={field.value}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  onSubmitEditing={handleSubmit(onValidarCodigo)}
-                  editable={true}
-                  maxLength={5}
-                  onBlur={field.onBlur}
-                />
-              )}
+    <InicioBackgroundComponent>
+      <View style={Style.containerCenter}>
+        {isLoading && <LoadingCompoment />}
+        <View>
+          <Image
+              source={require('../../assets/imagenes/logo.png')}
+              style={Style.imgFondo}
             />
-            {errors.codigo && (
-                <Text style={Style.errorText}>{errors.codigo.message}</Text>
-            )}
-          </View>
+        </View>
+
+        <View style={{marginVertical:30, paddingHorizontal:20}}>
+          <Text style={Style.texto}>
+              {t('registroCodigo.texto1', {correo: dataForm.email})}
+          </Text>
+        </View>
+        <View style={Style.formContainer}>
+            <View style={Style.columnas}>
+              <Text style={Style.label}>{t('registroCodigo.codigo')}</Text>
+              <Controller
+                control={control}
+                name="codigo"
+                defaultValue=""
+                rules={{
+                  required: t('registroCodigo.errorRequerido'),
+                  pattern: {
+                    value: /^[0-9]*$/,
+                    message: t('registroCodigo.errorNumerico'),
+                  },
+                  minLength: {
+                    value: 5,
+                    message: t('registroCodigo.errorMinimo'),
+                  }
+                }}
+                render={({field}) => (
+                  <TextInput
+                    placeholder={t('registroCodigo.ingreseCodigo')}
+                    placeholderTextColor="#00184C"
+                    underlineColorAndroid="white"
+                    style={Style.input}
+                    keyboardType="numeric"
+                    selectionColor="white"
+                    onChangeText={field.onChange}
+                    value={field.value}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    onSubmitEditing={handleSubmit(onValidarCodigo)}
+                    editable={true}
+                    maxLength={5}
+                    onBlur={field.onBlur}
+                  />
+                )}
+              />
+              {errors.codigo && (
+                  <Text style={Style.errorText}>{errors.codigo.message}</Text>
+              )}
+            </View>
+        </View>
+        <View style={Style.formContainer} >
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={Style.buttonContinuar }
+            onPress={handleSubmit(onValidarCodigo)}>
+            <Text style={Style.textButton}>{t('registroCodigo.validarCodigo')}</Text>
+          </TouchableOpacity>  
+        </View>
+        <View style={Style.formContainer}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={Style.buttonCancelar }
+            onPress={() => onReenviarValidarCodigo()}>
+            <Text style={Style.textButton}>{t('registroCodigo.volverAEnviar')}</Text>
+          </TouchableOpacity>  
+        </View>
       </View>
-      <View style={{marginTop:10,width:'100%'}} >
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={Style.buttonContinuar }
-          onPress={handleSubmit(onValidarCodigo)}>
-          <Text style={Style.textButton}>{t('registroCodigo.validarCodigo')}</Text>
-        </TouchableOpacity>  
-      </View>
-      <View style={{width:'100%'}}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={Style.buttonCancelar }
-          onPress={() => onReenviarValidarCodigo()}>
-          <Text style={Style.textButton}>{t('registroCodigo.volverAEnviar')}</Text>
-        </TouchableOpacity>  
-      </View>
-    </View>
+    </InicioBackgroundComponent>
   )
 }
 	

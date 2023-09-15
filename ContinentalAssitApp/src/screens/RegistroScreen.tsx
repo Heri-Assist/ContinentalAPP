@@ -20,16 +20,13 @@ import {AuthContext} from '../context/authContext';
 import {useTranslation } from 'react-i18next';
 import LoadingComponent from '../components/LoadingComponent';
 import { ICountry } from 'react-native-international-phone-number';
-import { set } from 'date-fns';
-import { id } from 'date-fns/locale';
-
 
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const RegistroScreen = ({navigation}: Props) => {
 
-  const { signUp, errorMessage, removeError, usuario, idioma } = useContext(AuthContext);
+  const { signUp, errorMessage, removeError, usuarioRegistro, idioma } = useContext(AuthContext);
   // Inicializa selectedCountry con valores vacíos o los valores adecuados
   const { t } = useTranslation();
 

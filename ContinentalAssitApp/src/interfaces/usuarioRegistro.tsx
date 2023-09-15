@@ -10,7 +10,7 @@ export interface UsuarioRegistro {
     nacimiento?: Date ;
     telefono?: string;
     id_usuario?: string;
-    id_emision?: string;
+    idEmision?: string;
     codigo?: string;
     fecha?: string;
     pais_callingCode?:string;
@@ -31,7 +31,7 @@ export interface CodigoRegistro {
 }
 
 export interface usuarioRegistro {
-    resultado: Usuario[] | ErrorUsuario[];
+    resultado:  [] | ErrorUsuario[];
     cantidad:  number;
     error:     boolean;
 }

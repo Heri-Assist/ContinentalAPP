@@ -118,9 +118,9 @@ export const DashboardScreen = () => {
                           }
                       })}
                     > 
-                      <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta', }} component={MiCuentaScreen} />
-                      <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan', }} component={MiPlanScreen} />
                       <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
+                      <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan', }} component={MiPlanScreen} />
+                      <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta', }} component={MiCuentaScreen} />
                       <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />
                       <TabBottonIos.Screen name="Extras" options={{title:'Extras'}} component={ExtrasScreen} />
                     </TabBottonIos.Navigator>

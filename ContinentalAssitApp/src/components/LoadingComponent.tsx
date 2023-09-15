@@ -1,14 +1,15 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
 import { Style } from '../theme/componentCSS';
+import { InicioBackgroundComponent } from './InicioBackgroundComponent';
 
 const LoadingCompoment = () => {
   return (
-	<View style={Style.loading}>
-		<View>
-			<ActivityIndicator size="large" color="#00184C" />
-		</View>
-	</View>
+			
+				<View style={Style.loading}>
+					<ActivityIndicator size="large" color="#00184C" />
+				</View>
+	
   );
 };
 

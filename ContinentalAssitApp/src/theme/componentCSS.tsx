@@ -9,8 +9,8 @@ const AZUL_CLARO_COLOR = "#69C8EF";
 export const Style = StyleSheet.create({
 
   container: {
-    flex: 1,
-    alignItems: 'center',
+  flex: 1,
+  alignItems: 'center',
 	paddingVertical: 15 ,
 	backgroundColor: PRIMARY_COLOR,
 	alignContent: 'center',
@@ -74,7 +74,7 @@ export const Style = StyleSheet.create({
 		marginBottom: 10,
 	},
 
-	listRow:{
+	2:{
 		flexDirection: 'row',
 		alignItems: 'center',
 		paddingVertical: 10,
@@ -189,5 +189,60 @@ export const Style = StyleSheet.create({
 		flex: 3,
 		alignContent: 'flex-end'
 	},	
-  
+
+	rowEmergencia: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		borderBottomWidth: 1,
+		borderBottomColor: AZUL_CLARO_COLOR,
+		paddingHorizontal: 10,
+		paddingVertical: 6,
+	},
+	// Estilos para el componente de preguntas frecuentes
+
+	preguntaContainer: {
+		width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor:PRIMARY_COLOR,
+		paddingHorizontal: 20,
+		paddingVertical: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  preguntaText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+		color: BACKGROUND_COLOR,
+  },
+  respuestaText: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+		color: PRIMARY_COLOR,
+  },
+
+	infoContent:{
+		paddingHorizontal: 10,
+		paddingVertical: 10,
+		borderRadius: 5,
+		backgroundColor: BACKGROUND_COLOR,
+		marginBottom:10
+	},
+
+
+	listRow2:{
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingVertical: 20,
+		width: '100%',
+		backgroundColor: PRIMARY_COLOR,
+		paddingHorizontal: 20,
+		borderRadius: 5,
+		marginBottom:5
+	},
+
 });  

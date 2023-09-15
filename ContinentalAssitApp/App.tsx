@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import i18n from './src/i18n'; // Importa la configuración de i18n
 import 'intl';
 import 'intl-pluralrules';
+import { FirebaseProvider } from './src/context/firebaseContext';
 
 const AppState = ({children}:any) => {
   return(
@@ -23,9 +24,11 @@ const App = () => {
     <I18nextProvider i18n={i18n}>
       <NavigationContainer>
           <AppState>
-          <SafeAreaProvider>
-            <NavigatorDashboard />
-          </SafeAreaProvider>
+            <FirebaseProvider>
+              <SafeAreaProvider>
+                <NavigatorDashboard />
+              </SafeAreaProvider>
+            </FirebaseProvider>
           </AppState>
       </NavigationContainer>
     </I18nextProvider>

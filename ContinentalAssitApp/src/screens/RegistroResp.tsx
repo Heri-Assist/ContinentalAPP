@@ -27,8 +27,8 @@ interface Props extends StackScreenProps <any, any> { }
 export const RegistroResp = ({navigation} : Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
-  const { idUsuario, updateIdUsuario, usuario, formData } = useContext(AuthContext);
-  const beneficiarios: Beneficiario[] = usuario?.beneficiarios || [];
+  const { idUsuario, updateIdUsuario, usuarioRegistro, formData } = useContext(AuthContext);
+  const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
   const { control, handleSubmit } = useForm<UsuarioRegistro>()
 
   const { t } = useTranslation();
@@ -85,7 +85,7 @@ export const RegistroResp = ({navigation} : Props) => {
           pais_flag:data.pais_flag,
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
-          id_emision: data.id_emision
+          id_emision: data.idEmision
         }
 
         // console.log('dataConfirmar', dataConfirmar);
@@ -125,7 +125,7 @@ export const RegistroResp = ({navigation} : Props) => {
             {t('registro.numeroVoucher')}
           </Text>
           <Text style={Style.contenVauche}>
-           {usuario?.codigo}
+           {usuarioRegistro?.codigo}
           </Text>
         </View>
         <View style={Style.formContainer}>
@@ -135,14 +135,14 @@ export const RegistroResp = ({navigation} : Props) => {
                 {t('registro.categoria')}
             </Text>
 
-            <Text style={Style.textIconBold}>{usuario?.categoria}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.categoria}</Text>
           </View>
           <View style={Style.columnas}>
             <Icon name='list' size={20} style={Style.containerIconos}></Icon>
             <Text style={Style.textoIcons}>
                 {t('registro.plan')}
             </Text>
-            <Text style={Style.textIconBold}>{usuario?.plan}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.plan}</Text>
           </View>
         </View>
         <View style={Style.formContainer}>
@@ -151,14 +151,14 @@ export const RegistroResp = ({navigation} : Props) => {
             <Text style={Style.textoIcons}>
                 {t('registro.origen')}
             </Text>
-            <Text style={Style.textIconBold}>{usuario?.origen}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.origen}</Text>
           </View>
           <View style={Style.columnas}>
             <Icon name='globe' size={20} style={Style.containerIconos}></Icon>
             <Text style={Style.textoIcons}>
                 {t('registro.destino')}
             </Text>
-            <Text style={Style.textIconBold}>{usuario?.destino}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.destino}</Text>
           </View>
         </View>
         <View style={Style.formContainer}>
@@ -167,14 +167,14 @@ export const RegistroResp = ({navigation} : Props) => {
             <Text style={Style.textoIcons}>
                 {t('registro.fechaSalida')}
             </Text>
-            <Text style={Style.textIconBold}>{usuario?.salida}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.salida}</Text>
           </View>
           <View style={Style.columnas}>
               <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
             <Text style={Style.textoIcons}>
                 {t('registro.fechaRetorno')}
             </Text>
-            <Text style={Style.textIconBold}>{usuario?.retorno}</Text>
+            <Text style={Style.textIconBold}>{usuarioRegistro?.retorno}</Text>
           </View>
         </View>
       </Animatable.View>    

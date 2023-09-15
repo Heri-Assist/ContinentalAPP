@@ -18,6 +18,11 @@ export const Style = StyleSheet.create({
 		// paddingHorizontal: 10,
 	},
 
+	modelContainer2: {
+		justifyContent: 'center',
+		paddingHorizontal: 10,
+	},
+
 	container3: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -40,10 +45,11 @@ export const Style = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 
-	
+	acordionContainer:{
+		flex:1
+	},
 	column: {
-		flex: 1,
-		
+		flex: 1,		
 	},
 	text: {
 		fontSize: 16,
@@ -141,5 +147,132 @@ export const Style = StyleSheet.create({
 	  slider: {
 		marginVertical:20,
 		width: '80%',
+	},
+
+	//Emergencia
+	containerText:{
+		paddingHorizontal: 10,
+		paddingVertical: 10,
+		borderRadius: 5,
+		backgroundColor: SECONDARY_COLOR,
+		marginVertical: 20,
+	},
+	infoContent:{
+		paddingHorizontal: 10,
+		paddingVertical: 10,
+		borderRadius: 5,
+		backgroundColor: BACKGROUND_COLOR,
+		marginBottom:10
+	},
+
+	textEmergenciaInit:{
+		fontSize: 18,
+		color: PRIMARY_COLOR,
+		textAlign: 'center',	
+	},	
+
+	listRow:{
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingVertical: 20,
+		width: '100%',
+		backgroundColor: PRIMARY_COLOR,
+		paddingHorizontal: 20,
+		borderRadius: 5,
+		marginBottom:5
+	},
+
+	imgList:{
+		width: 30, 
+		height: 30, 
+		marginRight: 10
+	},
+
+	titleBoldList: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		color:BACKGROUND_COLOR
+	},
+
+	btnChat:{
+		backgroundColor: SECONDARY_COLOR,
+		paddingVertical: 20,
+		paddingHorizontal: 20,
+		borderRadius: 5,
+		marginVertical: 10,
+	},
+	btnTextChat:{
+		fontSize: 18,
+		color: PRIMARY_COLOR,
+		textAlign: 'center',
+		fontWeight: 'bold',
+	},
+	columnEmergencia: {
+		flex: 1,
+		paddingHorizontal: 10,		
+	},
+
+	modaContainer: {
+		backgroundColor: BACKGROUND_COLOR,
+		width: '90%',
+		textAlign: 'center',
+		marginLeft:20,
+		padding: 20,
+		borderRadius: 10,
+	},
+
+	containerBotton:{
+		width:'100%', 
+		paddingHorizontal:10
+	},
+
+	botonAgregar: {		
+		backgroundColor: SECONDARY_COLOR,
+		padding: 10,
+		borderRadius: 30,
+		marginVertical: 10,
+		alignContent:'center'
+	},
+
+	textBotonAgregar: {
+		fontSize: 16,
+		fontWeight: 'bold',
+		color: PRIMARY_COLOR,
+		textAlign: 'center',
+		width: '100%',
+	},
+	pickerContainer:{
+		width: '100%',
+    backgroundColor: BACKGROUND_COLOR,
+		borderRadius: 5,
+		marginTop:10,
+		borderWidth: 1,
+		borderColor: BORDER_COLOR,
+		paddingHorizontal: 10,
+		paddingVertical: 10,
+		alignContent:'center',
+	},
+
+	acordionContainer2:{
+		flex: 1,
+		paddingHorizontal: 10,
+	},
+
+	TitleContainer: {
+		flex: 1,
+		alignItems: 'center',
+		paddingVertical: 15 ,
+		backgroundColor: SECONDARY_COLOR,
+		alignContent: 'center',
+		marginVertical: 20,
+		borderRadius: 10,
+	},
+
+	textoTitle:{
+		fontSize: 24,
+		fontWeight: 'bold',
+		color: PRIMARY_COLOR,
+		justifyContent: 'center',
 	}
+	
 });
