@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const PRIMARY_COLOR = "#00184C";
 const SECONDARY_COLOR = "#F2DB85";
@@ -11,13 +11,15 @@ export const Style = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    paddingHorizontal: 10,
+   
   },
   
   container2: {
     flex: 1,
     alignItems: 'center',
     marginTop: 30,  
-  },
+  },    
 
   imgFondo: {
     width: 200,
@@ -30,7 +32,7 @@ export const Style = StyleSheet.create({
   textInicio: {
     paddingTop: 40,
     color: PRIMARY_COLOR,
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },

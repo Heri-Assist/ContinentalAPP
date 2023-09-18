@@ -16,7 +16,7 @@ interface Props extends StackScreenProps <any, any> { }
 export const InicioScreen = ( {navigation} : Props ) => {
   
   const { t } = useTranslation();
-  const { session, isGeolocation, idioma } = useContext(AuthContext);
+  const { session, isGeolocation, idioma, logout } = useContext(AuthContext);
 
   // console.log('idioma', idioma);
 
@@ -30,6 +30,10 @@ export const InicioScreen = ( {navigation} : Props ) => {
    
   }, [isGeolocation]);
 
+  const cerrarSession = async () => {
+    console.log('cerrar session');
+    await logout(); 
+  }   
 
   useEffect(() => {
     detectarInternet(); // Llamar a la función detectarInternet al iniciar la pantalla
@@ -45,7 +49,6 @@ export const InicioScreen = ( {navigation} : Props ) => {
         Alert.alert('La conexión a Internet ha fallado, algunas funciones podrían no estar disponibles')
       }
     };
-
 
   return (
     //  Componenete Background y del logo inicio
@@ -69,7 +72,7 @@ export const InicioScreen = ( {navigation} : Props ) => {
         <View style={Style.container2}>
           {/* Boton De crear una nueva cuenta  */}
           {
-            session ?  (
+            session === null ?  (
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={Style.buttonRegistro}
@@ -83,13 +86,13 @@ export const InicioScreen = ( {navigation} : Props ) => {
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={Style.buttonInicio}
-                  onPress={() => navigation.navigate('Dashboard')}>
+                  onPress={() => navigation.navigate('Inicio')}>
                   <Text style={Style.textButton}>{t('intro.boton_inicio')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={Style.buttonCerrar}
-                  onPress={() => navigation.replace('Registro')}>
+                  onPress={() => cerrarSession()} >
                   <Text style={Style.textButton}>{t('intro.boton_cerrar')}</Text>
                 </TouchableOpacity>
               </>

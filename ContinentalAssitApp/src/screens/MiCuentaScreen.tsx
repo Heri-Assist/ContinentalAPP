@@ -23,7 +23,7 @@ const {
     formState: {errors},
   } = useForm<Telefono>({});
 
-const image = require('../../assets/imagenes/userAvatar.png');
+const image = require('../../assets/imagenes/logo-avatar-2.jpg');
 
 export const MiCuentaScreen = () => {
 
@@ -211,7 +211,7 @@ export const MiCuentaScreen = () => {
                                         <View>
                                             <TouchableOpacity onPress={() => AlertEliminar(telefono)}>
                                                 <Text>
-                                                <Icon style={Style.icon} name='minus'/>
+                                                     <Icon style={Style.icon} name='minus'/>
                                                 </Text>
                                             </TouchableOpacity>
                                         </View>

@@ -16,7 +16,7 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario 
   return (
     <View style={Style.cardContainer}>
       <View style={Style.row}>
-        <Icon name="user" size={40} style={Style.icon}></Icon>
+        <Icon name="user" size={25} style={Style.icon}></Icon>
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.nombreApellido')}</Text>
           <Text style={Style.content}>{beneficiario.nombre} {beneficiario.apellido}</Text>
@@ -24,7 +24,7 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario 
       </View>
 
       <View style={Style.row}>
-        <Icon name="envelope" size={30} style={Style.icon}></Icon>
+        <Icon name="envelope" size={20} style={Style.icon}></Icon>
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.correo')}</Text>
           <Text style={Style.content}>{beneficiario.email}</Text>
@@ -32,14 +32,14 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario 
       </View>
 
       <View style={Style.row}>
-        <Icon name="phone" size={40} style={Style.icon}></Icon>
+        <Icon name="phone" size={25} style={Style.icon}></Icon>
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.telefono')}</Text>
           <Text style={Style.content}>{beneficiario.telefono}</Text>
         </View>
-        <Icon name="calendar" size={35} style={Style.icon}></Icon>
+        <Icon name="calendar" size={20} style={Style.icon}></Icon>
         <View style={Style.textContainer}>
-          <Text style={Style.title}>{t('registro.fechaNacimiento')}</Text>
+          <Text style={Style.title}>{t('registro.nacimientoTitular')}</Text>
           <Text style={Style.content}>{beneficiario.nacimiento}</Text>
         </View>
       </View>

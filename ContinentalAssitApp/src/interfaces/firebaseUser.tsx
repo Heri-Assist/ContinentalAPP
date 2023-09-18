@@ -7,7 +7,7 @@ export interface UserFirebase {
   language: string;
 }
 
-export interface Message {
+export interface MessageChat {
   id: string;
   text: string;
   isSent: boolean;

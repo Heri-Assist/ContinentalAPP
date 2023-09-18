@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { PreguntasFrecuentes } from '../interfaces/consultaPreguntasFrecuentes';
-import { Style } from '../theme/componentCSS';
+import { Style } from '../theme/extraCSS';
 import { InicioBackgroundComponent } from './InicioBackgroundComponent';
 
 
@@ -28,14 +28,14 @@ export const PreguntasFrecuentesComponent: React.FC<PreguntasFrecuentesComponent
 				{preguntasFrecuentes.map((pregunta, index) => (
 					<View key={index}>
 						<TouchableOpacity onPress={() => toggleExpansion(index)}>
-							<View style={Style.listRow2}>
+							<View style={Style.listRow}>
 									<View>
 											<Image
 													source={require('../../assets/iconos/icon-08.png')}
 													style={Style.imgList}
 											/>
 									</View>
-									<View style={Style.textContainer}>
+									<View style={Style.textContainerPreguntas}>
 											<Text style={Style.titleBoldList} >{pregunta.pregunta} </Text>
 									</View>
 									<View>
@@ -44,12 +44,12 @@ export const PreguntasFrecuentesComponent: React.FC<PreguntasFrecuentesComponent
 											) : (
 													<Icon name="arrow-down" size={18} color="white" />
 											)}
-									</View>
+									</View> 
 							</View>
 						
 						</TouchableOpacity>
 
-						{expandedIndex === index && (
+						{expandedIndex === index && ( 
 							<View style={Style.infoContent}>			
 								 <Text style={Style.respuestaText}>{pregunta.respuesta}</Text>
 							</View>

@@ -2,17 +2,18 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { Style } from '../theme/ChatCSS';
 import { firebaseContext } from '../context/firebaseContext';
-import { Message } from 'react-hook-form';
+import { MessageChat } from '../interfaces/firebaseUser';
+
 
 export const ChatScreen = () => {
-  const [messages, setMessages] = useState<Message[]>([]); // Cambié el tipo de Message a Message[]
+  const [messages, setMessages] = useState<MessageChat[]>([]); // Cambié el tipo de Message a Message[]
   const [newMessage, setNewMessage] = useState('');
 	const { sendMessage } = useContext(firebaseContext);
 
   const handleSendMessage = async () => {
 		if (newMessage.trim() !== '') {
 			// Crea un nuevo mensaje
-			const message: Message = {
+			const message: MessageChat = {
 				id: '51548484',
 				text: newMessage,
 				isSent: true,

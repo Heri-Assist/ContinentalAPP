@@ -375,11 +375,15 @@ PODS:
   - React-jsinspector (0.72.4)
   - React-logger (0.72.4):
     - glog
+  - react-native-blob-util (0.19.1):
+    - React-Core
   - react-native-date-picker (4.2.14):
     - React-Core
   - react-native-geolocation-service (5.3.1):
     - React
   - react-native-netinfo (9.4.1):
+    - React-Core
+  - react-native-pdf (6.7.1):
     - React-Core
   - react-native-safe-area-context (4.7.2):
     - React-Core
@@ -503,8 +507,6 @@ PODS:
     - React-Core
   - RNLocalize (3.0.2):
     - React-Core
-  - RNPDF (0.14.0):
-    - React
   - RNPermissions (3.9.0):
     - React-Core
   - RNScreens (3.24.0):
@@ -563,9 +565,11 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
+  - react-native-pdf (from `../node_modules/react-native-pdf`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -589,7 +593,6 @@ DEPENDENCIES:
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
-  - RNPDF (from `../node_modules/react-native-view-pdf`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -656,12 +659,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-blob-util:
+    :path: "../node_modules/react-native-blob-util"
   react-native-date-picker:
     :path: "../node_modules/react-native-date-picker"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
+  react-native-pdf:
+    :path: "../node_modules/react-native-pdf"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-NativeModulesApple:
@@ -708,8 +715,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
-  RNPDF:
-    :path: "../node_modules/react-native-view-pdf"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
   RNScreens:
@@ -753,9 +758,11 @@ SPEC CHECKSUMS:
   React-jsiexecutor: c7f826e40fa9cab5d37cab6130b1af237332b594
   React-jsinspector: aaed4cf551c4a1c98092436518c2d267b13a673f
   React-logger: da1ebe05ae06eb6db4b162202faeafac4b435e77
+  react-native-blob-util: af2dc91365bfde33f61389cbd0c692af9a4a97cb
   react-native-date-picker: 8847cb359cf259ddae5ed165217e15573a654519
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
+  react-native-pdf: 7c0e91ada997bac8bac3bb5bea5b6b81f5a3caae
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   React-NativeModulesApple: edb5ace14f73f4969df6e7b1f3e41bef0012740f
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
@@ -779,7 +786,6 @@ SPEC CHECKSUMS:
   RNDateTimePicker: 9b4091348e53f540180abdc54984d839a556f593
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
-  RNPDF: 8526c7210ff375c29d2461c51945e2f5480f7b60
   RNPermissions: f46b7f83424f3647c65c2d44818c82655210ee88
   RNScreens: b21dc57dfa2b710c30ec600786a3fc223b1b92e7
   RNVectorIcons: 8b5bb0fa61d54cd2020af4f24a51841ce365c7e9

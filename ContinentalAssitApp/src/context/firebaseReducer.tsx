@@ -1,14 +1,14 @@
 // Este archivo contiene solo el authReducer, como se separó del AuthContext.
 // authReducer.ts
 
-import { Message, UserFirebase } from "../interfaces/firebaseUser";
+import { MessageChat, UserFirebase } from "../interfaces/firebaseUser";
 import { ChatMotivo, MotivoChat } from "../interfaces/motivoChatInterface";
 
 
 export interface FirebaseState {
   user: UserFirebase | null;
 	motivosChatData: ChatMotivo[] | null;
-	messages: Message[];
+	messages: MessageChat[];
   isLoading: boolean;
   error: string | null;
 }
@@ -18,8 +18,8 @@ type firebaseAction =
   | { type: 'setUser'; payload: { user:UserFirebase } }
   | { type: 'logout' }
 	| { type: 'motivosChat'; payload: {motivosChatData:ChatMotivo[] | null}} 
-	| { type: 'SEND_MESSAGE'; message: Message }
-  | { type: 'GET_MESSAGES'; messages: Message[] }
+	| { type: 'SEND_MESSAGE'; message: MessageChat }
+  | { type: 'GET_MESSAGES'; messages: MessageChat[] }
   | { type: 'LOGOUT_CHAT' };
 
 

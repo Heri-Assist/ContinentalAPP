@@ -177,7 +177,7 @@ export const RegistroResp = ({navigation} : Props) => {
             <Text style={Style.textIconBold}>{usuarioRegistro?.retorno}</Text>
           </View>
         </View>
-      </Animatable.View>    
+      </Animatable.View>
            
       <TitleComponent titulo={t('registro.titulares')} />
       

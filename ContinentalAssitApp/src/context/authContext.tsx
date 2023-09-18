@@ -49,7 +49,6 @@ type AuthContextProps = {
     logout: () => void;
     removeError: () => void;
     signUp: (UsuarioRegistro: UsuarioRegistro) => void;
-  
 }
 
 /**
@@ -243,7 +242,12 @@ export const AuthProvider = ({children}:any) => {
     }
     
     // Cerrar sesión
-    const logout = () => {};
+    const logout = () => {
+        console.log ('cerrar session');
+        dispatch({
+            type: 'logout',  
+        });
+    };
 
     // Eliminar errores
     const removeError = () => {

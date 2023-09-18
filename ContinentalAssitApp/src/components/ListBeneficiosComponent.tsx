@@ -69,17 +69,17 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
         {beneficiosDelTipo.map((beneficio, innerIndex) => (
           <View key={innerIndex}>
             <TouchableOpacity onPress={() => toggleExpansion(index)}>
-          <View style={Style.itemContent}>
-            <View style={Style.listRow}>
-                <View style={Style.column}>
-                  <Text style={ Style.textItem }>{beneficio.nombre}</Text>
+              <View style={Style.itemContent}>
+                <View style={Style.listRow2} >
+                    <View style={Style.column}>
+                      <Text style={ Style.textItem }>{beneficio.nombre}</Text>
+                    </View>
+                    <View style={ Style.column2} >
+                      <Text style={ Style.textItem2 }>{ beneficio.valor} </Text>
+                    </View>
                 </View>
-                <View style={ Style.column2} >
-                  <Text style={ Style.textItem2 }>{ beneficio.valor} </Text>
-                </View>
-            </View>
-          </View>       
-        </TouchableOpacity>
+              </View>       
+          </TouchableOpacity>
           </View>
         ))}
       </View>

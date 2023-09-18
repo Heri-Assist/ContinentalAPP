@@ -74,7 +74,7 @@ export const Style = StyleSheet.create({
 		marginBottom: 10,
 	},
 
-	2:{
+	row2:{
 		flexDirection: 'row',
 		alignItems: 'center',
 		paddingVertical: 10,
@@ -168,7 +168,7 @@ export const Style = StyleSheet.create({
 
 	itemContent:{
 		backgroundColor: BACKGROUND_COLOR,
-		paddingHorizontal: 20,
+		paddingHorizontal: 10,
 		paddingVertical: 10,
 		width: '100%',
 		borderBottomWidth: 2,
@@ -219,7 +219,8 @@ export const Style = StyleSheet.create({
   },
   respuestaText: {
     backgroundColor: 'white',
-    padding: 10,
+    paddingHorizontal: 20,
+		paddingVertical: 10,
     borderRadius: 5,
     marginBottom: 10,
 		color: PRIMARY_COLOR,
@@ -239,10 +240,27 @@ export const Style = StyleSheet.create({
 		alignItems: 'center',
 		paddingVertical: 20,
 		width: '100%',
-		backgroundColor: PRIMARY_COLOR,
+		backgroundColor: BACKGROUND_COLOR,
 		paddingHorizontal: 20,
 		borderRadius: 5,
 		marginBottom:5
+	},
+
+
+	listRow:{
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		paddingVertical: 10,
+		width: '100%',
+		backgroundColor: PRIMARY_COLOR,
+		paddingHorizontal: 10,
+		borderRadius: 5,
+		marginBottom:5
+	},
+
+	textContainerPreguntas: {
+		flex: 1,
 	},
 
 });  

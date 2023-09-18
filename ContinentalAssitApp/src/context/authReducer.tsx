@@ -35,7 +35,7 @@ type AuthAction =
     | { type: "addError", payload: string}
     | { type: "removeError" }
     | { type: "notAuthenticated" }
-    | { type: "logout" }
+    | { type: "logout"}
     | { type: "isLoading", payload: boolean }
     | { type: "updateIdUsuario", payload: { idUsuario: CodigoRegistro | null }}
   
@@ -93,7 +93,12 @@ export const authReducer = ( state: AuthState, action: AuthAction ): AuthState =
                 status: 'not-authenticated',
                 usuarioLogin: null,
                 usuarioRegistro: null,
-                token: null
+                token: null,
+                session: null,
+                errorMessage: '',
+                formData: null,
+                isLoading: false,
+                idioma: 'spa',
             }
         case 'isLoading':
             return {

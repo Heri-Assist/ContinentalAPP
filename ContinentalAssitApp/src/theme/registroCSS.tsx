@@ -97,7 +97,7 @@ export const Style = StyleSheet.create({
   textInicio: {
     paddingTop: 40,
     color: PRIMARY_COLOR,
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -109,7 +109,7 @@ export const Style = StyleSheet.create({
   textSuave: {
     fontWeight: 'normal',
     color: PRIMARY_COLOR,
-    fontSize: 18,
+    fontSize: 16,
     marginTop: 20,
     marginBottom: 20,
     textAlign: 'center',
@@ -190,7 +190,7 @@ export const Style = StyleSheet.create({
 
   buttonCancelar: {
     color: PRIMARY_COLOR,
-    backgroundColor: '#f05475',
+    backgroundColor: BORDER_COLOR,
     borderRadius: 30,
     fontSize: 18,
     fontWeight: 'bold',
@@ -199,6 +199,8 @@ export const Style = StyleSheet.create({
     width: '100%',
     paddingVertical: 16,
     textAlign: 'center',
+    borderWidth: 1,
+    borderColor: BACKGROUND_COLOR,
   },
 
 

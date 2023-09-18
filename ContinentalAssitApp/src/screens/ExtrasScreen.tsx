@@ -6,7 +6,7 @@ import { AuthContext } from '../context/authContext';
 import { t } from 'i18next';
 import { ConsultasPreguntasFrecuentes } from '../interfaces/consultaPreguntasFrecuentes';
 import { InicioBackgroundComponent } from '../components/InicioBackgroundComponent';
-import { Style } from '../theme/dashboardCSS';
+import { Style } from '../theme/extraCSS';
 import { TitleComponent } from '../components/TitleComponent';
 import { StackScreenProps } from '@react-navigation/stack';
 
@@ -57,7 +57,7 @@ export const ExtrasScreen = ({navigation}: Props) => {
 
                         <TouchableOpacity 
                             onPress={() => navigation.navigate('CondicionesGeneralesScreen')}
-                            style={{paddingVertical:20, paddingHorizontal:10}} >
+                            style={{paddingVertical:20, paddingHorizontal:20}} >
                                 <View style={Style.listRow}>
                                     <View>
                                         <Image

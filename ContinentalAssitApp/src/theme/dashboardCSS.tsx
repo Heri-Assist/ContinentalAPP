@@ -17,7 +17,14 @@ export const Style = StyleSheet.create({
 		alignItems: 'center',
 		// paddingHorizontal: 10,
 	},
-
+	container4: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		borderBottomWidth: 1,
+		borderBottomColor: BORDER_COLOR,
+		alignItems: 'center',
+		paddingHorizontal: 10,
+	},
 	modelContainer2: {
 		justifyContent: 'center',
 		paddingHorizontal: 10,
@@ -36,18 +43,11 @@ export const Style = StyleSheet.create({
 		alignItems: 'center',
 	},
 
-	container4: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		borderBottomWidth: 1,
-		borderBottomColor: BORDER_COLOR,
-		alignItems: 'center',
-		paddingHorizontal: 10,
-	},
-
+	
 	acordionContainer:{
 		flex:1
 	},
+
 	column: {
 		flex: 1,		
 	},
@@ -131,20 +131,20 @@ export const Style = StyleSheet.create({
 		justifyContent: 'center',
 		items: 'center',
 		paddingVertical: 10,
-	  },
-	  column2: {
+	},
+	column2: {
 		flex: 6,
 		marginLeft: 10,
-	  },
-	  img:{
-		width: 100,
-	  },
-	  text2: {
+	},
+	img:{
+			width: 100,
+	},
+	text2: {
 		fontSize: 16,
 		textAlign: 'center',
-	  },
+	},
 
-	  slider: {
+	slider: {
 		marginVertical:20,
 		width: '80%',
 	},
@@ -253,26 +253,5 @@ export const Style = StyleSheet.create({
 		alignContent:'center',
 	},
 
-	acordionContainer2:{
-		flex: 1,
-		paddingHorizontal: 10,
-	},
-
-	TitleContainer: {
-		flex: 1,
-		alignItems: 'center',
-		paddingVertical: 15 ,
-		backgroundColor: SECONDARY_COLOR,
-		alignContent: 'center',
-		marginVertical: 20,
-		borderRadius: 10,
-	},
-
-	textoTitle:{
-		fontSize: 24,
-		fontWeight: 'bold',
-		color: PRIMARY_COLOR,
-		justifyContent: 'center',
-	}
 	
 });

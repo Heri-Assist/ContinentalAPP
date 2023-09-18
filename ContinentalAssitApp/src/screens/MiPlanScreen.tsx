@@ -12,9 +12,9 @@
  */
 
 import React, { useContext, useEffect, useState } from 'react';
-import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
-import { Style } from '../theme/dashboardCSS';
-import {useTranslation } from 'react-i18next';
+import { ActivityIndicator, Image, ImageBackground, ScrollView, Text, View } from 'react-native';
+import { Style } from '../theme/MiPlanCSS';
+import {useTranslation } from 'react-i18next'; 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import  CardSliderComponent  from '../components/CardSliderComponent';
 import { Beneficiario, UsuarioRegistro } from '../interfaces/usuarioRegistro';
@@ -71,29 +71,30 @@ export const MiPlanScreen = () => {
         return resp.data;
     }
 
-
     return (
         
         <ScrollView>
-            <InicioBackgroundComponent>
-                <View style={Style.container4}>
-                    <View style={Style.column}>
+            <ImageBackground
+                source={require('../../assets/imagenes/bg-01.jpg')}
+            >
+                <View style={Style.container4}> 
+                    <View style={[Style.column, Style.separador]}>
                         <Text style={Style.text}>{t('miPlan.numeroVoucher')}</Text>
                         <Text style={Style.textBoldAzul}>{usuarioRegistro?.codigo} </Text>
                     </View>
-                    <View style={Style.column}>
+                    <View style={[Style.column, Style.separador]}>
                         <Text style={Style.text}>{t('miPlan.categoria')}</Text>
                         <Text style={Style.textBold}>{usuarioRegistro?.categoria} </Text>
                     </View>
                 </View>
         
-                <View style={Style.container}>
-                    <Icon name="calendar" size={35} style={Style.icon}></Icon>
+                <View style={Style.containerCalendar}>
+                    <Icon name="calendar" size={20} style={Style.icon}></Icon>
                     <View style={Style.textContainer}>
                         <Text style={Style.title}>{t('miPlan.fechaInicio')}</Text>
                         <Text style={Style.content}>{usuarioRegistro?.salida}</Text>
                     </View>
-                    <Icon name="calendar" size={35} style={Style.icon}></Icon>
+                    <Icon name="calendar" size={20} style={Style.icon}></Icon>
                     <View style={Style.textContainer}>
                         <Text style={Style.title}>{t('miPlan.fechaRegreso')}</Text>
                         <Text style={Style.content}>{usuarioRegistro?.retorno}</Text>
@@ -122,14 +123,14 @@ export const MiPlanScreen = () => {
                     </Swiper>
                 </View>
                             
-                <View style={{paddingHorizontal:10, flex: 3}}>
+                <View style={{paddingHorizontal:15, flex: 3}}>
                     {
                         beneficiosRespuesta.resultado? ( 
                             <ListBeneficiosComponent beneficiosRespuesta= { beneficiosRespuesta }  /> 
                         ) : ( <ActivityIndicator />)
                     }
                 </View>     
-            </InicioBackgroundComponent>
+            </ImageBackground>
 
          </ScrollView>
         

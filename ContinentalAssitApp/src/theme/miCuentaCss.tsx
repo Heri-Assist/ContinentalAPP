@@ -14,7 +14,12 @@ export const Style = StyleSheet.create({
 		position:'absolute', 
 		top:20, 
 		left:30, 
-		zIndex:999
+		zIndex:999,
+		shadowColor: 'black', // Color de la sombra
+    shadowOffset: { width: 0, height: 2 }, // Desplazamiento de la sombra
+    shadowOpacity: 0.5, // Opacidad de la sombra
+    shadowRadius: 5, // Radio de la sombra
+    elevation: 5, // Para Android
 	},
 	imagen: {
 		width: 140, 
@@ -121,9 +126,4 @@ export const Style = StyleSheet.create({
 		textAlign: 'center',
 	},
 
-	
-
-
-
-	
 })

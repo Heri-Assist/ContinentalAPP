@@ -10,7 +10,7 @@ import continentalApi from '../api/continentalApi';
 import LoadingCompoment from '../components/LoadingComponent';
 import { InicioBackgroundComponent } from '../components/InicioBackgroundComponent';
 
-
+ 
 interface PropsStack extends StackScreenProps <any, any> { } 
 
 

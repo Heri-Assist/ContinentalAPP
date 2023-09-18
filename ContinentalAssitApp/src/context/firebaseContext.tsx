@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useEffect, useState, useContext } from 'react';
 import { firebaseReducer, FirebaseState } from './firebaseReducer';
-import { Message, UserFirebase } from '../interfaces/firebaseUser';
+import { MessageChat, UserFirebase } from '../interfaces/firebaseUser';
 import continentalApi from '../api/continentalApi';
 import { MotivoChat, ChatMotivo } from '../interfaces/motivoChatInterface';
 import { FIREBAESE_APP, FIREBASE_AUTH, FIREBASE_DATABASE, ref, set, onValue, signOut } from '../api/firebaseApi';
@@ -16,7 +16,7 @@ import { AuthContext } from './authContext';
 type FirebaseContextProps = {
 	user: UserFirebase | null;
 	motivosChatData: ChatMotivo[] | null;
-	sendMessage: (message: Message) => void;
+	sendMessage: (message: MessageChat) => void;
   getMessages: () => void;
   logoutChat: () => void;
 	motivosChat:() => void;
@@ -53,12 +53,9 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 		};
 
 
-	
-
 		useEffect(() => {
 			// Tu código para la gestión de la autenticación aquí (usando Firebase u otro método).
-
-
+			
 		}, []); // Asegúrate de agregar la lógica de autenticación aquí.
 		
 
@@ -78,6 +75,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 			});
 
 		}
+
 		const signInAnonymously = async (user:UserFirebase) => {
 	
 			try {
@@ -93,13 +91,10 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 			} catch (error) {
 				console.error('Error al guardar los datos:', error);
 			}
-			}
+		}
 
-		const sendMessage = (message: Message) => {
+		const sendMessage = (message: MessageChat) => {
 			// Tu lógica para enviar un mensaje al servidor (Firebase Database
-
-			
-
 			const userFire = {
 				nombre: 'continental Assist',
 				ipLatitude: '4.507694316979693',

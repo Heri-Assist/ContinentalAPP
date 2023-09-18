@@ -64,7 +64,7 @@ export const DashboardScreen = () => {
                       <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan'}} component={MiPlanScreen} />
                       <TabButtonAndroid.Screen name="MiCuenta" options={{title: 'Mi Cuenta' }} component={MiCuentaScreen} />
                       <TabButtonAndroid.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
-                      <TabButtonAndroid.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />
+                      {/* <TabButtonAndroid.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} /> */}
                       <TabButtonAndroid.Screen name="Extras" options={{title:'Extras'}} component={ExtrasScreen} />
                     </TabButtonAndroid.Navigator>
                   );
@@ -80,8 +80,7 @@ export const DashboardScreen = () => {
                       sceneContainerStyle={{
                         backgroundColor: 'white',
                       }}
-                      
-                    
+                                          
                       screenOptions={ ({route}) => ({
                           tabBarStyle: {
                             backgroundColor: 'white',
@@ -107,9 +106,9 @@ export const DashboardScreen = () => {
                               case 'Emergencia':
                                 imageSource = require('../../assets/iconos/icon-15.png');
                                 break;
-                              case 'Reembolsos':
-                                imageSource = require('../../assets/iconos/icon-19.png');
-                                break;
+                              // case 'Reembolsos':
+                              //   imageSource = require('../../assets/iconos/icon-19.png');
+                              //   break;
                               case 'Extras':
                                 imageSource = require('../../assets/iconos/icon-21.png');
                                 break;
@@ -118,10 +117,10 @@ export const DashboardScreen = () => {
                           }
                       })}
                     > 
-                      <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
                       <TabButtonAndroid.Screen name="MiPlan" options={{title: 'Mi Plan', }} component={MiPlanScreen} />
                       <TabBottonIos.Screen name="MiCuenta" options={{title: 'Mi Cuenta', }} component={MiCuentaScreen} />
-                      <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} />
+                      <TabBottonIos.Screen name="Emergencia" options={{title:'Emergencia'}} component={EmergenciaScreen} />
+                      {/* <TabBottonIos.Screen name="Reembolsos" options={{title:'Reembolsos'}} component={ReembolsosScreen} /> */}
                       <TabBottonIos.Screen name="Extras" options={{title:'Extras'}} component={ExtrasScreen} />
                     </TabBottonIos.Navigator>
                   );
