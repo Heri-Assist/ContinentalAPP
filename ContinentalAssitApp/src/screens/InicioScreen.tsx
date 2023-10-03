@@ -53,6 +53,7 @@ export const InicioScreen = ( {navigation} : Props ) => {
   return (
     //  Componenete Background y del logo inicio
     <InicioBackgroundComponent >
+
       <Animatable.View animation="fadeInDown" duration={1200}>
         <Image
           source={require('../../assets/imagenes/logo.png')}
@@ -61,45 +62,49 @@ export const InicioScreen = ( {navigation} : Props ) => {
       </Animatable.View >
       {/* Texto de bienvenida */}
       <Animatable.View animation="fadeInUp" duration={1200}>
-        <View style={Style.container}>
-          <Text style={Style.textInicio}>
-            {t('intro.bienvenida')}
-            <Text style={Style.textInicioSuave}>
-              {t('intro.bienvenida2')}
+        <View>
+          <View style={Style.containerCenter}>
+            <Text style={Style.textInicio}>
+              {t('intro.bienvenida')}
+              <Text style={Style.textInicioSuave}>
+                {t('intro.bienvenida2')}
+              </Text>
             </Text>
-          </Text>
+          </View>
+          <View style={Style.container}>
+            {/* Boton De crear una nueva cuenta  */}
+            {
+              session === null ?  (
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    style={Style.buttonRegistro}
+                    onPress={() => navigation.replace('Registro')}>
+                  <Text style={Style.textButton}>{t('intro.boton_ingresar')}</Text>
+                </TouchableOpacity>
+              )
+              :
+              (  
+                <>   
+                  <TouchableOpacity
+                      activeOpacity={0.8}
+                      style={Style.buttonInicio}
+                      onPress={() => navigation.navigate('Inicio')}>
+                    <Text style={Style.textButton}>{t('intro.boton_inicio')}</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                        activeOpacity={0.8}
+                        style={Style.buttonCerrar}
+                        onPress={() => cerrarSession()} >
+                    <Text style={Style.textButton}>{t('intro.boton_cerrar')}</Text>
+                  </TouchableOpacity>
+                </>
+              )
+            } 
+          </View>
         </View>
-        <View style={Style.container2}>
-          {/* Boton De crear una nueva cuenta  */}
-          {
-            session === null ?  (
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  style={Style.buttonRegistro}
-                  onPress={() => navigation.replace('Registro')}>
-                  <Text style={Style.textButton}>{t('intro.boton_registro')}</Text>
-                </TouchableOpacity>
-            )
-            :
-            (  
-              <>   
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  style={Style.buttonInicio}
-                  onPress={() => navigation.navigate('Inicio')}>
-                  <Text style={Style.textButton}>{t('intro.boton_inicio')}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  style={Style.buttonCerrar}
-                  onPress={() => cerrarSession()} >
-                  <Text style={Style.textButton}>{t('intro.boton_cerrar')}</Text>
-                </TouchableOpacity>
-              </>
-            )
-          } 
-        </View>
+        
       </Animatable.View>
+      
     </InicioBackgroundComponent>
   );
 };

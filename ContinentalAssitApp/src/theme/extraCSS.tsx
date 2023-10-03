@@ -39,15 +39,15 @@ export const Style = StyleSheet.create({
 	TitleContainer: {
 		flex: 1,
 		alignItems: 'center',
-		paddingVertical: 15 ,
+		paddingVertical: 10 ,
 		backgroundColor: SECONDARY_COLOR,
 		alignContent: 'center',
-		marginVertical: 20,
+		marginVertical: 15,
 		borderRadius: 10,
 	},
 
 	textoTitle:{
-		fontSize: 20,
+		fontSize: 17,
 		fontWeight: 'bold',
 		color: PRIMARY_COLOR,
 		justifyContent: 'center',

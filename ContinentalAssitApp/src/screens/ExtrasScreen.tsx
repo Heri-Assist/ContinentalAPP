@@ -54,28 +54,47 @@ export const ExtrasScreen = ({navigation}: Props) => {
   return (
         <ImageBackground source={image || null }>
              <ScrollView>
-
-                        <TouchableOpacity 
-                            onPress={() => navigation.navigate('CondicionesGeneralesScreen')}
-                            style={{paddingVertical:20, paddingHorizontal:20}} >
-                                <View style={Style.listRow}>
-                                    <View>
-                                        <Image
-                                            source={require('../../assets/iconos/icon-08.png')}
-                                            style={Style.imgList}
-                                        />
-                                    </View>
-                                    <View style={Style.textContainer}>
-                                        <Text style={Style.titleBoldList} >{t('extras.condicionesGenerales')} </Text>
-                                    </View>
-                                    
-                                </View>
-                                
-                            </TouchableOpacity>
+             <View style={Style.acordionContainer2}>
+                <View style={Style.TitleContainer}>
+                    <Text style={Style.textoTitle}>{t("extras.normativas")}</Text>
+                </View>
+            </View>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('CondicionesGeneralesScreen')}
+                    style={{paddingVertical:8, paddingHorizontal:20}} >
+                        <View style={Style.listRow}>
+                            <View>
+                                <Image
+                                    source={require('../../assets/iconos/icon-08.png')}
+                                    style={Style.imgList}
+                                />
+                            </View>
+                            <View style={Style.textContainer}>
+                                <Text style={Style.titleBoldList} >{t('extras.condicionesGenerales')} </Text>
+                            </View>
+                            
+                        </View>                            
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('Politicas')}
+                    style={{paddingVertical:5, paddingHorizontal:20}} >
+                        <View style={Style.listRow}>
+                            <View>
+                                <Image
+                                    source={require('../../assets/iconos/icon-08.png')}
+                                    style={Style.imgList}
+                                />
+                            </View>
+                            <View style={Style.textContainer}>
+                                <Text style={Style.titleBoldList} >{t('extras.politicas')} </Text>
+                            </View>
+                            
+                        </View>                            
+                </TouchableOpacity>
 
                 <View style={Style.acordionContainer2}>
                      <View style={Style.TitleContainer}>
-                        <Text style={Style.textoTitle}>Preguntas Frecuentes</Text>
+                        <Text style={Style.textoTitle}>{t('extras.faqs')}</Text>
                     </View>
                     <View style={{ width:'100%'}}>
                         <PreguntasFrecuentesComponent preguntasFrecuentes={preguntasFrecuentes} />

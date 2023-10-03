@@ -12,7 +12,8 @@
       "detallesReembolsos": "Refund Details",
       "nuevoReembolsos": "New Refund",
       "datosChat": "Data for Chat",
-      "chat": "Chat"
+      "chat": "Chat",
+      "conversaciones": "Conversations"
     },
   
     "intro": {
@@ -34,6 +35,7 @@
       "texto1": "By pressing Continue, you confirm that you accept the",
       "texto2": " Conditions of Use of Continental Assist",
       "texto3": ". We will manage the information as described in the Privacy Policy and the Cookies Policy",
+      "texto4": "To enter the application you must have a voucher and prior registration by the Continental Assist team",
       "yaEresCliente": "Already a Client?",
       "iniciaSesion": "Login",
       "pais":"Country",
@@ -180,6 +182,7 @@
     },
   
     "extras": {
+      "politicas": "Privacy policies",
       "condicionesGenerales" : "General Conditions",
       "clima": "Weather",
       "conversorMoneda" : "Currency Converter",

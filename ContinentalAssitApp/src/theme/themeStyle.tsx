@@ -12,7 +12,6 @@ export const Style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 10,
-   
   },
   
   container2: {
@@ -84,6 +83,13 @@ export const Style = StyleSheet.create({
     paddingVertical: 12,
     backgroundColor: SECONDARY_COLOR,
     borderRadius: 100,   
+  },
+
+  containerCenter: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
 
 });

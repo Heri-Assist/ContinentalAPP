@@ -8,7 +8,9 @@ import { RegistroResp } from '../screens/RegistroResp';
 import { DashboardScreen } from '../screens/DashboardScreen';
 import { ChatScreen } from '../screens/ChatScreen';
 import { CondicionesGeneralesScreen } from '../screens/CondicionesGeneralesScreen';
+import { PoliticasPrivacidad } from '../screens/PoliticasPrivacidad';
 import { Title } from 'react-native-paper';
+import { IntroScreen } from '../screens/IntroScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +22,7 @@ const Stack = createStackNavigator();
 export const NavigatorDashboard = () => {
   return (
     <Stack.Navigator
-        initialRouteName='Inicio'
+        initialRouteName='Intro'
         screenOptions={{
             headerShown: false,
             cardStyle: {
@@ -28,7 +30,7 @@ export const NavigatorDashboard = () => {
             }   
         }}
     >
-
+      <Stack.Screen name="Intro"  component={IntroScreen} />
       <Stack.Screen name="Login"  component={LoginScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
       <Stack.Screen name="Inicio" component={InicioScreen} />
@@ -37,6 +39,7 @@ export const NavigatorDashboard = () => {
       <Stack.Screen name="Codigo" component={RegistroCodigo} />
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="CondicionesGeneralesScreen" component={CondicionesGeneralesScreen}/>
+      <Stack.Screen name="Politicas" component={PoliticasPrivacidad}/>
     </Stack.Navigator>
   );
 }

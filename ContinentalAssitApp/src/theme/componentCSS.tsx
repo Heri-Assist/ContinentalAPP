@@ -153,6 +153,7 @@ export const Style = StyleSheet.create({
 	loading: {
 		position: 'absolute',
 		top: '50%',
+		left: '50%',
 		zIndex: 9999,
 	},	
 

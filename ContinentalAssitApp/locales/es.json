@@ -34,7 +34,9 @@
       "botonContinuar": "Continuar",
       "texto1": "Al presionar el botón 'Continuar', confirmas que entiendes y aceptas las",
       "texto2": " Condiciones de Uso de Continental Assist",
-      "texto3": ", así como las políticas de privacidad y cookies.",
+      "texto3": ", así como las ",
+      "texto5": "políticas de privacidad y cookies.",
+      "texto4": "Para ingresar al aplicativo debe contar un voucher y un registro previo por parte del equipo de Continental Assist",
       "yaEresCliente": "¿Ya eres cliente?",
       "iniciaSesion": "Inicia Sesión",
       "pais":"País",
@@ -188,10 +190,12 @@
     },
   
     "extras": {
+      "politicas": "Políticas de Privacidad",
       "condicionesGenerales" : "Condiciones Generales",
       "clima": "Clima",
       "conversorMoneda" : "Conversor de Moneda",
-      "faqs" : "Preguntas Frecuentes"
+      "faqs" : "Preguntas Frecuentes",
+      "normativas" : "Normativas y Privacidad"
     },
   
     "conversor": {

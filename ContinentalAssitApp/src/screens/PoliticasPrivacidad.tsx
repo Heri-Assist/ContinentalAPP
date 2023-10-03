@@ -5,13 +5,13 @@ import Pdf from 'react-native-pdf';
 
 
 interface Props extends StackScreenProps <any, any> { } 
-export const CondicionesGeneralesScreen = ({navigation}: Props) => {
+export const PoliticasPrivacidad = ({navigation}: Props) => {
 
 	const resourceType = 'url';
   
         const resources = {
           file: Platform.OS === 'ios' ? 'downloadedDocument.pdf' : '/sdcard/Download/downloadedDocument.pdf',
-          url: 'https://storage.googleapis.com/files-continentalassist-web/Condiciones%20Generales-Continental%20Assist.pdf',
+          url: 'https://storage.googleapis.com/files-continentalassist-web/Pol%C3%ADtica%20de%20Tratamiento%20de%20la%20Informaci%C3%B3n%20y%20Privacidad%20Continental%20Assist.pdf',
           base64: 'JVBERi0xLjMKJcfs...',
         };
       

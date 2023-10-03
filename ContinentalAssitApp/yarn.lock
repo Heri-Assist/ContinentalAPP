@@ -5196,7 +5196,7 @@ joi@^17.2.1:
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 js-yaml@^3.13.1:
@@ -5410,7 +5410,7 @@ long@^5.0.0:
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
+  resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
@@ -6193,7 +6193,7 @@ ob1@0.76.8:
 
 object-assign@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  resolved "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
 
 object-inspect@^1.12.3, object-inspect@^1.9.0:
@@ -6515,7 +6515,7 @@ prompts@^2.0.1, prompts@^2.4.0:
 
 prop-types@*, prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
   dependencies:
     loose-envify "^1.4.0"
@@ -6799,6 +6799,11 @@ react-native-size-matters@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz#01bfd0d59454318f4e0b13fe9c1eb0523d70f2e0"
   integrity sha512-8/C0htHrFWeUm9N8JegmadovUfgTWkGBkDPZ1N3YkXtDWb+98Ya2gThiKcu445r8c7YhcrBfnHz/mYsXIusaOQ==
+
+react-native-splash-screen@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.3.0.tgz#3af71ed17afe50fee69590a45aec399d071ead02"
+  integrity sha512-rGjt6HkoSXxMqH4SQUJ1gnPQlPJV8+J47+4yhgTIan4bVvAwJhEeJH7wWt9hXSdH4+VfwTS0GTaflj1Tw83IhA==
 
 react-native-swiper@^1.6.0:
   version "1.6.0"

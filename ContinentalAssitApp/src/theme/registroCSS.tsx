@@ -110,8 +110,8 @@ export const Style = StyleSheet.create({
     fontWeight: 'normal',
     color: PRIMARY_COLOR,
     fontSize: 16,
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 10,
     textAlign: 'center',
   },
 

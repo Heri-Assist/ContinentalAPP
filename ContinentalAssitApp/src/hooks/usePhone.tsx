@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { ICountry, PhoneInput } from 'react-native-international-phone-number';
 import { Controller, useForm } from 'react-hook-form';
 import { Style } from '../theme/registroCSS';
-import { Text } from 'react-native-animatable';
-import {useTranslation } from 'react-i18next';
-import { TextInput } from 'react-native';
+import { Text, TextInput, TouchableOpacity, Keyboard } from 'react-native'; // Importa Keyboard y TouchableOpacity
+import { useTranslation } from 'react-i18next';
 import { UsuarioRegistro, usuarioRegistro } from '../interfaces/usuarioRegistro';
-
 
 interface PhoneProps {
   control: any;
@@ -14,12 +12,10 @@ interface PhoneProps {
   onCountryChange?: (country: ICountry) => void;
 }
 
-
 export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneProps) => {
-  
   const { t } = useTranslation();
-  
   const [selectedCountry, setSelectedCountry] = useState<undefined | ICountry>(undefined);
+
   const handleSelectedCountry = (country: ICountry) => {
     setSelectedCountry(country);
     if (onCountryChange) {
@@ -27,25 +23,23 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
     }
   };
 
-  
-  
+  const handleDonePress = () => {
+    Keyboard.dismiss(); // Oculta el teclado al presionar "Done"
+  };
+
   return (
     <Controller
       name="telefono"
       control={control}
       rules={{
         required: t('registro.errorRequerido'),
-        // pattern: {
-        //   value: /^[0-9]*$/,
-        //   message: t('registro.errorNumerico'),
-        // },
         minLength: {
           value: 9,
           message: t('registro.errorMinimo'),
         },
         maxLength: {
           value: 13,
-          message: t('registro.errorMaxim'),
+          message: t('registro.errorMaximo'),
         },
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
@@ -58,7 +52,11 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
             selectedCountry={selectedCountry}
             onChangeSelectedCountry={handleSelectedCountry}
             placeholder='Ingresa tu número de teléfono'
+            keyboardType="numeric" // Configura el teclado como numérico
+            returnKeyType="done"
+            onSubmitEditing={handleDonePress} // Maneja la presión de "Done"
           />
+         
           {error && (
             <Text style={Style.errorText}>
               {error.message}
