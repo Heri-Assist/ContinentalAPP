@@ -20,7 +20,7 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
     setSelectedCountry(country);
     if (onCountryChange) {
       onCountryChange(country);
-    }
+    } 
   };
 
   const handleDonePress = () => {

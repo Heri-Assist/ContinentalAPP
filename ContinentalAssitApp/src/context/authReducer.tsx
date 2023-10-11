@@ -30,8 +30,8 @@ export interface AuthState {
  * Type for the authentication actions.
  */
 type AuthAction =  
-    | { type: "signUp", payload: { token: string,usuarioRegistro:Usuario, session:string, formData:{}, isGeolocation: {}, idioma:string } }
-    | { type: "login", payload: { token: string, usuarioLogin:UsuarioLogin, session:string, formData:{}, isGeolocation: {}, idioma:string } }
+    | { type: "signUp", payload: { token: string,usuarioRegistro:Usuario, session:string | null, formData:{}, isGeolocation: {}, idioma:string } }
+    | { type: "login", payload: { token: string, usuarioLogin:UsuarioLogin, session:string, formData:{}, isGeolocation: {}, idioma:string, usuarioRegistro:Usuario | null } }
     | { type: "addError", payload: string}
     | { type: "removeError" }
     | { type: "notAuthenticated" }
@@ -59,6 +59,7 @@ export const authReducer = ( state: AuthState, action: AuthAction ): AuthState =
                 formData: action.payload.formData,
                 isLoading: false,
                 idioma: action.payload.idioma,
+                usuarioRegistro: action.payload.usuarioRegistro,
             }
         case 'addError':
             return {

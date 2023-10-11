@@ -9,11 +9,12 @@ import { Usuario, usuarioRegistro, UsuarioRegistro, ErrorUsuario, CodigoRegistro
 import { Data, UsuarioLogin, ErrorUsuarioLogin, LoginRespuesta } from '../interfaces/login';
 import { AuthState, authReducer } from "./authReducer";
 import continentalApi from "../api/continentalApi";
-import { id } from 'date-fns/locale';
+import { ca, id } from 'date-fns/locale';
 import { Alert, DeviceEventEmitter, NativeModules } from "react-native";
 import { useGeolocation } from '../hooks/useGeolocation'; 
 import * as RNLocalize from 'react-native-localize';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ActualizarSession, UsuarioActualizarSession } from "../interfaces/ActualizarSession";
 
 /** * Define la forma del objeto de contexto de autenticación. 
 * @typedef {Object} AuthContextProps 
@@ -45,7 +46,7 @@ type AuthContextProps = {
     idioma: string;
     isGeolocation: { location: any, error: any } | null;
     updateIdUsuario: (newIdUsuario: CodigoRegistro | null) => void;
-    login: (UsuarioRegistro: UsuarioRegistro) => void;
+    login: (UsuarioRegistro?: UsuarioRegistro) => void;
     logout: () => void;
     removeError: () => void;
     signUp: (UsuarioRegistro: UsuarioRegistro) => void;
@@ -67,7 +68,7 @@ type AuthContextProps = {
 // Estado inicial para el contexto de autenticación
 const authInitialState: AuthState = {
     status: 'checking',
-    session: null,
+    session:  null,
     usuarioRegistro: null,
     usuarioLogin: null,
     errorMessage: '',
@@ -117,57 +118,136 @@ export const AuthProvider = ({children}:any) => {
     };
 
     // Iniciar sesión
-    const login = async (data:UsuarioRegistro) => {
-         
-        const { email, nombre, nacimiento, idEmision} = data;
+    const login = async (data?:UsuarioRegistro) => {
+        if (data) { 
+            const { email, nombre, nacimiento, idEmision} = data;
+            try {
+                setIsLoading(true);
+                const datosLogin = {
+                    ps: 'www.continentalassist.com',
+                    nombre,
+                    email,
+                    nacimiento,
+                    idEmision,
+                }
+    
+                const resp = await continentalApi.post<Data>('/app_login',  datosLogin, { headers })
+                           
+                    if (resp.data.error === false ) {
+                        
+                        const dataUsuario = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin;
+                        const guardarSesion = async () => {
+                            try {
+                                await AsyncStorage.setItem('session', JSON.stringify(resp.data));
+                                console.log('Sesión guardada en AsyncStorage');
+                            } catch (error) {
+                                console.error('Error al guardar la sesión en AsyncStorage', error);
+                            }
+                        };
+                        await guardarSesion();
+    
+                        dispatch({
+                            type: 'login',
+                            payload: {
+                                token: '356964e2f8c0811ead9d1529fbae58127379054e',
+                                usuarioLogin: dataUsuario as UsuarioLogin,
+                                session: JSON.stringify(resp.data as Data),
+                                formData: datosLogin,
+                                isGeolocation: { location, error},
+                                idioma: NativeModules.I18nManager.localeIdentifier,
+                                usuarioRegistro: null
+                            }
+                        });
+                    } else {
+                        const errorUsuariosLogin: ErrorUsuarioLogin[] = resp.data.resultado as ErrorUsuarioLogin[];
+                        const errorMessage = errorUsuariosLogin[0]?.mensaje_error || 'Información incorrecta';
+                        dispatch({
+                            type: 'addError',
+                            payload: errorMessage,
+                        });
+                    }
+            } catch (error) {
+                console.log(error)
+            }  
 
-        try {
-            setIsLoading(true);
-            const datosLogin = {
-                ps: 'www.continentalassist.com',
-                nombre,
-                email,
-                nacimiento,
-                idEmision,
+        }else{
+            // Obtener la sesión de AsyncStorage
+            const obtenerSesion = async () => {
+                try {
+                  const sessionData = await AsyncStorage.getItem('session');
+                 return JSON.parse(sessionData as string);
+                // console.log('sessionData', sessionData);
+                } catch (error) {
+                  console.error('Error al obtener la sesión desde AsyncStorage', error);
+                  return null;
+                }
+            };
+            const sessionData = await obtenerSesion();
+            const session = sessionData;
+
+            //obtener la registro usuario de AsyncStorage
+            const obtenerRegistroUsuario = async () => {
+                try {
+                  const sessionData = await AsyncStorage.getItem('registroUsuario');
+                 return JSON.parse(sessionData as string);
+                //  console.log('sessionData', sessionData);
+                } catch (error) {
+                  console.error('Error al obtener la sesión desde AsyncStorage', error);
+                  return null;
+                }
             }
 
-            const resp = await continentalApi.post<Data>('/app_login',  datosLogin, { headers })
-                       
-                if (resp.data.error === false ) {
-                    
-                    const dataUsuario = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin;
-                    const guardarSesion = async () => {
-                        try {
-                            await AsyncStorage.setItem('session', JSON.stringify(resp.data));
-                            console.log('Sesión guardada en AsyncStorage');
-                        } catch (error) {
-                            console.error('Error al guardar la sesión en AsyncStorage', error);
-                        }
-                    };
+            const registroUsuario = await obtenerRegistroUsuario();
+            const registro = registroUsuario;
+            // console.log('registro++++++++++++>>>>>>>>', registro.codigo);
+            const idioma = NativeModules.I18nManager.localeIdentifier;
 
-                    dispatch({
-                        type: 'login',
-                        payload: {
-                            token: '356964e2f8c0811ead9d1529fbae58127379054e',
-                            usuarioLogin: dataUsuario as UsuarioLogin,
-                            session: JSON.stringify(resp.data as Data),
-                            formData: datosLogin,
-                            isGeolocation: { location, error},
-                            idioma: NativeModules.I18nManager.localeIdentifier,
+              //Actulizar session  Data api
+            const dataSession = {
+                ps: 'www.continentalassist.com',
+                id_usuario: session.resultado.usuario.id_usuario,
+                idEmision: registro.id,
+                idioma : idioma === 'es' ? 'spa' : 'eng',
+            }
+
+      
+            const actulizarSession = async () => {
+                try{
+                    const resp = await continentalApi.post<Data>('/app_actualiza_session',  dataSession, { headers });
+
+                    if (resp.data.error === false ) {
+                        const usuarios = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin; 
+                        if (session) {
+                            const dataUsuario = (session.resultado as LoginRespuesta).usuario as UsuarioLogin;
+                            // console.log ('dataUsuario inicio session ====>>>>', dataUsuario);
+                            // console.log('registro++++++++++++>>>>>>>>', registro.codigo);
+                            dispatch({
+                                type: 'login',
+                                payload: {
+                                    token: '356964e2f8c0811ead9d1529fbae58127379054e',
+                                    usuarioLogin: usuarios as UsuarioLogin,
+                                    session: JSON.stringify(session as Data),
+                                    formData: {},
+                                    isGeolocation: { location, error},
+                                    idioma: NativeModules.I18nManager.localeIdentifier,
+                                    usuarioRegistro: registro,
+                                }
+                            });
+                        } else {
+                            dispatch({
+                                type: 'logout',
+                            });
                         }
-                    });
-                } else {
-                    const errorUsuariosLogin: ErrorUsuarioLogin[] = resp.data.resultado as ErrorUsuarioLogin[];
-                    const errorMessage = errorUsuariosLogin[0]?.mensaje_error || 'Información incorrecta';
-                    dispatch({
-                        type: 'addError',
-                        payload: errorMessage,
-                    });
+                    }
+                }catch (error) {
+                    console.log(error)
                 }
-        } catch (error) {
-            console.log(error)
-        }     
-               
+            }
+
+            await actulizarSession();
+
+            
+        }        
     };
     
     //Registrar un nuevo usuario
@@ -203,26 +283,23 @@ export const AuthProvider = ({children}:any) => {
             if (resp.data.error === false ) {
                 const usuarios: Usuario[] = resp.data.resultado as Usuario[];
                 datosRegistro.idEmision = usuarios[0].id;  
-
-                const obtenerSesion = async () => {
+                
+                const guardarSesionRegistroUsuario = async () => {
                     try {
-                      const sessionData = await AsyncStorage.getItem('session');
-                      return JSON.parse(sessionData as string);
+                        await AsyncStorage.setItem('registroUsuario', JSON.stringify(usuarios[0]));
+                        console.log('Sesión guardada en AsyncStorage');
                     } catch (error) {
-                      console.error('Error al obtener la sesión desde AsyncStorage', error);
-                      return null;
+                        console.error('Error al guardar la sesión en AsyncStorage', error);
                     }
-                  };
-
-                  const sessionData = await obtenerSesion();
-                  const session = sessionData ? JSON.parse(sessionData) : null;
-                // console.log('Datos Usuario',usuarios[0]);
+                };
+                await guardarSesionRegistroUsuario();
+               
                 dispatch({
                     type: 'signUp',
                     payload: {
                         token: '356964e2f8c0811ead9d1529fbae58127379054e',
                         usuarioRegistro: usuarios[0],
-                        session: session,  
+                        session: null,  
                         formData: datosRegistro,
                         isGeolocation: { location, error},
                         idioma: NativeModules.I18nManager.localeIdentifier,
@@ -243,6 +320,9 @@ export const AuthProvider = ({children}:any) => {
     
     // Cerrar sesión
     const logout = () => {
+        // borra la session de AsyncStorage
+        AsyncStorage.removeItem('session');
+        AsyncStorage.removeItem('registroUsuario');
         console.log ('cerrar session');
         dispatch({
             type: 'logout',  

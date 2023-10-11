@@ -54,6 +54,7 @@ export const Style = StyleSheet.create({
 	separador:{
 		borderRightWidth: 1,
 		borderRightColor: BORDER_COLOR,
+		paddingLeft: 10,
 	},
 
 	text: {

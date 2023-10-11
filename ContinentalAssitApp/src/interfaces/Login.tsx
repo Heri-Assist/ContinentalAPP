@@ -15,12 +15,21 @@ export interface LoginRespuesta {
 
 
 export interface UsuarioLogin {
-	id_usuario: string;
-	nombre:     string;
-	nacimiento: string;
-	email:      string;
-	avatar:     null;
-	telefonos:  Telefono[];
+	id_usuario?: 					string;
+	nombre?:     					string;
+	nacimiento: 					string;
+	email?:      					string;
+	avatar?:     					null;	
+	password?:            string;
+	status?:              string;
+	codigo_registro?:     string;
+	fecha_registro?:      string;
+	pais_name?:           string;
+	telefono?:            string;
+	pais_flag?:           string;
+	pais_callingCode?:    string;
+	numero_beneficiario?: number;
+	telefonos:  					Telefono[];
 }
 
 export interface Telefono {

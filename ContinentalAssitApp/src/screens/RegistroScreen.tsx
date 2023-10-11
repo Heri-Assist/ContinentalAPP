@@ -102,11 +102,11 @@ export const RegistroScreen = ({navigation}: Props) => {
   return (
     <>
       {/* pantalla de Formulario de registro  */}
-      <ImageBackground source={image || null } style={{alignContent:'center'}}>
-        <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{paddingHorizontal:20, paddingVertical:10}} >
+      <ImageBackground source={image || null } style={{alignContent:'center', flex:1}}>
+        <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{paddingHorizontal:20, paddingVertical:10 , flex:1, justifyContent:'center'}} >
           {/* Indicador de carga */}
           {isLoading && <LoadingComponent />}
-          <View style={{ alignItems:'center'}}>
+          <View style={{ alignItems:'center', paddingTop:20}}>
             <Image
               source={require('../../assets/imagenes/logo.png')}
               style={Style.imgFondo}
@@ -114,7 +114,7 @@ export const RegistroScreen = ({navigation}: Props) => {
           </View>
          
           {/* Boton de navegación Inicio */}
-          <View
+          <View 
             style={
               Platform.OS === 'ios' ? Style.regresarIOS : Style.regresarAndroid
             }>
@@ -125,7 +125,7 @@ export const RegistroScreen = ({navigation}: Props) => {
               <Text style={Style.buttonRegresar}>Regresar</Text>
             </TouchableOpacity>
           </View>
-          <View >
+          <View>
             {/* Campo Nombre */}
             <View style={Style.formContainer}>
               {/* Campo Nombre */}

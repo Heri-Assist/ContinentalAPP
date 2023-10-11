@@ -21,7 +21,6 @@ import { useForm } from 'react-hook-form';
 import { is } from 'date-fns/locale';
 
 
-
 interface Props extends StackScreenProps <any, any> { } 
 
 export const RegistroResp = ({navigation} : Props) => {
@@ -105,109 +104,111 @@ export const RegistroResp = ({navigation} : Props) => {
 
 
   return (
-    <ScrollView style={ Style.scrollView}>
-    
-      
-      <Animatable.View animation="fadeInDown" duration={1200} style={Style.container}>
-        <Image 
-          source={require('../../assets/imagenes/logo.png')}
-          style={ Style.imgLogoRespuesta }
-        />
-      </Animatable.View >
-      
-      <Animatable.View animation="fadeInUp" duration={1200} style={Style.container}>
+    <ScrollView 
+        style={ Style.scrollView} > 
        
-        <Text style={Style.texto}>
-          {t('registro.hemosEncontrado')}
-        </Text>
-        <View style={Style.fondoVaucher}>
-          <Text style={Style.texto}>
-            {t('registro.numeroVoucher')}
-          </Text>
-          <Text style={Style.contenVauche}>
-           {usuarioRegistro?.codigo}
-          </Text>
-        </View>
-        <View style={Style.formContainer}>
-          <View style={Style.columnas}>
-            <Icon name='tag' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.categoria')}
-            </Text>
-
-            <Text style={Style.textIconBold}>{usuarioRegistro?.categoria}</Text>
-          </View>
-          <View style={Style.columnas}>
-            <Icon name='list' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.plan')}
-            </Text>
-            <Text style={Style.textIconBold}>{usuarioRegistro?.plan}</Text>
-          </View>
-        </View>
-        <View style={Style.formContainer}>
-          <View style={Style.columnas}>
-            <Icon name='plane' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.origen')}
-            </Text>
-            <Text style={Style.textIconBold}>{usuarioRegistro?.origen}</Text>
-          </View>
-          <View style={Style.columnas}>
-            <Icon name='globe' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.destino')}
-            </Text>
-            <Text style={Style.textIconBold}>{usuarioRegistro?.destino}</Text>
-          </View>
-        </View>
-        <View style={Style.formContainer}>
-          <View style={Style.columnas}>
-            <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.fechaSalida')}
-            </Text>
-            <Text style={Style.textIconBold}>{usuarioRegistro?.salida}</Text>
-          </View>
-          <View style={Style.columnas}>
-              <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
-            <Text style={Style.textoIcons}>
-                {t('registro.fechaRetorno')}
-            </Text>
-            <Text style={Style.textIconBold}>{usuarioRegistro?.retorno}</Text>
-          </View>
-        </View>
-      </Animatable.View>
-           
-      <TitleComponent titulo={t('registro.titulares')} />
-      
-      <Animatable.View animation="fadeInUp" duration={1200} style={{paddingHorizontal:10}}>
-        {/* Renderizar las tarjetas de beneficiarios */}
-        {beneficiarios.map((beneficiario, index) => (
-          <BeneficiarioComponent key={index} beneficiario={beneficiario} />
-        ))}
-
-        <TouchableOpacity 
-            style={Style.buttonContinuar}
-            onPress={handleSubmit(onContinuar)} 
-          >
-          <Text style={Style.textButton}>
-            Confirmar
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={Style.buttonCancelar}
-          onPress={() => navigation.replace('Registro')}
-        >
-          <Text style={Style.textButton}>
-            Cancelar
-          </Text>
-        </TouchableOpacity>
+      <View style={{   paddingTop:40}}>
+        <Animatable.View animation="fadeInDown" duration={1200} style={Style.container}>
+          <Image 
+            source={require('../../assets/imagenes/logo.png')}
+            style={ Style.imgLogoRespuesta }
+          />
+        </Animatable.View >
         
-      </Animatable.View>
-      <View style={Style.containerCenter2}>
-            {isLoading && <LoadingCompoment />} 
+        <Animatable.View animation="fadeInUp" duration={1200} style={Style.container}>
+        
+          <Text style={Style.texto}>
+            {t('registro.hemosEncontrado')}
+          </Text>
+          <View style={Style.fondoVaucher}>
+            <Text style={Style.texto}>
+              {t('registro.numeroVoucher')}
+            </Text>
+            <Text style={Style.contenVauche}>
+            {usuarioRegistro?.codigo}
+            </Text>
+          </View>
+          <View style={Style.formContainer}>
+            <View style={Style.columnas}>
+              <Icon name='tag' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.categoria')}
+              </Text>
+
+              <Text style={Style.textIconBold}>{usuarioRegistro?.categoria}</Text>
+            </View>
+            <View style={Style.columnas}>
+              <Icon name='list' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.plan')}
+              </Text>
+              <Text style={Style.textIconBold}>{usuarioRegistro?.plan}</Text>
+            </View>
+          </View>
+          <View style={Style.formContainer}>
+            <View style={Style.columnas}>
+              <Icon name='plane' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.origen')}
+              </Text>
+              <Text style={Style.textIconBold}>{usuarioRegistro?.origen}</Text>
+            </View>
+            <View style={Style.columnas}>
+              <Icon name='globe' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.destino')}
+              </Text>
+              <Text style={Style.textIconBold}>{usuarioRegistro?.destino}</Text>
+            </View>
+          </View>
+          <View style={Style.formContainer}>
+            <View style={Style.columnas}>
+              <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.fechaSalida')}
+              </Text>
+              <Text style={Style.textIconBold}>{usuarioRegistro?.salida}</Text>
+            </View>
+            <View style={Style.columnas}>
+                <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
+              <Text style={Style.textoIcons}>
+                  {t('registro.fechaRetorno')}
+              </Text>
+              <Text style={Style.textIconBold}>{usuarioRegistro?.retorno}</Text>
+            </View>
+          </View>
+        </Animatable.View>
+            
+        <TitleComponent titulo={t('registro.titulares')} />
+        
+        <Animatable.View animation="fadeInUp" duration={1200} style={{paddingHorizontal:10}}>
+          {/* Renderizar las tarjetas de beneficiarios */}
+          {beneficiarios.map((beneficiario, index) => (
+            <BeneficiarioComponent key={index} beneficiario={beneficiario} />
+          ))}
+
+          <TouchableOpacity 
+              style={Style.buttonContinuar}
+              onPress={handleSubmit(onContinuar)} 
+            >
+            <Text style={Style.textButton}>
+              Confirmar
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={Style.buttonCancelar}
+            onPress={() => navigation.replace('Registro')}
+          >
+            <Text style={Style.textButton}>
+              Cancelar
+            </Text>
+          </TouchableOpacity>
+          
+        </Animatable.View>
+        <View style={Style.containerCenter2}>
+              {isLoading && <LoadingCompoment />} 
         </View>
+      </View>
     </ScrollView>
   )
 }

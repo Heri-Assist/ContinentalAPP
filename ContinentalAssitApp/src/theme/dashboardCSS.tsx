@@ -15,7 +15,7 @@ export const Style = StyleSheet.create({
 		borderBottomWidth: 1,
 		borderBottomColor: BORDER_COLOR,
 		alignItems: 'center',
-		// paddingHorizontal: 10,
+		//paddingHorizontal: 10,
 	},
 	container4: {
 		flexDirection: 'row',
@@ -45,7 +45,7 @@ export const Style = StyleSheet.create({
 
 	
 	acordionContainer:{
-		flex:1
+		flex:1,
 	},
 
 	column: {
@@ -151,7 +151,7 @@ export const Style = StyleSheet.create({
 
 	//Emergencia
 	containerText:{
-		paddingHorizontal: 10,
+		paddingHorizontal: 2,
 		paddingVertical: 10,
 		borderRadius: 5,
 		backgroundColor: SECONDARY_COLOR,
@@ -169,6 +169,7 @@ export const Style = StyleSheet.create({
 		fontSize: 18,
 		color: PRIMARY_COLOR,
 		textAlign: 'center',	
+
 	},	
 
 	listRow:{
@@ -177,7 +178,7 @@ export const Style = StyleSheet.create({
 		paddingVertical: 20,
 		width: '100%',
 		backgroundColor: PRIMARY_COLOR,
-		paddingHorizontal: 20,
+		paddingHorizontal: 10,
 		borderRadius: 5,
 		marginBottom:5
 	},

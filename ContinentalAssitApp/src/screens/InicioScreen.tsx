@@ -7,8 +7,8 @@ import NetInfo from '@react-native-community/netinfo';
 import * as Animatable from 'react-native-animatable';
 import { AuthContext } from '../context/authContext';
 import { useTranslation } from 'react-i18next';
-
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ca } from 'date-fns/locale';
 
 
 interface Props extends StackScreenProps <any, any> { } 
@@ -16,8 +16,8 @@ interface Props extends StackScreenProps <any, any> { }
 export const InicioScreen = ( {navigation} : Props ) => {
   
   const { t } = useTranslation();
-  const { session, isGeolocation, idioma, logout } = useContext(AuthContext);
-
+  const { session, isGeolocation, idioma, logout, login } = useContext(AuthContext);
+  const [obtenerSession, setLoadSession] = useState(null || session);
   // console.log('idioma', idioma);
 
   useEffect(() => {
@@ -36,19 +36,37 @@ export const InicioScreen = ( {navigation} : Props ) => {
   }   
 
   useEffect(() => {
-    detectarInternet(); // Llamar a la función detectarInternet al iniciar la pantalla
+    loadSession(); // Llamar a la función detectarInternet al iniciar la pantalla
+    detectarInternet();
+    session;
   }, []);
 
+  const loadSession = async () => {
+    try {
+      const session = await AsyncStorage.getItem('session');
 
-  // funcion para dectart si tenemos internet o no
-    const detectarInternet = async () => {
-      const stateInternet = await NetInfo.fetch();
-      if (stateInternet.isConnected === true) {
-        console.log('conectado');
-      } else {
-        Alert.alert('La conexión a Internet ha fallado, algunas funciones podrían no estar disponibles')
-      }
-    };
+        // console.log('session', session);
+        setLoadSession(session);
+    }catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  // funcion para detectar si tenemos internet o no
+  const detectarInternet = async () => {
+    const stateInternet = await NetInfo.fetch();
+    if (stateInternet.isConnected === true) {
+      console.log('conectado');
+    } else {
+      Alert.alert('La conexión a Internet ha fallado, algunas funciones podrían no estar disponibles')
+    }
+  };
+
+  const onLogin = async () => {
+    await login(); // No es necesario proporcionar un argumento
+    navigation.replace('Dashboard');
+  };
 
   return (
     //  Componenete Background y del logo inicio
@@ -62,7 +80,7 @@ export const InicioScreen = ( {navigation} : Props ) => {
       </Animatable.View >
       {/* Texto de bienvenida */}
       <Animatable.View animation="fadeInUp" duration={1200}>
-        <View>
+        <View style={{marginBottom:20}}>
           <View style={Style.containerCenter}>
             <Text style={Style.textInicio}>
               {t('intro.bienvenida')}
@@ -71,15 +89,17 @@ export const InicioScreen = ( {navigation} : Props ) => {
               </Text>
             </Text>
           </View>
-          <View style={Style.container}>
+          <View style={Style.containerBtn}>
+             
             {/* Boton De crear una nueva cuenta  */}
             {
-              session === null ?  (
+              obtenerSession === null ?  (
                 <TouchableOpacity
                     activeOpacity={0.8}
                     style={Style.buttonRegistro}
                     onPress={() => navigation.replace('Registro')}>
                   <Text style={Style.textButton}>{t('intro.boton_ingresar')}</Text>
+                 
                 </TouchableOpacity>
               )
               :
@@ -88,7 +108,7 @@ export const InicioScreen = ( {navigation} : Props ) => {
                   <TouchableOpacity
                       activeOpacity={0.8}
                       style={Style.buttonInicio}
-                      onPress={() => navigation.navigate('Inicio')}>
+                      onPress={() => onLogin()}>
                     <Text style={Style.textButton}>{t('intro.boton_inicio')}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity

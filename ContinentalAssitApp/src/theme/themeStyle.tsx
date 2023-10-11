@@ -14,6 +14,13 @@ export const Style = StyleSheet.create({
     paddingHorizontal: 10,
   },
   
+  containerBtn: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+
   container2: {
     flex: 1,
     alignItems: 'center',

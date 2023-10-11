@@ -32,9 +32,15 @@ export const MiPlanScreen = () => {
     const {  usuarioRegistro, idioma } = useContext(AuthContext);
     const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
-
+    
+    // console.log('beneficiosRespuesta',beneficiosRespuesta)
+    // console.log('usuarioRegistro====>',usuarioRegistro?.codigo)
 
     useEffect(() => {
+        if (usuarioRegistro?.codigo === undefined) {
+            return;
+        }
+        // console.log('usuarioRegistro====>',usuarioRegistro)
         console.log("Ejecutando useEffect en MiPlanScreen");
         const fetchBeneficios = async () => {
             try {

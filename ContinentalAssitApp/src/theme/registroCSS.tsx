@@ -12,6 +12,7 @@ export const Style = StyleSheet.create({
   scrollView: {
     flex: 1,
     paddingHorizontal: 10,
+
   },
 
   containerCenter2: {
