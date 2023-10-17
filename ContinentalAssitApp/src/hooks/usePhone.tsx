@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ICountry, PhoneInput } from 'react-native-international-phone-number';
+import PhoneInput, { ICountry } from 'react-native-international-phone-number';
 import { Controller, useForm } from 'react-hook-form';
 import { Style } from '../theme/registroCSS';
 import { Text, TextInput, TouchableOpacity, Keyboard } from 'react-native'; // Importa Keyboard y TouchableOpacity
 import { useTranslation } from 'react-i18next';
 import { UsuarioRegistro, usuarioRegistro } from '../interfaces/usuarioRegistro';
+
 
 interface PhoneProps {
   control: any;
@@ -45,13 +46,14 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <React.Fragment>
           <PhoneInput
-            containerStyle={Style.input}
+            language="es"
+            defaultCountry="CO"
             defaultValue={defaultValue}
             value={value}
             onChangePhoneNumber={onChange}
             selectedCountry={selectedCountry}
             onChangeSelectedCountry={handleSelectedCountry}
-            placeholder='Ingresa tu número de teléfono'
+            placeholder={t('registro.telefonoTitular')}
             keyboardType="numeric" // Configura el teclado como numérico
             returnKeyType="done"
             onSubmitEditing={handleDonePress} // Maneja la presión de "Done"

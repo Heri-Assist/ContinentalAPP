@@ -9,6 +9,7 @@ import i18n from './src/i18n'; // Importa la configuración de i18n
 import 'intl';
 import 'intl-pluralrules';
 import { FirebaseProvider } from './src/context/firebaseContext';
+import 'react-native-localize';
 
 const AppState = ({children}:any) => {
   return(

@@ -28,7 +28,7 @@ const image = require('../../assets/imagenes/logo-avatar-2.jpg');
 export const MiCuentaScreen = () => {
 
     const { t } = useTranslation(); 
-    const { usuarioLogin } = useContext(AuthContext);
+    const { usuarioLogin, idioma, usuarioRegistro } = useContext(AuthContext);
     const [telefonos, setTelefonos] = useState<Telefono[]>([]);  
     
 
@@ -39,6 +39,7 @@ export const MiCuentaScreen = () => {
 
     // actuliza el estado de los teléfonos
     useEffect(() => {
+        // console.log('usuarioRegistro====>',usuarioRegistro?.id)
         // console.log("Ejecutando UsuarioLogin en MiCuentaScreen", usuarioLogin);
         if (usuarioLogin) {
           setTelefonos(usuarioLogin.telefonos);
@@ -104,7 +105,7 @@ export const MiCuentaScreen = () => {
             pais_name: selectedCountryData.pais_name,
             telefono
         }
-       
+        
         try{
             const resp = await continentalApi.post<TelefonosRespuesta>('/app_insertar_telefono',  dataTelefono, { headers })
             if(resp.data){
@@ -147,7 +148,7 @@ export const MiCuentaScreen = () => {
         setSelectedCountryData({
           pais_callingCode: country.callingCode || '',
           pais_flag: country.flag || '',
-          pais_name: country.name || '',
+          pais_name: idioma === 'es' ? country.name.es : country.name.en || '',
         });
       };
 

@@ -18,8 +18,9 @@ export const InicioScreen = ( {navigation} : Props ) => {
   const { t } = useTranslation();
   const { session, isGeolocation, idioma, logout, login } = useContext(AuthContext);
   const [obtenerSession, setLoadSession] = useState(null || session);
-  // console.log('idioma', idioma);
 
+  
+  
   useEffect(() => {
     if (isGeolocation?.location) {
       const { latitude, longitude } = isGeolocation.location;
@@ -29,18 +30,15 @@ export const InicioScreen = ( {navigation} : Props ) => {
     }
    
   }, [isGeolocation]);
-
-  const cerrarSession = async () => {
-    console.log('cerrar session');
-    await logout(); 
-  }   
-
+  
   useEffect(() => {
     loadSession(); // Llamar a la función detectarInternet al iniciar la pantalla
     detectarInternet();
-    session;
-  }, []);
-
+    obtenerSession
+  }, [obtenerSession]);
+  
+  
+  // funcion para cargar la session
   const loadSession = async () => {
     try {
       const session = await AsyncStorage.getItem('session');
@@ -51,9 +49,19 @@ export const InicioScreen = ( {navigation} : Props ) => {
       console.log(error);
     }
   }
+  
+  // funcion para cerrar session
+  const cerrarSession = async () => {
+    console.log('cerrar session');
+    await logout(); 
+    loadSession();
+  }   
 
 
   // funcion para detectar si tenemos internet o no
+  /**
+   * Detects the internet connection status and logs a message if connected or shows an alert if disconnected.
+   */
   const detectarInternet = async () => {
     const stateInternet = await NetInfo.fetch();
     if (stateInternet.isConnected === true) {
@@ -63,11 +71,15 @@ export const InicioScreen = ( {navigation} : Props ) => {
     }
   };
 
+
+  // funcion para iniciar session
   const onLogin = async () => {
     await login(); // No es necesario proporcionar un argumento
     navigation.replace('Dashboard');
   };
 
+
+  // Renderizar la pantalla
   return (
     //  Componenete Background y del logo inicio
     <InicioBackgroundComponent >

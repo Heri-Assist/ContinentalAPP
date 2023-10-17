@@ -26,21 +26,21 @@ import continentalApi from '../api/continentalApi';
 import { BeneficiosRespuesta } from '../interfaces/Beneficios';
 
 
+
 const { t } = useTranslation();
 
 export const MiPlanScreen = () => {
-    const {  usuarioRegistro, idioma } = useContext(AuthContext);
+    const {  usuarioRegistro, idioma, usuarioLogin } = useContext(AuthContext);
     const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
     
     // console.log('beneficiosRespuesta',beneficiosRespuesta)
-    // console.log('usuarioRegistro====>',usuarioRegistro?.codigo)
 
     useEffect(() => {
+        // console.log('usuarioRegistro====>',usuarioRegistro)
         if (usuarioRegistro?.codigo === undefined) {
             return;
         }
-        // console.log('usuarioRegistro====>',usuarioRegistro)
         console.log("Ejecutando useEffect en MiPlanScreen");
         const fetchBeneficios = async () => {
             try {
@@ -85,13 +85,14 @@ export const MiPlanScreen = () => {
             >
                 <View style={Style.container4}> 
                     <View style={[Style.column, Style.separador]}>
-                        <Text style={Style.text}>{t('miPlan.numeroVoucher')}</Text>
-                        <Text style={Style.textBoldAzul}>{usuarioRegistro?.codigo} </Text>
+                        <Text style={Style.text}>{t('miPlan.numeroVoucher')}
+                        </Text>
+                        <Text style={Style.textBoldAzul}>{usuarioRegistro?.codigo} </Text>              
                     </View>
-                    <View style={[Style.column, Style.separador]}>
+                    <View style={[Style.column, Style.marginEspacio]}>
                         <Text style={Style.text}>{t('miPlan.categoria')}</Text>
-                        <Text style={Style.textBold}>{usuarioRegistro?.categoria} </Text>
-                    </View>
+                        <Text style={[Style.textBold, ]}>{usuarioRegistro?.categoria} </Text>
+                    </View> 
                 </View>
         
                 <View style={Style.containerCalendar}>

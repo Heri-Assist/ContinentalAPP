@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { it } from '@jest/globals';
 
 const PRIMARY_COLOR = "#00184C";
@@ -25,7 +25,7 @@ export const Style = StyleSheet.create({
 		borderBottomColor: BORDER_COLOR,
 		alignItems: 'center',
 		backgroundColor:BACKGROUND_COLOR,
-		// paddingHorizontal: 10,
+		paddingVertical: 10,
 	},
  
 	container3: {
@@ -52,9 +52,14 @@ export const Style = StyleSheet.create({
 	},
 
 	separador:{
-		borderRightWidth: 1,
+		borderStyle: Platform.OS === 'ios' ? 'solid' : 'dashed',
+		borderRightWidth: 2,
 		borderRightColor: BORDER_COLOR,
 		paddingLeft: 10,
+	},
+
+	marginEspacio: {
+		marginLeft: 10,
 	},
 
 	text: {

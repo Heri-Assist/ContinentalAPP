@@ -16,7 +16,7 @@ export interface AuthState {
     status: "checking" | "authenticated" | "not-authenticated";
     session: string | null;
     errorMessage: string;
-    usuarioRegistro:Usuario  | null;   
+    usuarioRegistro?:Usuario  | null;   
     usuarioLogin: UsuarioLogin | null;   
     token: string | null;
     isLoading: boolean;
@@ -30,8 +30,8 @@ export interface AuthState {
  * Type for the authentication actions.
  */
 type AuthAction =  
-    | { type: "signUp", payload: { token: string,usuarioRegistro:Usuario, session:string | null, formData:{}, isGeolocation: {}, idioma:string } }
-    | { type: "login", payload: { token: string, usuarioLogin:UsuarioLogin, session:string, formData:{}, isGeolocation: {}, idioma:string, usuarioRegistro:Usuario | null } }
+    | { type: "signUp", payload: { token: string,usuarioRegistro:Usuario, session:string | null, formData:{}, isGeolocation: {}, idioma:string} }
+    | { type: "login", payload: { token: string, usuarioLogin:UsuarioLogin, session:string, formData:{}, isGeolocation: {}, idioma:string, usuarioRegistro?:Usuario | null } }
     | { type: "addError", payload: string}
     | { type: "removeError" }
     | { type: "notAuthenticated" }
@@ -82,7 +82,6 @@ export const authReducer = ( state: AuthState, action: AuthAction ): AuthState =
                 usuarioRegistro: action.payload.usuarioRegistro,
                 token: action.payload.token, // Incluye el token en el estado
                 session: action.payload.session,
-                errorMessage: '',
                 formData: action.payload.formData,
                 isLoading: false,
                 idioma: action.payload.idioma,

@@ -15,11 +15,13 @@ import {useForm, Controller} from 'react-hook-form';
 import {Style} from '../theme/registroCSS';
 import {StackScreenProps} from '@react-navigation/stack';
 import {usePhone} from '../hooks/usePhone';
-import {UsuarioRegistro} from '../interfaces/usuarioRegistro';
+import {ErrorUsuario, UsuarioRegistro} from '../interfaces/usuarioRegistro';
 import {AuthContext} from '../context/authContext';
 import {useTranslation } from 'react-i18next';
 import LoadingComponent from '../components/LoadingComponent';
 import { ICountry } from 'react-native-international-phone-number';
+import i18next from 'i18next';
+import { set } from 'firebase/database';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -28,18 +30,15 @@ export const RegistroScreen = ({navigation}: Props) => {
 
   const { signUp, errorMessage, removeError, usuarioRegistro, idioma } = useContext(AuthContext);
   // Inicializa selectedCountry con valores vacíos o los valores adecuados
+
   const { t } = useTranslation();
 
-
-  useEffect(() => {
-
-    // if(errorMessage.length === 0) return;
-
-  }, [errorMessage]);
+  
   
   const [fechaNacimiento, setFechaNacimiento] = useState<Date>(new Date());
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
+
   const image = require('../../assets/imagenes/bg-01.jpg');
   const {
     control,
@@ -54,6 +53,23 @@ export const RegistroScreen = ({navigation}: Props) => {
   });
   
 
+  useEffect(() => {
+    console.log('errorUseEfect===========>>>', errorMessage);
+    if(errorMessage.length === 0) return;
+
+      Alert.alert('Registro Incorrecto', errorMessage, [
+        { text: 'Ok', onPress: () => AccionErrror()},
+      ]);
+    
+
+  }, [errorMessage]);
+
+
+  const AccionErrror = () => {
+    removeError();
+    navigation.replace('Registro');
+  }
+
   // ...
   const onRegistro = async (data: UsuarioRegistro) => {
     Keyboard.dismiss();
@@ -65,29 +81,30 @@ export const RegistroScreen = ({navigation}: Props) => {
       data.pais_name = selectedCountryData.pais_name;
       try {
         
-        await signUp(data);
-        const error =  errorMessage
-        setIsLoading(false); // Desactivar el indicador de carga después de obtener la respuesta
-        if (error.length === 0){;
-          navigation.navigate('Respuesta')
+      const resp = await signUp(data);
+       
+        setIsLoading(false); // Desactivar el indicador de carga
+        console.log('........resp.......', resp);
+        
+        if(resp === undefined){
+          navigation.navigate('Respuesta');
         }else{
-            Alert.alert('Registro Incorrecto', error, [
-              { text: 'Ok', onPress: () =>  navigation.replace('Registro')},
-            ]);
-          }
-        } catch (error) {
-          setIsLoading(false); // Desactivar el indicador de carga en caso de error
+          return
         }
+
+      } catch (error) {
+        setIsLoading(false); // Desactivar el indicador de carga en caso de error
+      }
   };
 
   const [selectedCountryData, setSelectedCountryData] = useState<{
     pais_callingCode: string;
     pais_flag: string;
-    pais_name: string;
+    pais_name: string ;
   }>({
     pais_callingCode: '',
     pais_flag: '',
-    pais_name: '',
+    pais_name: '' ,
   });
 
   const handleCountryChange = (country: ICountry) => {
@@ -95,7 +112,7 @@ export const RegistroScreen = ({navigation}: Props) => {
     setSelectedCountryData({
       pais_callingCode: country.callingCode || '',
       pais_flag: country.flag || '',
-      pais_name: country.name || '',
+      pais_name: idioma === 'es' ? country.name.es : country.name.en || '',
     });
   };
 
@@ -170,21 +187,31 @@ export const RegistroScreen = ({navigation}: Props) => {
                   onPress={() => setOpen(true)}
                   disabled={open} // Deshabilita el botón cuando el DatePicker está abierto
                 >
-                  <Text>{fechaNacimiento.toDateString()}</Text>
+                  <Text>
+                    {new Date(fechaNacimiento).toLocaleDateString(
+                      i18next.language,
+                      { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+                    )}
+                   </Text>
                 </TouchableOpacity>
                 <DatePicker
+                  locale={idioma}
+                  title={t('registro.fechaNacimiento')}
                   modal
                   mode="date"
                   open={open}
                   date={fechaNacimiento}
+                  confirmText={t('registro.confirmar')}
                   onConfirm={newDate => {
                     setOpen(false);
                     setFechaNacimiento(newDate);
-                    setValue('nacimiento', newDate);
+                    setValue('nacimiento', newDate);       
                   }}
                   onCancel={() => {
                     setOpen(false);
                   }}
+                  cancelText={t('registro.cancelar')}
+                  theme="auto"
                 />
               </View>
             </View>

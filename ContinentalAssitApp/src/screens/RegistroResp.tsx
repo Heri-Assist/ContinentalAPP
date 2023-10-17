@@ -74,7 +74,6 @@ export const RegistroResp = ({navigation} : Props) => {
   const SiEnviarCodigo = async () => {
     try {
         setIsLoading(true); // Activar el indicador de carga
-
         const dataConfirmar= {
           ps: data.ps,
           nombre: data.nombre,
@@ -86,7 +85,7 @@ export const RegistroResp = ({navigation} : Props) => {
           localCelular: data.telefono,
           id_emision: data.idEmision
         }
-
+        console.log('dataConfirmar', dataConfirmar.pais_name);
         // console.log('dataConfirmar', dataConfirmar);
         
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });

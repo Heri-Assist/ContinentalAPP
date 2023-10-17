@@ -156,7 +156,7 @@ export const Style = StyleSheet.create({
   columnas: {
     flex: 1,
     justifyContent: 'space-between',
-    width: '100%',
+    width: '90%',
     margin: 5,
   },
 

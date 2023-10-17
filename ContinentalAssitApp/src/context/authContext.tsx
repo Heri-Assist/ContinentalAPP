@@ -38,7 +38,7 @@ type AuthContextProps = {
     session: string | null;
     token: string | null;
     status: "checking" | "authenticated" | "not-authenticated";
-    usuarioRegistro:Usuario | null;   
+    usuarioRegistro?:Usuario | null;   
     usuarioLogin: UsuarioLogin | null;   
     formData: {} | null;
     idUsuario:CodigoRegistro | null;
@@ -139,12 +139,24 @@ export const AuthProvider = ({children}:any) => {
                         const guardarSesion = async () => {
                             try {
                                 await AsyncStorage.setItem('session', JSON.stringify(resp.data));
-                                console.log('Sesión guardada en AsyncStorage');
                             } catch (error) {
                                 console.error('Error al guardar la sesión en AsyncStorage', error);
                             }
                         };
                         await guardarSesion();
+                        const obtenerRegistroUsuario = async () => {
+                            try {
+                              const sessionData = await AsyncStorage.getItem('registroUsuario');
+                             return JSON.parse(sessionData as string);
+                            //  console.log('sessionData', sessionData);
+                            } catch (error) {
+                              console.error('Error al obtener la sesión desde AsyncStorage', error);
+                              return null;
+                            }
+                        }
+            
+                        const registroUsuario = await obtenerRegistroUsuario();
+                        const registro = registroUsuario;
     
                         dispatch({
                             type: 'login',
@@ -155,16 +167,20 @@ export const AuthProvider = ({children}:any) => {
                                 formData: datosLogin,
                                 isGeolocation: { location, error},
                                 idioma: NativeModules.I18nManager.localeIdentifier,
-                                usuarioRegistro: null
+                                usuarioRegistro: registro,
                             }
                         });
+                       
                     } else {
+
                         const errorUsuariosLogin: ErrorUsuarioLogin[] = resp.data.resultado as ErrorUsuarioLogin[];
                         const errorMessage = errorUsuariosLogin[0]?.mensaje_error || 'Información incorrecta';
                         dispatch({
                             type: 'addError',
                             payload: errorMessage,
                         });
+
+                        
                     }
             } catch (error) {
                 console.log(error)
@@ -219,8 +235,6 @@ export const AuthProvider = ({children}:any) => {
                         const usuarios = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin; 
                         if (session) {
                             const dataUsuario = (session.resultado as LoginRespuesta).usuario as UsuarioLogin;
-                            // console.log ('dataUsuario inicio session ====>>>>', dataUsuario);
-                            // console.log('registro++++++++++++>>>>>>>>', registro.codigo);
                             dispatch({
                                 type: 'login',
                                 payload: {
@@ -252,11 +266,13 @@ export const AuthProvider = ({children}:any) => {
     
     //Registrar un nuevo usuario
     const signUp = async( data:UsuarioRegistro ) => {
+
         const { nombre, nacimiento, email, telefono } = data;
         // console.log('Datos Registro',data);
         const months = [
             'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
         ];
+
         try {
              
             // Formatear la fecha manualmente
@@ -278,12 +294,15 @@ export const AuthProvider = ({children}:any) => {
                 idEmision: data.idEmision,
             }
             // console.log('datosRegistro',datosRegistro);
+
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario',  datosRegistro, { headers });
             // console.log(resp.data.resultado[0].mensaje_error)
+            console.log('resp.data========>',resp.data)
             if (resp.data.error === false ) {
                 const usuarios: Usuario[] = resp.data.resultado as Usuario[];
                 datosRegistro.idEmision = usuarios[0].id;  
                 
+                // Guardar la sesión en AsyncStorage
                 const guardarSesionRegistroUsuario = async () => {
                     try {
                         await AsyncStorage.setItem('registroUsuario', JSON.stringify(usuarios[0]));
@@ -292,6 +311,7 @@ export const AuthProvider = ({children}:any) => {
                         console.error('Error al guardar la sesión en AsyncStorage', error);
                     }
                 };
+
                 await guardarSesionRegistroUsuario();
                
                 dispatch({
@@ -312,9 +332,10 @@ export const AuthProvider = ({children}:any) => {
                     type: 'addError',
                     payload: errorMessage,
                 });
+                return resp.data.error;
             }        
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     }
     

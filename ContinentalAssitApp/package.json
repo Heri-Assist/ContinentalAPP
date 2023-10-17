@@ -41,7 +41,7 @@
     "react-native-elements": "^3.4.3",
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.12.0",
-    "react-native-international-phone-number": "^0.4.10",
+    "react-native-international-phone-number": "0.6.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-localize": "^3.0.2",
     "react-native-paper": "^5.10.0",
