@@ -17,7 +17,10 @@ export const CondicionesGeneralesScreen = ({navigation}: Props) => {
       
       return (
         <View style={{ flex: 1 }}>
-          
+            {/* Agrega un botón de regreso */}
+            <TouchableOpacity style={styles.backButton} onPress={navigation.goBack}>
+                <Text style={styles.backButtonText}>Regresar</Text>
+            </TouchableOpacity>
           <Pdf  
             trustAllCerts={false}    
             source={{uri: resources.url, cache: true}}
@@ -51,6 +54,16 @@ const styles = StyleSheet.create({
       flex:1,
       width:Dimensions.get('window').width,
       height:Dimensions.get('window').height,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 30,
+    left: 20,
+    zIndex: 1,
+    backgroundColor: 'transparent',
+  },
+  backButtonText: {
+      color: 'red', // Puedes personalizar el color del texto
   },
  
 });

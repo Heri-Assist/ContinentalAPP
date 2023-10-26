@@ -94,8 +94,8 @@ android {
             applicationId "com.continentalassitapp"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 203
-            versionName "2.1.2"
+            versionCode 205
+            versionName "2.1.4"
         }
     signingConfigs {
         release {
@@ -120,7 +120,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug   
+            // signingConfig signingConfigs.release  
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -130,7 +130,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-    // implementation(":react-native-splash-screen")
+    // implementation project(":react-native-splash-screen")
     implementation project(':react-native-splash-screen')
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

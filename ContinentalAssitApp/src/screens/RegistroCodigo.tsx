@@ -58,15 +58,18 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
             dataRespuesta,
             { headers }
         );
+        
         if(enviarCodigo.data.error === false){
-          
           await login(dataForm as UsuarioRegistro)
           setIsLoading(false);
           
           navigation.replace('Dashboard') 
          
         }else{
-          
+          setIsLoading(false);
+          Alert.alert('Codigo Incorrecto', enviarCodigo.data.resultado[0].mensaje_error, [
+            { text: 'Ok', onPress: () => console.log('Cancel Pressed')},
+          ]);
         }
 
     } catch (error) {

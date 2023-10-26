@@ -12,6 +12,7 @@ import { firebaseContext } from '../context/firebaseContext';
 import RNPickerSelect from 'react-native-picker-select';
 import { ChatMotivo, MotivoChat } from '../interfaces/motivoChatInterface';
 import { StackScreenProps } from '@react-navigation/stack';
+import { LlamadaEmergencia } from '../components/LlamadaEmergencia';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -150,7 +151,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                 </View>
                                 {isExpanded2 && (
                                     <View style={Style.infoContent}>
-                                        
+                                     <LlamadaEmergencia />
                                     </View>
                                 )}
                             </TouchableOpacity>

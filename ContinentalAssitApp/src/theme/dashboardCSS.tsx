@@ -154,8 +154,9 @@ export const Style = StyleSheet.create({
 		paddingHorizontal: 2,
 		paddingVertical: 10,
 		borderRadius: 5,
-		backgroundColor: SECONDARY_COLOR,
+		// backgroundColor: SECONDARY_COLOR,
 		marginVertical: 20,
+	
 	},
 	infoContent:{
 		paddingHorizontal: 10,
@@ -166,10 +167,10 @@ export const Style = StyleSheet.create({
 	},
 
 	textEmergenciaInit:{
-		fontSize: 18,
-		color: PRIMARY_COLOR,
+		fontSize: 16,
+		color: '#332F2C',
 		textAlign: 'center',	
-
+		fontWeight: 'bold',
 	},	
 
 	listRow:{

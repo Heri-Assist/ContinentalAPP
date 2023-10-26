@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { te } from 'date-fns/locale';
 
 const PRIMARY_COLOR = "#00184C";
 const SECONDARY_COLOR = "#F2DB85";
@@ -263,5 +264,43 @@ export const Style = StyleSheet.create({
 	textContainerPreguntas: {
 		flex: 1,
 	},
+
+	card: {
+    margin: 10,
+    borderRadius: 10,
+		backgroundColor: '#fff',
+  },
+  cardContent: {
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+		
+	
+  },
+  pais: {
+    fontSize: 16,
+    fontWeight: 'bold',
+		marginTop:10
+  },
+  numero: {
+    fontSize: 14,
+		fontWeight: 'bold',
+    // textAlign: 'right',
+  },
+
+	cardContainerColor: {
+		backgroundColor: SECONDARY_COLOR,
+		paddingHorizontal: 10,
+		borderRadius: 10,
+		paddingVertical:10,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3.84,
+		elevation: 5,
+		}
 
 });  

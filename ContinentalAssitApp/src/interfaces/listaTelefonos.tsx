@@ -10,4 +10,5 @@ export interface Telefonos {
 	pais:       string;
 	numero:     string;
 	alpha2code: string;
+	callingCodes: string;
 }

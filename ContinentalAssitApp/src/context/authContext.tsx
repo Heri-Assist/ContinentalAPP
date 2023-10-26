@@ -280,7 +280,8 @@ export const AuthProvider = ({children}:any) => {
             const day = nacimiento?.getDate();
             const month = months[nacimiento===undefined? 1 : nacimiento.getMonth()];
             const year = nacimiento?.getFullYear();
-            const formattedDate = `${day}-${month}-${year}`;
+            const formattedDay = String(day).padStart(2, '0');
+            const formattedDate = `${formattedDay}-${month}-${year}`;
 
             const datosRegistro = {
                 ps: 'www.continentalassist.com',
@@ -293,11 +294,11 @@ export const AuthProvider = ({children}:any) => {
                 pais_flag: data.pais_flag,
                 idEmision: data.idEmision,
             }
-            // console.log('datosRegistro',datosRegistro);
+            console.log('datosRegistro',datosRegistro);
 
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario',  datosRegistro, { headers });
             // console.log(resp.data.resultado[0].mensaje_error)
-            console.log('resp.data========>',resp.data)
+            // console.log('resp.data========>',resp.data)
             if (resp.data.error === false ) {
                 const usuarios: Usuario[] = resp.data.resultado as Usuario[];
                 datosRegistro.idEmision = usuarios[0].id;  

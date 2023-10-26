@@ -18,7 +18,7 @@ import LoadingCompoment from '../components/LoadingComponent';
 import continentalApi from '../api/continentalApi';
 import { use } from 'i18next';
 import { useForm } from 'react-hook-form';
-import { is } from 'date-fns/locale';
+import { is, te } from 'date-fns/locale';
 
 
 interface Props extends StackScreenProps <any, any> { } 
@@ -106,7 +106,7 @@ export const RegistroResp = ({navigation} : Props) => {
     <ScrollView 
         style={ Style.scrollView} > 
        
-      <View style={{   paddingTop:40}}>
+      <View style={{paddingTop:40}}>
         <Animatable.View animation="fadeInDown" duration={1200} style={Style.container}>
           <Image 
             source={require('../../assets/imagenes/logo.png')}
@@ -118,6 +118,7 @@ export const RegistroResp = ({navigation} : Props) => {
         
           <Text style={Style.texto}>
             {t('registro.hemosEncontrado')}
+            '<Text style={Style.textBold}>{t('registro.confirmar')}</Text>'
           </Text>
           <View style={Style.fondoVaucher}>
             <Text style={Style.texto}>

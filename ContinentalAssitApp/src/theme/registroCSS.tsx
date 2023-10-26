@@ -61,7 +61,7 @@ export const Style = StyleSheet.create({
   },
 
   fondoVaucher: {
-    backgroundColor: '#cfff99',
+    backgroundColor: SECONDARY_COLOR,
     width: '100%',
     height: 80,
     marginVertical:10,

@@ -188,10 +188,10 @@ export const RegistroScreen = ({navigation}: Props) => {
                   disabled={open} // Deshabilita el botón cuando el DatePicker está abierto
                 >
                   <Text>
-                    {new Date(fechaNacimiento).toLocaleDateString(
-                      i18next.language,
-                      { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
-                    )}
+                      {new Date(fechaNacimiento).toLocaleDateString(
+                        i18next.language,
+                        { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+                      )}
                    </Text>
                 </TouchableOpacity>
                 <DatePicker
