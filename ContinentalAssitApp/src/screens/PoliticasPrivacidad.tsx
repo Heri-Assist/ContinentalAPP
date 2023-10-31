@@ -20,7 +20,7 @@ export const PoliticasPrivacidad = ({navigation}: Props) => {
           <TouchableOpacity style={styles.backButton} onPress={navigation.goBack}>
                 <Text style={styles.backButtonText}>Regresar</Text>
             </TouchableOpacity>
-          <Pdf  
+          <Pdf 
             trustAllCerts={false}    
             source={{uri: resources.url, cache: true}}
             onLoadComplete={(numberOfPages,filePath) => {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 30,
+    top: 70,
     left: 20,
     zIndex: 1,
     backgroundColor: 'transparent',

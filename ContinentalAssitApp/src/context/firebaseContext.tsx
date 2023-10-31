@@ -3,7 +3,7 @@ import { firebaseReducer, FirebaseState } from './firebaseReducer';
 import { MessageChat, UserFirebase } from '../interfaces/firebaseUser';
 import continentalApi from '../api/continentalApi';
 import { MotivoChat, ChatMotivo } from '../interfaces/motivoChatInterface';
-import { FIREBAESE_APP, FIREBASE_AUTH, FIREBASE_DATABASE, ref, set, onValue, signOut } from '../api/firebaseApi';
+import { FIREBASE_APP, FIREBASE_AUTH, FIREBASE_DATABASE, ref, set, onValue, signOut } from '../api/firebaseApi';
 import { DataSnapshot } from 'firebase/database';
 import { Data } from '../interfaces/Login';
 import firebase, { FirebaseError } from 'firebase/app'

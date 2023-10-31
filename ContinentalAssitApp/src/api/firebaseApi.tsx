@@ -24,15 +24,15 @@ export const signOut = async () => {
 };
 
 
-const FIREBAESE_APP = initializeApp(config);
-const FIREBASE_DATABASE = getDatabase(FIREBAESE_APP);
-const FIREBASE_AUTH = initializeAuth(FIREBAESE_APP, {
+const FIREBASE_APP = initializeApp(config);
+const FIREBASE_DATABASE = getDatabase(FIREBASE_APP);
+const FIREBASE_AUTH = initializeAuth(FIREBASE_APP, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
 
 
 export {
-  FIREBAESE_APP,
+  FIREBASE_APP,
   FIREBASE_DATABASE,
   FIREBASE_AUTH,
   ref, // Exporta la función de referencia de la base de datos
