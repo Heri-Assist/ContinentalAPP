@@ -61,9 +61,9 @@ export const LlamadaEmergencia = () => {
 					<TouchableOpacity onPress={handleCallPress} style={Style.cardContainerColor}>
 						
 						<Text style={Style.numero}>
-							<Text style={{marginTop:20}}>
+							{/* <Text style={{alignContent:'center'}}>
 								<Icon name="phone" size={20} color="#00184C"/> 
-							</Text>
+							</Text> */}
 							<Text>
 								{listaTelefonos[0]?.numero}
 							</Text>

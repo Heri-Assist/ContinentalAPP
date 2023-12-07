@@ -192,7 +192,7 @@ export const AuthProvider = ({children}:any) => {
                 try {
                   const sessionData = await AsyncStorage.getItem('session');
                  return JSON.parse(sessionData as string);
-                // console.log('sessionData', sessionData);
+                //  console.log('sessionData', sessionData);
                 } catch (error) {
                   console.error('Error al obtener la sesión desde AsyncStorage', error);
                   return null;
@@ -205,8 +205,8 @@ export const AuthProvider = ({children}:any) => {
             const obtenerRegistroUsuario = async () => {
                 try {
                   const sessionData = await AsyncStorage.getItem('registroUsuario');
+                //   console.log('sessionData', sessionData);
                  return JSON.parse(sessionData as string);
-                //  console.log('sessionData', sessionData);
                 } catch (error) {
                   console.error('Error al obtener la sesión desde AsyncStorage', error);
                   return null;

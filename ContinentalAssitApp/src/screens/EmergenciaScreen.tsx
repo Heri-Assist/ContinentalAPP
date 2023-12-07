@@ -18,7 +18,7 @@ import { LlamadaEmergencia } from '../components/LlamadaEmergencia';
 interface Props extends StackScreenProps<any, any> {}
 // Pantalla de emergencia que muestra los datos de contacto de la empresa
 export const EmergenciaScreen = ({navigation}: Props) => {
-
+    const urls = '../../assets/iconos/ContinentalAssist-App-Icono-Chat-01.png'
     const { idioma } = useContext(AuthContext);
     const { t } = useTranslation();
     const [isExpanded1, setIsExpanded1] = useState(false);
@@ -31,6 +31,8 @@ export const EmergenciaScreen = ({navigation}: Props) => {
         setVisible(true) 
     };
 
+
+
     const getMotivosChat = async () => {
        await motivosChat()
     }
@@ -38,7 +40,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
     const [selectedMotivo, setSelectedMotivo] = useState(null);
 
     // Obtiene los motivos de chat al cargar la pantalla
-    const { motivosChatData, motivosChat } = useContext(firebaseContext);
+    const { motivosChatData, motivosChat, entrarChat } = useContext(firebaseContext);
     useEffect(() => {
         getMotivosChat();
     }, []);
@@ -78,8 +80,8 @@ export const EmergenciaScreen = ({navigation}: Props) => {
         }
     };
 
-    const getEntrarChat = () => {
-        console.log('Entrar Chat')
+    const getEntrarChat = async () => {
+       await entrarChat(selectedMotivo!)
         navigation.navigate('Chat')
 
     }
@@ -102,7 +104,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                 <View style={Style.listRow}>
                                     <View>
                                         <Image
-                                            source={require('../../assets/iconos/icon-08.png')}
+                                            source={require('../../assets/iconos/ContinentalAssist-App-Icono-Chat-01.png')}
                                             style={Style.imgList}
                                         />
                                     </View>
@@ -134,7 +136,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                             <View style={Style.listRow}>
                                     <View>
                                         <Image
-                                            source={require('../../assets/iconos/icon-08.png')}
+                                            source={require('../../assets/iconos/ContinentalAssist-App-Icono-Telefono-01.png')}
                                             style={Style.imgList}
                                         />
                                     </View>
@@ -160,7 +162,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                             <View style={Style.listRow}>
                                     <View>
                                         <Image
-                                            source={require('../../assets/iconos/icon-08.png')}
+                                            source={require('../../assets/iconos/ContinentalAssist-App-Icono-Documentos.png')}
                                             style={Style.imgList}
                                         />
                                     </View>
@@ -186,7 +188,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                             <View style={Style.listRow}>
                                     <View>
                                         <Image
-                                            source={require('../../assets/iconos/icon-08.png')}
+                                            source={require('../../assets/iconos/ContinentalAssist-App-Icono-Mail-01.png')}
                                             style={Style.imgList}
                                         />
                                     </View>
@@ -247,8 +249,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                                     placeholder={{ label: 'Seleccione un motivo', value: null }}
                                                     onValueChange={(value) => {
                                                     // Realiza acciones según el motivo seleccionado
-                                                    console.log('Motivo seleccionado:', value);
-                                                    // hideModal(); // Cierra el modal después de la selección
+                                                        setSelectedMotivo(value);
                                                     }}
                                                     items={motivosChatData?.map((motivo: ChatMotivo) => ({
                                                             label: motivo?.nombre_motivo,

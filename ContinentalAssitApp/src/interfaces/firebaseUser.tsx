@@ -4,12 +4,14 @@ export interface UserFirebase {
   ipLatitude: string;
   ipLongitude: string;
   email: string;
-  language: string;
+  language: string; 
 }
 
 export interface MessageChat {
-  id: string;
-  text: string;
-  isSent: boolean;
-  timestamp: number;
+  de: string;
+  fecha: object | { seconds: number; nanoseconds: number } | number;
+  mensaje: string;
+  tipo:string;
+  nombreArchivo: string;
+  isSent?: boolean,
 }

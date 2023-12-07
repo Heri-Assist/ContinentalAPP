@@ -12,8 +12,10 @@ const COLOR_AZUL_CLARO = "#69C8EF";
   container: {
     flex: 1,
     backgroundColor: 'white',
-		paddingHorizontal: 25,
-		
+		paddingHorizontal: 12,
+		marginTop:20,
+    marginBottom: 10,
+    paddingVertical: 10,
   },
   
 	messagesContainer: {
@@ -23,6 +25,7 @@ const COLOR_AZUL_CLARO = "#69C8EF";
 		borderWidth: 1,
 		borderColor: COLOR_GRIS,
 		borderRadius: 15,
+    padding:5,
   },
   
 	message: {
@@ -40,7 +43,7 @@ const COLOR_AZUL_CLARO = "#69C8EF";
     borderWidth: 1,
     borderColor: COLOR_GRIS,
     backgroundColor: 'white',
-		marginBottom: 20,
+		marginTop: 10,
 		borderRadius: 20,
   },
   
@@ -70,5 +73,29 @@ const COLOR_AZUL_CLARO = "#69C8EF";
   received: {
     alignSelf: 'flex-start',
   },
+
+  attachButton: {
+    padding: 10,
+    marginHorizontal: 10,
+  },
+
+  timestamp: {
+    fontSize: 10,
+    color: '#888',
+    marginTop: 5,
+  },
+
+  receivedMessage: {
+    color: '#fff',
+    fontSize: 14,
+    fontStyle: 'italic',
+    marginTop: 5,
+  },
+
+  mensajeText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+
 
 });

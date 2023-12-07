@@ -65,7 +65,7 @@ export const ExtrasScreen = ({navigation}: Props) => {
                         <View style={Style.listRow}>
                             <View>
                                 <Image
-                                    source={require('../../assets/iconos/icon-08.png')}
+                                    source={require('../../assets/iconos/ContinentalAssist-App-Icono-Documentos.png')}
                                     style={Style.imgList}
                                 />
                             </View>
@@ -81,7 +81,7 @@ export const ExtrasScreen = ({navigation}: Props) => {
                         <View style={Style.listRow}>
                             <View>
                                 <Image
-                                    source={require('../../assets/iconos/icon-08.png')}
+                                    source={require('../../assets/iconos/ContinentalAssist-App-Icono-Documentos.png')}
                                     style={Style.imgList}
                                 />
                             </View>

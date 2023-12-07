@@ -33,15 +33,7 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
       name="telefono"
       control={control}
       rules={{
-        required: t('registro.errorRequerido'),
-        minLength: {
-          value: 9,
-          message: t('registro.errorMinimo'),
-        },
-        maxLength: {
-          value: 13,
-          message: t('registro.errorMaximo'),
-        },
+        required: t('registro.errorRequerido')
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <React.Fragment>

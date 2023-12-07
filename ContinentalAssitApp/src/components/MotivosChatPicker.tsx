@@ -3,7 +3,11 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { firebaseContext } from '../context/firebaseContext';
 
-const MotivosChatPicker = ({ onClose }) => {
+type MotivosChatPickerProps = {
+  onClose: (value: string) => void;
+};
+
+const MotivosChatPicker: React.FC<MotivosChatPickerProps> = ({ onClose }) => {
   const { motivosChat } = useContext(firebaseContext);
   const [selectedValue, setSelectedValue] = useState('');
 

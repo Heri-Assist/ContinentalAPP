@@ -31,7 +31,7 @@ export const PreguntasFrecuentesComponent: React.FC<PreguntasFrecuentesComponent
 							<View style={Style.listRow}>
 									<View>
 											<Image
-													source={require('../../assets/iconos/icon-08.png')}
+													source={require('../../assets/iconos/ContinentalAssist-App-Icono-Preguntas-01.png')}
 													style={Style.imgList}
 											/>
 									</View>
