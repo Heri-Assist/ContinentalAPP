@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onChildAdded, push, child, update, DataSnapshot, set, onValue, onChildChanged, serverTimestamp } from "firebase/database";
+import { getDatabase, ref, onChildAdded, push, child, update, DataSnapshot, set, onValue, onChildChanged, serverTimestamp, get } from "firebase/database";
 import { getStorage,  uploadBytesResumable, getDownloadURL  } from "firebase/storage";
 
 const firebaseConfig = {
@@ -20,4 +20,24 @@ const dbRef = ref(database);
 const storage = getStorage(firebase);
 
 
-export { firebase, database, dbRef, storage, getDownloadURL, push, ref, uploadBytesResumable, onChildAdded, child, update, DataSnapshot, set, onValue, onChildChanged, serverTimestamp }; 
+
+
+export { 
+        firebase, 
+        database, 
+        dbRef, 
+        storage, 
+        getDownloadURL, 
+        push, 
+        ref, 
+        get,
+        uploadBytesResumable, 
+        onChildAdded, 
+        child, 
+        update, 
+        DataSnapshot, 
+        set, 
+        onValue, 
+        onChildChanged, 
+        serverTimestamp 
+    }; 

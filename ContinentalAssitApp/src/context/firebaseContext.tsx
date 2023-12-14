@@ -26,6 +26,8 @@ type FirebaseContextProps = {
 	entrarChat: (motivo: string) => void;
 	messages: MessageChat[];
 	uploadFile: (file: any) => void;
+	motivoMensaje:string | null;
+	ordenRegistrada:string | null;
 }
  
 const firebaseInitialState: FirebaseState = {
@@ -36,6 +38,8 @@ const firebaseInitialState: FirebaseState = {
 	isLoading: false,
 	error: null,
 	uploadFile: () => {},
+	motivoMensaje: null,
+	ordenRegistrada: null
 };
 
 // Crea el contexto de autenticación.
@@ -64,6 +68,9 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 			
 		}, []); // Ejecuta el efecto solo una vez al cargar el componente.
 		
+
+		
+
 		const motivosChat = async () => {
 			const response = await continentalApi.post<MotivoChat>('/app_consulta_motivos_chat', { ps: 'www.continentalassist.com' }, { headers });
 			const data:MotivoChat = response.data as MotivoChat;
@@ -77,7 +84,6 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 
 		const entrarChat = async (motivo: string) => {
 			// Tu código para la gestión de la autenticación aquí (usando Firebase u otro método).	
-			
 			setMotivosChatSelect(motivo)
 			
 			if(usuarioRegistro){	 	
@@ -88,7 +94,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 				voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro.cantidad+'-'+voucher[3] 
 																 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[2];
 
-			
+				
 				set(ref(database, 'users/' + voucher), {
 					name: usuarioLogin?.nombre,
 					celular: usuarioLogin?.telefonos[0].telefono,
@@ -105,7 +111,8 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 				dispatch({
 					type: 'entrarChat',
 					payload: {
-						motivo
+						motivoMensaje: motivo,
+						ordenRegistrada: voucher
 					}
 				});
 			}
@@ -151,7 +158,6 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
   		dispatch({ type: 'SEND_MESSAGE', message });
 		};
 
-
 		const getMessages = () => {
 			if (state.userFirebaseData) {
 				const userRef = ref(database, `mensajes/${state.userFirebaseData}`);
@@ -174,6 +180,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 		};
 
 		const uploadFile = async (file:any) : Promise<string> => {
+
 
 			let voucher:any = usuarioRegistro?.codigo.split('-')
 			const  longitud:any = voucher?.length;
@@ -205,7 +212,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 						console.error(error);
 					},
 					async () => {
-						const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+						const downloadURL: string = await getDownloadURL(uploadTask.snapshot.ref);
 						console.log('File available at', downloadURL);
 						set(ref(database, 'users/' + ordenRegistrada), {
 							chatEnviarAdjunto: true

@@ -3,64 +3,66 @@ import { View, Text, TextInput, TouchableOpacity,
         ScrollView, KeyboardAvoidingView, Platform, 
         ActivityIndicator, Alert, Image } from 'react-native';
 import { Style } from '../theme/ChatCSS';
-import { firebase, database, storage, ref, getDownloadURL, 
+import { firebase, database, storage, ref, getDownloadURL, get,
             uploadBytesResumable, push, child, update, onChildAdded, onChildChanged, serverTimestamp,
-            DataSnapshot, set, onValue } from '../api/firebaseApi';
+            DataSnapshot, set, onValue, dbRef } from '../api/firebaseApi';
 import { firebaseContext } from '../context/firebaseContext';
 import { MessageChat } from '../interfaces/firebaseUser';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/authContext';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { ca } from 'date-fns/locale';
+import { t, use } from 'i18next';
+
 
 export const ChatScreen = () => {
   const [newMessage, setNewMessage] = useState('');
-  const { sendMessage, getMessages, messages, uploadFile } = useContext(firebaseContext);
+  const { sendMessage, getMessages, messages, uploadFile, motivoMensaje, ordenRegistrada } = useContext(firebaseContext);
   const { usuarioRegistro, idioma } = useContext(AuthContext);
   const [listaMensajes, setListaMensajes] = useState<MessageChat[]>([]);
   const [motivoChat, setMotivoChat] = useState(''); // Nueva variable de estado
   const [isAttachButtonVisible, setAttachButtonVisible] = useState(true); // Nueva variable de estado
-  const [ordenRegistrada, setOrdenRegistrada] = useState('') ;
+  // const [ordenRegistrada, setOrdenRegistrada] = useState('') ;
   const [isLoading, setIsLoading] = useState(false);
   
-  useEffect(() => {
-
-    let voucher:any = usuarioRegistro?.codigo.split('-')
-    const  longitud:any = voucher?.length;
-    voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro?.cantidad+'-'+voucher[3] 
-	  															 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro?.cantidad+'-'+voucher[2];
-    setOrdenRegistrada(voucher);
+  useEffect(() => {    
+    console.log('ListaMensajes', listaMensajes)
+    console.log('motivoMensaje=====>', motivoMensaje);
+    console.log('ordenRegistrada', ordenRegistrada);
     getMessages();
-    inicializarChat();
-    const welcomeMessage: MessageChat = {
-      de: 'CO-NTINEN-TAL',
-      mensaje: idioma == 'es' ? 'Bienvenido a Continental Assist, ¿En qué podemos ayudarte?'
-                              :'Welcome to Continental Assist, how can we help you?',
-      fecha: Date.now(),
-      tipo: '1',
-      nombreArchivo: '',
-      isSent: false,
-    };
-    sendMessage(welcomeMessage);
-  }, []);
+    inicializarChat(); 
+      sendMessage(welcomeMessage);
+  }, []); 
+  
+
+  const welcomeMessage: MessageChat = {
+    de: 'CO-NTINEN-TAL',
+    mensaje: idioma == 'es' ? 'Bienvenido a Continental Assist, ¿En qué podemos ayudarte?'
+                            : 'Welcome to Continental Assist, how can we help you?',
+    fecha: Date.now(),
+    tipo: '1',
+    nombreArchivo: '',
+    isSent: false,
+  };
+
 
   const inicializarChat = async () => {
     
-    
     const mensajesRef = ref(database, 'mensajes/CO-NTINEN-TAL/' + ordenRegistrada);
-
-    onChildAdded(mensajesRef, (snapshot) => {
-      if (snapshot.val().tipo === '1') {
-        setListaMensajes((prevListaMensajes) => [...prevListaMensajes, snapshot.val() as MessageChat]);
-      }
+      onChildAdded(mensajesRef, (snapshot) => {
+        console.log('snapshot.val()', snapshot.val());
+        if (snapshot.val().tipo === motivoMensaje) {
+          setListaMensajes((prevListaMensajes) => [...prevListaMensajes, snapshot.val() as MessageChat]);
+          console.log('listaMensajes', listaMensajes)
+        }
     });
 
     const mensajesOrdenRef = ref(database, 'mensajes/' + ordenRegistrada);
 
     onChildAdded(mensajesOrdenRef, (snapshot) => {
-      if (snapshot.val().tipo === '1') {
+      if (snapshot.val().tipo === motivoMensaje) {
         setListaMensajes((prevListaMensajes) => [...prevListaMensajes, snapshot.val() as MessageChat]);
+        console.log('listaMensajes', listaMensajes)
       }
     });
 
@@ -68,9 +70,80 @@ export const ChatScreen = () => {
     onChildChanged(usersRef, (snapshot) => {
       if (snapshot.key === 'chatEnviarAdjunto') {
         handleAttachFile(snapshot.val());
+        console.log('snapshot.val ---------------', snapshot.val());
       }
     });
   }
+
+
+  // const obtenerTablas = () => {
+  //   try {
+  //     onValue(dbRef, (snapshot) => {
+  //       if (snapshot.exists()) {
+  //         const tablas = Object.keys(snapshot.val());
+  //         console.log('Tablas existentes:', tablas);
+  //       } else {
+  //         console.log('No hay tablas en la base de datos.');
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.error('Error al obtener las tablas:', error);
+  //   }
+  // };
+
+
+
+  // onValue(dbRef, (snapshot) => {
+  //   const data = snapshot.val(); // Obtiene todos los datos de la base de datos
+  //   console.log(data);
+  // });
+
+
+
+const usersRef = child(dbRef, 'users'); // Referencia a la tabla "users"
+const mensajesRef = child(dbRef, 'mensajes'); // Referencia a la tabla "mensajes"
+
+// get(usersRef).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     const primerUsuario = snapshot.val();
+//     console.log('Primer registro de la tabla "users":', primerUsuario);
+//   } else {
+//     console.log('No hay registros en la tabla "users".');
+//   }
+// }).catch((error) => {
+//   console.error('Error al obtener el primer registro de "users":', error);
+// });
+
+// Obtener el primer registro de la tabla "mensajes"
+// get(mensajesRef).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     const primerMensaje = snapshot.val();
+//     console.log('Primer registro de la tabla "mensajes":', primerMensaje);
+//   } else {
+//     console.log('No hay registros en la tabla "mensajes".');
+//   }
+// }).catch((error) => {
+//   console.error('Error al obtener el primer registro de "mensajes":', error);
+// });
+
+
+// Función para buscar el registro por su clave única
+// const buscarRegistroPorClave = () => {
+//   const registroRef = ref(database, 'users/' + 'CA-KL0BI4-3-COM');
+
+//   get(registroRef).then((snapshot) => {
+//     if (snapshot.exists()) {
+//       const registro = snapshot.val();
+//       console.log('Registro encontrado:', registro);
+//     } else {
+//       console.log('No se encontró ningún registro con la clave:');
+//     }
+//   }).catch((error) => {
+//     console.error('Error al buscar el registro:', error);
+//   });
+// };
+
+// buscarRegistroPorClave();
 
   const handleSendMessage = async () => {
 
@@ -106,13 +179,14 @@ export const ChatScreen = () => {
     // await uploadFile(file);
   };
 
-  const handleFileSelected = async (response:any) => {
+  const handleFileSelected = async (response: any) => {
     console.log('file', response);
     const { uri, fileName } = response.assets[0];
     const blob = await fetch(uri).then(r => r.blob());
     setIsLoading(true);
     try{
-      const urlImage = await uploadFile({ blob, name: fileName });
+      //@ts-ignore
+      const urlImage:string = await uploadFile({ blob, name: fileName });
       console.log('urlImage', urlImage);
       const message: MessageChat = {
         mensaje: urlImage,
@@ -208,4 +282,5 @@ export const ChatScreen = () => {
     </KeyboardAvoidingView>
   );
 }
+
 

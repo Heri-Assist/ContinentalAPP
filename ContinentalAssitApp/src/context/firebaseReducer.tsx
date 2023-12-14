@@ -9,10 +9,12 @@ export interface FirebaseState {
   userFirebaseData: UserFirebase | null;
 	motivosChatData: ChatMotivo[] | null;
 	entrarChat: string | null;
+	motivoMensaje: string | null;
+	ordenRegistrada: string | null;
 	messages: MessageChat[];
   isLoading: boolean;
   error: string | null;
-	uploadFile: (file: any) => void;
+	uploadFile: (file: any  | string | null) => void;
 }
 
 // Define los tipos de acciones que puede realizar el reducer.
@@ -20,11 +22,11 @@ type firebaseAction =
   | { type: 'setUser'; payload: { userFirebaseData:UserFirebase } }
   | { type: 'logout' }
 	| { type: 'motivosChat'; payload: {motivosChatData:ChatMotivo[] | null}} 
-	| { type: 'entrarChat'; payload: {motivo:string}}
+	| { type: 'entrarChat'; payload: {motivoMensaje:string, ordenRegistrada:string}}
 	| { type: 'SEND_MESSAGE'; message: MessageChat }
   | { type: 'GET_MESSAGES'; messages: MessageChat[] }
   | { type: 'LOGOUT_CHAT' }
-	| { type: 'uploadFile'; payload: {file:any | null } };
+	| { type: 'uploadFile'; payload: {file:any | String | null} };
 
 
 
@@ -53,6 +55,8 @@ export const firebaseReducer = (state: FirebaseState, action: firebaseAction): F
 		case 'entrarChat':
 			return {
 				...state,
+				motivoMensaje: action.payload.motivoMensaje,
+				ordenRegistrada: action.payload.ordenRegistrada
 			}
 		case 'SEND_MESSAGE':
 			return {
