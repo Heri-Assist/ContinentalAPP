@@ -27,7 +27,7 @@ type FirebaseContextProps = {
 	messages: MessageChat[];
 	uploadFile: (file: any) => void;
 	motivoMensaje:string | null;
-	ordenRegistrada:string | null;
+	ordenRegistrada:string ;
 }
  
 const firebaseInitialState: FirebaseState = {
@@ -39,7 +39,7 @@ const firebaseInitialState: FirebaseState = {
 	error: null,
 	uploadFile: () => {},
 	motivoMensaje: null,
-	ordenRegistrada: null
+	ordenRegistrada: ''
 };
 
 // Crea el contexto de autenticación.

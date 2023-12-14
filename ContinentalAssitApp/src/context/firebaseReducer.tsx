@@ -10,7 +10,7 @@ export interface FirebaseState {
 	motivosChatData: ChatMotivo[] | null;
 	entrarChat: string | null;
 	motivoMensaje: string | null;
-	ordenRegistrada: string | null;
+	ordenRegistrada: string ;
 	messages: MessageChat[];
   isLoading: boolean;
   error: string | null;
