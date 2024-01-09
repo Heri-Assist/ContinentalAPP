@@ -41,10 +41,10 @@ export const ListaTelefonosComponent = () => {
 			{ listaTelefonos.resultado?.map((telefono:Telefonos, index:number) => (
 				<View style={Style.rowEmergencia} key={index}>
 						<View style={Style.column}>
-								<Text>{ telefono.pais }</Text>
+								<Text style={{ color:'#00184C'}}>{ telefono.pais }</Text>
 						</View>
 						<View style={Style.column}>
-								<Text style={{textAlign:'right'}}>{telefono.numero}</Text>
+								<Text style={{textAlign:'right', color:'#00184C'}}>{telefono.numero}</Text>
 						</View>
 				</View>
 			))}

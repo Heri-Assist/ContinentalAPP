@@ -1,14 +1,13 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import  { Beneficiario }  from '../interfaces/usuarioRegistro';
+import { Beneficiario } from '../interfaces/usuarioRegistro';
 import { Style } from '../theme/componentCSS';
 import { useTranslation } from 'react-i18next';
 
 interface TarjetaBeneficiarioProps {
   beneficiario: Beneficiario;
 }
-
 const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario }) => {
 
   const { t } = useTranslation();

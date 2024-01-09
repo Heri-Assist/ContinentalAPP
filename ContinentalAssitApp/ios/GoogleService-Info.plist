@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAicyfGf2QYtRucaQJJXxOTCb-CoZsDQvo</string>
+	<string>AIzaSyDlLg2Yu3Bi9VVM6hE4wkowlEvGtFZmYwA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>657181137880</string>
+	<string>133279053492</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.continentalassistv2.app</string>
+	<string>com.continentaassist.ContinentalAssitApp</string>
 	<key>PROJECT_ID</key>
-	<string>continentalchat-9d236</string>
+	<string>appmovilcontinental</string>
 	<key>STORAGE_BUCKET</key>
-	<string>continentalchat-9d236.appspot.com</string>
+	<string>appmovilcontinental.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,8 +25,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:657181137880:ios:ff091027fd51d03a7af0ad</string>
+	<string>1:133279053492:ios:bc90f132af85e6b2a0c9e1</string>
 	<key>DATABASE_URL</key>
-	<string>https://continentalchat-9d236.firebaseio.com</string>
+	<string>https://appmovilcontinental.firebaseio.com</string>
 </dict>
 </plist>

@@ -38,6 +38,28 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <React.Fragment>
           <PhoneInput
+            phoneInputStyles={{
+              container: {
+                borderRadius: 30,
+              },
+              
+              flagContainer: {
+                borderTopLeftRadius: 30,
+                borderBottomLeftRadius: 30,
+              },
+            }}
+            modalStyles={{
+              countryName: {
+                color: '#00184C',
+              },
+              callingCode: {
+                color: '#00184C',
+              },
+              searchInput: {
+                color: '#00184C',
+              },
+            }}
+       
             language="es"
             defaultCountry="CO"
             defaultValue={defaultValue}
@@ -49,6 +71,7 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
             keyboardType="numeric" // Configura el teclado como numérico
             returnKeyType="done"
             onSubmitEditing={handleDonePress} // Maneja la presión de "Done"
+            theme="light"
           />
          
           {error && (

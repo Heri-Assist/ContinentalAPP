@@ -129,7 +129,6 @@ export const Style = StyleSheet.create({
 		backgroundColor: AZUL_CLARO_COLOR,
 		marginRight: 10,
 		justifyContent: 'center',
-		items: 'center',
 		paddingVertical: 10,
 	},
 	column2: {
@@ -142,6 +141,7 @@ export const Style = StyleSheet.create({
 	text2: {
 		fontSize: 16,
 		textAlign: 'center',
+		color: PRIMARY_COLOR,
 	},
 
 	slider: {
@@ -163,7 +163,7 @@ export const Style = StyleSheet.create({
 		paddingVertical: 10,
 		borderRadius: 5,
 		backgroundColor: BACKGROUND_COLOR,
-		marginBottom:10
+		marginBottom:10,
 	},
 
 	textEmergenciaInit:{

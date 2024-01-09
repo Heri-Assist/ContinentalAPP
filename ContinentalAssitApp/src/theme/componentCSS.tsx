@@ -101,7 +101,7 @@ export const Style = StyleSheet.create({
 		backgroundColor:PRIMARY_COLOR,
 		color: BACKGROUND_COLOR,
 		borderBottomLeftRadius: 20, // Redondea la esquina inferior izquierda
-  		borderBottomRightRadius: 20,
+  	borderBottomRightRadius: 20,
 	},
 
 
@@ -149,6 +149,7 @@ export const Style = StyleSheet.create({
 
 	content: {
 		fontSize: 13,
+		color: PRIMARY_COLOR,
 	},
 
 	loading: {
@@ -280,7 +281,8 @@ export const Style = StyleSheet.create({
   pais: {
     fontSize: 16,
     fontWeight: 'bold',
-		marginTop:10
+		marginTop:10,
+		color: PRIMARY_COLOR, 
   },
   numero: {
     fontSize: 14,

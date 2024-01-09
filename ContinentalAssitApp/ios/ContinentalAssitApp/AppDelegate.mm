@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import "RNSplashScreen.h"  // here
 
@@ -20,6 +19,10 @@
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+{
+  return [self getBundleURL];
+}
+- (NSURL *)getBundleURL
 {
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];

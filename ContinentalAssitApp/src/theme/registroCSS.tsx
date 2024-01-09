@@ -8,7 +8,6 @@ const BORDER_COLOR = "#D4D4D4";
 
 export const Style = StyleSheet.create({
 
-
   scrollView: {
     flex: 1,
     paddingHorizontal: 10,

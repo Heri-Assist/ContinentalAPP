@@ -83,7 +83,6 @@ export const EmergenciaScreen = ({navigation}: Props) => {
     const getEntrarChat = async () => {
        await entrarChat(selectedMotivo!)
         navigation.navigate('Chat')
-
     }
 
     // Renderiza la pantalla de emergencia
@@ -245,7 +244,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                                 />
                                             ): 
                                             (   <RNPickerSelect
-                                                    pickerProps={{ style: { backgroundColor:'#ffffff' } }}
+                                                    pickerProps={{ style: { backgroundColor:'#ffffff', color:'#00184C' } }}
                                                     placeholder={{ label: 'Seleccione un motivo', value: null }}
                                                     onValueChange={(value) => {
                                                     // Realiza acciones según el motivo seleccionado
@@ -263,8 +262,8 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                 </View>
 
                                 <View style={Style.containerBotton}>
-                                    <TouchableOpacity   style={ Style.botonAgregar }>
-                                        <Text style={Style.textBotonAgregar} onPress={getEntrarChat}>
+                                    <TouchableOpacity   style={ Style.botonAgregar } onPress={getEntrarChat}>
+                                        <Text style={Style.textBotonAgregar} >
                                             {t('chat.entrarChat')} 
                                         </Text>
                                     </TouchableOpacity>

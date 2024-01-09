@@ -30,14 +30,11 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Our application requires access to your location to provide you with a safer and more efficient service. Geolocation allows us to identify the city you are in in real time, which in turn allows us to offer relevant and timely information in case of emergency. For example, if you are located in Mexico City, our application will display the contact phone numbers for our help center that are valid and available to be dialed from that specific location. This feature ensures that in critical situations, such as medical emergencies or security issues, you have quick and accurate access to the help you need, thereby improving your experience and security while using our app.</string>

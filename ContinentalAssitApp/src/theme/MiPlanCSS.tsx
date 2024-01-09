@@ -110,6 +110,7 @@ export const Style = StyleSheet.create({
 	
 	content: {
 		fontSize: 14,
+		color: PRIMARY_COLOR,
 	},
 
 	column1: {
@@ -117,7 +118,6 @@ export const Style = StyleSheet.create({
 		backgroundColor: AZUL_CLARO_COLOR,
 		marginRight: 10,
 		justifyContent: 'center',
-		items: 'center',
 		paddingVertical: 10,
 	},
 

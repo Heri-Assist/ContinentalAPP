@@ -28,14 +28,11 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		 <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
+	<key>NSAllowsArbitraryLoads</key>
+	<false/>
+	<key>NSAllowsLocalNetworking</key>
+	<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Esto nos permite proporcionarte números de teléfono relevantes y oportunos para contactar nuestra central de asistencia telefónica de acuerdo a tu ubicación exacta. Así, podemos garantizar que recibirás ayuda rápida y efectiva en caso de cualquier emergencia o consulta durante tu viaje.</string>

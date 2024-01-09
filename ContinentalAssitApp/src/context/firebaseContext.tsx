@@ -12,7 +12,7 @@ import { getAuth, signOut } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Usuario } from '../interfaces/usuarioRegistro';
 import { is } from 'date-fns/locale';
-import { ref as storageRef, StorageReference } from 'firebase/storage';
+import { ref as storageRef } from 'firebase/storage';
 // Define los tipos para User y AuthState según tus necesidades.
 
 
@@ -84,24 +84,23 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 
 		const entrarChat = async (motivo: string) => {
 			// Tu código para la gestión de la autenticación aquí (usando Firebase u otro método).	
+			console.log('entrarChat', motivo)
 			setMotivosChatSelect(motivo)
-			
+			console.log('idioma', idioma )
 			if(usuarioRegistro){	 	
-				
+					
 				const ubicar =  isGeolocation;
 				let voucher:any = usuarioRegistro?.codigo.split('-')
 				const  longitud:number = voucher?.length;
 				voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro.cantidad+'-'+voucher[3] 
-																 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[2];
-
-				
+																 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[2];			
+				console.log('voucher', voucher)	
 				set(ref(database, 'users/' + voucher), {
-					name: usuarioLogin?.nombre,
-					celular: usuarioLogin?.telefonos[0].telefono,
+					email: usuarioLogin?.email,
 					ipLatitude: ubicar?.location?.latitude,
 					ipLongitude: ubicar?.location?.longitude,
-					email: usuarioLogin?.email,
-					chatEnviarAdjunto: false
+					language: idioma == 'es' ? 'spa' : 'eng',
+					name: usuarioLogin?.nombre,
 				});
 
 				let dbRef = ref(database, 'users');

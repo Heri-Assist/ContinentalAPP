@@ -64,7 +64,7 @@ export const LlamadaEmergencia = () => {
 							{/* <Text style={{alignContent:'center'}}>
 								<Icon name="phone" size={20} color="#00184C"/> 
 							</Text> */}
-							<Text>
+							<Text style={{color: '#00184C'}} >
 								{listaTelefonos[0]?.numero}
 							</Text>
 						</Text>

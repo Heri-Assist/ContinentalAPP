@@ -21,7 +21,6 @@ import {useTranslation } from 'react-i18next';
 import LoadingComponent from '../components/LoadingComponent';
 import { ICountry } from 'react-native-international-phone-number';
 import i18next from 'i18next';
-import { set } from 'firebase/database';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -61,7 +60,6 @@ export const RegistroScreen = ({navigation}: Props) => {
         { text: 'Ok', onPress: () => AccionErrror()},
       ]);
     
-
   }, [errorMessage]);
 
 
@@ -187,12 +185,12 @@ export const RegistroScreen = ({navigation}: Props) => {
                   onPress={() => setOpen(true)}
                   disabled={open} // Deshabilita el botón cuando el DatePicker está abierto
                 >
-                  <Text>
+                  <Text style={{color:'#00184C'}}>
                       {new Date(fechaNacimiento).toLocaleDateString(
                         i18next.language,
                         { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
                       )}
-                   </Text>
+                  </Text>
                 </TouchableOpacity>
                 <DatePicker
                   locale={idioma}
@@ -211,7 +209,6 @@ export const RegistroScreen = ({navigation}: Props) => {
                     setOpen(false);
                   }}
                   cancelText={t('registro.cancelar')}
-                  theme="auto"
                 />
               </View>
             </View>
