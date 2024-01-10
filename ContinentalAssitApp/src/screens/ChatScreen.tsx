@@ -57,7 +57,6 @@ export const ChatScreen = () => {
         }
     });
 
-
     const mensajesOrdenRef = ref(database, 'mensajes/' + ordenRegistrada);
 
     onChildAdded(mensajesOrdenRef, (snapshot) => {
@@ -67,7 +66,6 @@ export const ChatScreen = () => {
       }
     });
 
-    
     const usersRef = ref(database, 'users/' + ordenRegistrada);
     onChildChanged(usersRef, (snapshot) => {
       if (snapshot.key === 'chatEnviarAdjunto') {
