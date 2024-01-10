@@ -56,6 +56,7 @@ export const ChatScreen = () => {
           console.log('listaMensajes', listaMensajes)
         }
     });
+    
 
     const mensajesOrdenRef = ref(database, 'mensajes/' + ordenRegistrada);
 
