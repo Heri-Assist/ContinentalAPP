@@ -212,7 +212,9 @@
       "escribeMensaje": "Write a Message",
       "enviar": "Send",
       "cerrarChat": "Close Chat",
-      "adjuntarArchivo": "Attach File"
+      "adjuntarArchivo": "Attach File",
+      "botonEnviar": "Send",
+      "botonSalir": "Close Chat"
     },
     
     "meses": {

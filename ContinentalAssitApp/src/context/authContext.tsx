@@ -266,7 +266,7 @@ export const AuthProvider = ({children}:any) => {
     
     //Registrar un nuevo usuario
     const signUp = async( data:UsuarioRegistro ) => {
-
+        
         const { nombre, nacimiento, email, telefono } = data;
         // console.log('Datos Registro',data);
         const months = [

@@ -221,7 +221,9 @@
       "escribeMensaje": "Escribe un Mensaje",
       "enviar": "Enviar",
       "cerrarChat": "Cerrar Chat",
-      "adjuntarArchivo": "Adjuntar Archivo"
+      "adjuntarArchivo": "Adjuntar Archivo",
+      "botonEnviar": "Enviar",
+      "botonSalir": "Cerrar Chat"
     },
     
     "meses": {

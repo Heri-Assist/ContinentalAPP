@@ -13,6 +13,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { ChatMotivo, MotivoChat } from '../interfaces/motivoChatInterface';
 import { StackScreenProps } from '@react-navigation/stack';
 import { LlamadaEmergencia } from '../components/LlamadaEmergencia';
+import { set } from 'date-fns';
 
 
 interface Props extends StackScreenProps<any, any> {}
@@ -82,7 +83,8 @@ export const EmergenciaScreen = ({navigation}: Props) => {
 
     const getEntrarChat = async () => {
        await entrarChat(selectedMotivo!)
-        navigation.navigate('Chat')
+       setVisible(false)
+       navigation.navigate('Chat')
     }
 
     // Renderiza la pantalla de emergencia

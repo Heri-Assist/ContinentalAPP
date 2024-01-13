@@ -6649,10 +6649,10 @@ react-native-pdf@^6.7.1:
     crypto-js "4.2.0"
     deprecated-react-native-prop-types "^2.3.0"
 
-react-native-permissions@^3.9.0:
-  version "3.10.1"
-  resolved "https://registry.npmjs.org/react-native-permissions/-/react-native-permissions-3.10.1.tgz#cb0171c8d12113869deaabbdfb979aad1a44752b"
-  integrity sha512-Gc5BxxpjZn4QNUDiVeHOO0vXh3AH7ToolmwTJozqC6DsxV7NAf3ttap+8BSmzDR8WxuAM3Cror+YNiBhHJx7/w==
+react-native-permissions@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.npmjs.org/react-native-permissions/-/react-native-permissions-4.0.4.tgz#5156d61230193c5eedd96a6e54f2a1e65d582baf"
+  integrity sha512-7xU71u1Xe239F7DCvO3rfuqthzOa52v5Nvd0OQ5OpEkL9S9UGhWMLRw0b7OC9zti846puTGJDnjy8FvXiAzgxQ==
 
 react-native-picker-select@^8.1.0:
   version "8.1.0"

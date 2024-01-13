@@ -13,13 +13,13 @@ const COLOR_AZUL_CLARO = "#69C8EF";
     flex: 1,
     backgroundColor: 'white',
 		paddingHorizontal: 12,
-		marginTop:20,
+		marginTop:0,
     marginBottom: 10,
     paddingVertical: 10,
   },
   
 	messagesContainer: {
-		marginVertical:40,
+		marginVertical:10,
     flexGrow: 1,
     paddingVertical: 15,
 		borderWidth: 1,
@@ -51,6 +51,7 @@ const COLOR_AZUL_CLARO = "#69C8EF";
     flex: 7,
     paddingHorizontal: 10,
     paddingVertical: 5,
+    color: COLOR_AZUL_OSCURO,
   },
   
 	sendButton: {
@@ -96,6 +97,23 @@ const COLOR_AZUL_CLARO = "#69C8EF";
     fontSize: 14,
     fontWeight: 'bold',
   },
+  BotonSalir: {
+    backgroundColor: COLOR_AMARILLO,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  BotonSalirText: {
+    color: COLOR_AZUL_OSCURO,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 
+  BotonSalirContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
 
 });

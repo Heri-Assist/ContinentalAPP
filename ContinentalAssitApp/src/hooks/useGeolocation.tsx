@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { check, request, PERMISSIONS } from 'react-native-permissions';
 import Geolocation from 'react-native-geolocation-service';
+import { Platform } from 'react-native';
 
 // Define los tipos para location y error
 type Location = {
@@ -20,10 +21,11 @@ export const useGeolocation = () => {
 
   useEffect(() => {
     const checkLocationPermission = async () => {
-      const locationPermissionStatus = await check(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
-
+      const permission = Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
+      const locationPermissionStatus = await check(permission);
+     
       if (locationPermissionStatus === 'denied') {
-        const requestLocationPermissionStatus = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
+        const requestLocationPermissionStatus = await request(permission);
 
         if (requestLocationPermissionStatus === 'granted') {
           // Ahora puedes llamar a Geolocation.getCurrentPosition
