@@ -39,7 +39,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Esto nos permite proporcionarte números de teléfono relevantes y oportunos para contactar nuestra central de asistencia telefónica de acuerdo a tu ubicación exacta. Así, podemos garantizar que recibirás ayuda rápida y efectiva en caso de cualquier emergencia o consulta durante tu viaje.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow access to the photo library for selecting images</string>
+	<string>Necesitamos acceder a tu biblioteca de fotos para permitirte seleccionar imágenes para subir a la aplicación y actulizar la imagen de perfil</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
@@ -53,7 +53,7 @@
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>

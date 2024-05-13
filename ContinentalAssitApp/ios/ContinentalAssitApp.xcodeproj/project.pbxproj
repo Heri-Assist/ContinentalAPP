@@ -15,6 +15,7 @@
 		B05F4F3E2B0678F2003D71A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B05F4F3D2B0678F2003D71A7 /* GoogleService-Info.plist */; };
 		B0D87E0F2ABEAB4800E4DA77 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B0D87E0D2ABEAB4800E4DA77 /* logo.png */; };
 		B0D87E102ABEAB4800E4DA77 /* bg-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0D87E0E2ABEAB4800E4DA77 /* bg-01.jpg */; };
+		C5DC0A67D7EF317978F87EBA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F17A2795BC1CEF8C21AA05A3 /* PrivacyInfo.xcprivacy */; };
 		C621B22B14755DFE0299C473 /* libPods-ContinentalAssitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC2BE0801F0C26A586489EF /* libPods-ContinentalAssitApp.a */; };
 		ED4C5E2C76E257AAEE6ED8BD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464D97C7FE1EE376D853F2CD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ContinentalAssitApp/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ContinentalAssitApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ContinentalAssitApp/main.m; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ContinentalAssitApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1FAAFA986F2F6427EAFA959F /* Pods-ContinentalAssitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.debug.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		244700F67912DF46A5E2B2E4 /* Pods-ContinentalAssitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.release.xcconfig"; sourceTree = "<group>"; };
 		464D97C7FE1EE376D853F2CD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContinentalAssitApp-ContinentalAssitAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 		B0D87E0E2ABEAB4800E4DA77 /* bg-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bg-01.jpg"; path = "../assets/imagenes/bg-01.jpg"; sourceTree = "<group>"; };
 		C6D45791FE114143932E9CDD /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F17A2795BC1CEF8C21AA05A3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				F17A2795BC1CEF8C21AA05A3 /* PrivacyInfo.xcprivacy */,
 			);
 			name = ContinentalAssitApp;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				B05F4F3E2B0678F2003D71A7 /* GoogleService-Info.plist in Resources */,
 				B0D87E0F2ABEAB4800E4DA77 /* logo.png in Resources */,
 				B0D87E102ABEAB4800E4DA77 /* bg-01.jpg in Resources */,
+				C5DC0A67D7EF317978F87EBA /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +475,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ContinentalAssitAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -606,6 +613,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -627,6 +635,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -645,12 +655,9 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -661,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -688,6 +696,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -705,6 +714,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -723,12 +734,9 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-Wl",
-					"-ld_classic",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
