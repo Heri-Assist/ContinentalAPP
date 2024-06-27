@@ -43,7 +43,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'ContinentalAssitApp' do
+target 'ContinentalAssistApp' do
   config = use_native_modules!
 
 
@@ -53,7 +53,7 @@ target 'ContinentalAssitApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'ContinentalAssitAppTests' do
+  target 'ContinentalAssistAppTests' do
     inherit! :complete
     # Pods for testing
   end

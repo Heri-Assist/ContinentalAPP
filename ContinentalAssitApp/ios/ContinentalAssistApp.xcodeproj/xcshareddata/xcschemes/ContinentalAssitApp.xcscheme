@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ContinentalAssitApp.app"
-               BlueprintName = "ContinentalAssitApp"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BuildableName = "ContinentalAssistApp.app"
+               BlueprintName = "ContinentalAssistApp"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ContinentalAssitAppTests.xctest"
-               BlueprintName = "ContinentalAssitAppTests"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BuildableName = "ContinentalAssistAppTests.xctest"
+               BlueprintName = "ContinentalAssistAppTests"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BuildableName = "ContinentalAssistApp.app"
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -74,22 +74,22 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BuildableName = "ContinentalAssistApp.app"
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "ContinentalAssistApp"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
