@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "ContinentalAssitApp.app"
-               BlueprintName = "ContinentalAssitApp"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BlueprintName = "ContinentalAssistApp"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ContinentalAssitAppTests.xctest"
-               BlueprintName = "ContinentalAssitAppTests"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BuildableName = "ContinentalAssistAppTests.xctest"
+               BlueprintName = "ContinentalAssistAppTests"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,8 +56,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -80,8 +80,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -89,7 +89,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
+      customArchiveName = "ContinentalAssistApp"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
