@@ -1,6 +1,6 @@
 /**
  * @file RegistroScreen.tsx
- * @description Este archivo contiene el componente RegistroScreen, que es responsable de mostrar la pantalla de inicio de sesión de ContinentalAssitApp.
+ * @description Este archivo contiene el componente RegistroScreen, que es responsable de mostrar la pantalla de inicio de sesión de ContinentalAssistApp.
  * El componente incluye un formulario con campos para nombre, fecha de nacimiento, correo electrónico y número de teléfono. También incluye un componente DatePicker para seleccionar la fecha de nacimiento.
  * Los datos del formulario se envían al servidor mediante la función consultarRegistro del módulo ../api/apis.
  * @requiere React, useState, InicioBackgroundComponent, View, Text, TextInput, TouchableOpacity, Platform, Button, Keyboard, DatePicker, useForm, Controller, Style, StackScreenProps, usePhone, consultarRegistro, format

@@ -1,4 +1,4 @@
-package com.continentalassitapp
+package com.ContinentalAssistApp
 
 import org.devio.rn.splashscreen.SplashScreenReactPackage
 

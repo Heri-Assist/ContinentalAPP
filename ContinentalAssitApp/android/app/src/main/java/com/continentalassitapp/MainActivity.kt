@@ -1,4 +1,4 @@
-package com.continentalassitapp
+package com.ContinentalAssistApp
 
 import android.os.Bundle
 import com.facebook.react.ReactActivity
@@ -20,7 +20,7 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
 
-  override fun getMainComponentName(): String = "ContinentalAssitApp"
+  override fun getMainComponentName(): String = "ContinentalAssistApp"
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]

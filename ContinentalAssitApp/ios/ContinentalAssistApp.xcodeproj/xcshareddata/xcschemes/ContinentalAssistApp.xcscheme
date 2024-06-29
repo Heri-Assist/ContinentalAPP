@@ -7,6 +7,20 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "ContinentalAssistApp.app"
+               BlueprintName = "ContinentalAssistApp"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
@@ -14,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ContinentalAssitApp.app"
-               BlueprintName = "ContinentalAssitApp"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "ContinentalAssistAppTests.xctest"
+               BlueprintName = "ContinentalAssistAppTests"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,19 +43,19 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ContinentalAssitAppTests.xctest"
-               BlueprintName = "ContinentalAssitAppTests"
-               ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+               BuildableName = "ContinentalAssistAppTests.xctest"
+               BlueprintName = "ContinentalAssistAppTests"
+               ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -55,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BuildableName = "ContinentalAssistApp.app"
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -79,9 +93,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ContinentalAssitApp.app"
-            BlueprintName = "ContinentalAssitApp"
-            ReferencedContainer = "container:ContinentalAssitApp.xcodeproj">
+            BuildableName = "ContinentalAssistApp.app"
+            BlueprintName = "ContinentalAssistApp"
+            ReferencedContainer = "container:ContinentalAssistApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -90,7 +104,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "ContinentalAssitApp"
+      customArchiveName = "ContinentalAssistApp"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
