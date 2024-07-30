@@ -95,7 +95,7 @@ export const AuthProvider = ({children}:any) => {
     // Configurar las cabeceras de la solicitud
     const headers = {
         'Content-Type': 'application/json',
-        'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+        'EVA-AUTH-USER': 'eyJpdiI6Ino1dXRFVjh0UE1zMnJlWUdlL0x0Ync9PSIsInZhbHVlIjoiY3d0RVhOcVRnMGlsSE9ZTW43QXhUMWNIMk1XMURhSEdkY3FtMVN5ZHg0cz0iLCJtYWMiOiJhOTRhZDIxMDczYmE0ZDk1ZTAzZDQzYjgzZTdkYjkwODg5N2Y4NDRiYWM4N2I0NTJiODE0MDAyNWZiZjg5YmI2IiwidGFnIjoiIn0=',
     };
 
     // Obtener el estado de autenticación y la función de despacho del reductor de autenticación
@@ -161,7 +161,7 @@ export const AuthProvider = ({children}:any) => {
                         dispatch({
                             type: 'login',
                             payload: {
-                                token: '356964e2f8c0811ead9d1529fbae58127379054e',
+                                token: 'eyJpdiI6Ino1dXRFVjh0UE1zMnJlWUdlL0x0Ync9PSIsInZhbHVlIjoiY3d0RVhOcVRnMGlsSE9ZTW43QXhUMWNIMk1XMURhSEdkY3FtMVN5ZHg0cz0iLCJtYWMiOiJhOTRhZDIxMDczYmE0ZDk1ZTAzZDQzYjgzZTdkYjkwODg5N2Y4NDRiYWM4N2I0NTJiODE0MDAyNWZiZjg5YmI2IiwidGFnIjoiIn0=',
                                 usuarioLogin: dataUsuario as UsuarioLogin,
                                 session: JSON.stringify(resp.data as Data),
                                 formData: datosLogin,
@@ -238,7 +238,7 @@ export const AuthProvider = ({children}:any) => {
                             dispatch({
                                 type: 'login',
                                 payload: {
-                                    token: '356964e2f8c0811ead9d1529fbae58127379054e',
+                                    token: 'eyJpdiI6Ino1dXRFVjh0UE1zMnJlWUdlL0x0Ync9PSIsInZhbHVlIjoiY3d0RVhOcVRnMGlsSE9ZTW43QXhUMWNIMk1XMURhSEdkY3FtMVN5ZHg0cz0iLCJtYWMiOiJhOTRhZDIxMDczYmE0ZDk1ZTAzZDQzYjgzZTdkYjkwODg5N2Y4NDRiYWM4N2I0NTJiODE0MDAyNWZiZjg5YmI2IiwidGFnIjoiIn0=',
                                     usuarioLogin: usuarios as UsuarioLogin,
                                     session: JSON.stringify(session as Data),
                                     formData: {},
@@ -281,7 +281,7 @@ export const AuthProvider = ({children}:any) => {
             const month = months[nacimiento===undefined? 1 : nacimiento.getMonth()];
             const year = nacimiento?.getFullYear();
             const formattedDay = String(day).padStart(2, '0');
-            const formattedDate = `${formattedDay}-${month}-${year}`;
+            const formattedDate = `${year}-${month}-${formattedDay}`;
 
             const datosRegistro = {
                 ps: 'www.continentalassist.com',
@@ -298,9 +298,10 @@ export const AuthProvider = ({children}:any) => {
 
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario',  datosRegistro, { headers });
             // console.log(resp.data.resultado[0].mensaje_error)
-            // console.log('resp.data========>',resp.data)
+            console.log('resp.data========>',resp.data)
             if (resp.data.error === false ) {
                 const usuarios: Usuario[] = resp.data.resultado as Usuario[];
+                console.log('------usuarios-------',usuarios);
                 datosRegistro.idEmision = usuarios[0].id;  
                 
                 // Guardar la sesión en AsyncStorage
@@ -318,7 +319,7 @@ export const AuthProvider = ({children}:any) => {
                 dispatch({
                     type: 'signUp',
                     payload: {
-                        token: '356964e2f8c0811ead9d1529fbae58127379054e',
+                        token: 'eyJpdiI6Ino1dXRFVjh0UE1zMnJlWUdlL0x0Ync9PSIsInZhbHVlIjoiY3d0RVhOcVRnMGlsSE9ZTW43QXhUMWNIMk1XMURhSEdkY3FtMVN5ZHg0cz0iLCJtYWMiOiJhOTRhZDIxMDczYmE0ZDk1ZTAzZDQzYjgzZTdkYjkwODg5N2Y4NDRiYWM4N2I0NTJiODE0MDAyNWZiZjg5YmI2IiwidGFnIjoiIn0=',
                         usuarioRegistro: usuarios[0],
                         session: null,  
                         formData: datosRegistro,

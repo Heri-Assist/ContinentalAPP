@@ -51,7 +51,7 @@ export const RegistroResp = ({navigation} : Props) => {
 
   const headers = {
     'Content-Type': 'application/json',
-    'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+    'EVA-AUTH-USER': 'eyJpdiI6Ino1dXRFVjh0UE1zMnJlWUdlL0x0Ync9PSIsInZhbHVlIjoiY3d0RVhOcVRnMGlsSE9ZTW43QXhUMWNIMk1XMURhSEdkY3FtMVN5ZHg0cz0iLCJtYWMiOiJhOTRhZDIxMDczYmE0ZDk1ZTAzZDQzYjgzZTdkYjkwODg5N2Y4NDRiYWM4N2I0NTJiODE0MDAyNWZiZjg5YmI2IiwidGFnIjoiIn0=',
   };
 
 
