@@ -9,7 +9,7 @@ export interface UserFirebase {
 }
 
 export interface MessageChat {
-  id?: string;
+  id?: number;
   de?: string;
   fecha?: object | { seconds: number; nanoseconds: number } | number;
   mensaje?: string;
@@ -19,7 +19,7 @@ export interface MessageChat {
 }
 
 export interface MensajeRespuesta {
-  id?: string;
+  id?: number;
   de: string;
   fecha: number;
   mensaje: string;

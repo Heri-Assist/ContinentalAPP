@@ -7,8 +7,8 @@ export interface ConsultasPreguntasFrecuentes {
 }
 
 export interface PreguntasFrecuentes {
-    id_pregunta_frecuente: string;
-    id_orden:              string;
+    id_pregunta_frecuente: number;
+    id_orden:              number;
     pregunta:              string;
     respuesta:             string;
     lenguaje:              string;

@@ -7,7 +7,7 @@ export interface MotivoChat {
 }
 
 export interface ChatMotivo {
-    id_motivo_chat:       string;
+    id_motivo_chat:       number;
     nombre_motivo:        string;
     nombre_motivo_ingles: string;
 }

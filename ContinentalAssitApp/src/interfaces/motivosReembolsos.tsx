@@ -7,6 +7,6 @@ export interface ConsultaMotivosReembolsos {
 }
 
 export interface MotivosReembolsos {
-    id_motivo_reembolso: string;
+    id_motivo_reembolso: number;
     nombre_motivo:       string;
 }

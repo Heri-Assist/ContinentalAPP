@@ -8,16 +8,16 @@ export interface BeneficiosRespuesta {
 }
 
 export interface Beneficios {
-	id_beneficio:      string;
+	id_beneficio:      number;
 	nombre:            string;
 	valor:             string;
-	id_tipo_beneficio: string;
+	id_tipo_beneficio: number;
 	descripcion:       string;
 }
 
 export interface TiposBeneficio {
-	id:                    string;
-	id_tipo_beneficio:     string;
+	id:                    number;
+	id_tipo_beneficio:     number;
 	nombre_tipo_beneficio: string;
 	icono_tipo_beneficio:  string;
 	lenguaje:              string;

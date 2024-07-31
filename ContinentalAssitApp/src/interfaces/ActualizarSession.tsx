@@ -7,13 +7,13 @@
 	}
 
 	export interface Resultado {
-		usuario: 				UsuarioActualizarSession[];
+		usuario: UsuarioActualizarSession[];
 		ordenes_registradas: null;
 		beneficiarios:       any[];
 	}
 
 	export interface UsuarioActualizarSession {
-		id_usuario:          string;
+		id_usuario:          number;
 		email:               string;
 		nombre:              string;
 		nacimiento:          string;
@@ -31,8 +31,8 @@
 	}
 
 	export interface TelefonoActualizarSession {
-		id:               string;
-		id_usuario:       string;
+		id:               number;
+		id_usuario:       number;
 		pais_name:        string;
 		pais_callingCode: string;
 		telefono:         string;

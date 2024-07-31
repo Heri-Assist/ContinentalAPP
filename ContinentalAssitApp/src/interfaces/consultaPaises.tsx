@@ -6,7 +6,7 @@ export interface ConsultaPaises {
 }
 
 export interface Paises {
-    id:           string;
+    id:           number;
     name:         string;
     alpha2Code:   string;
     alpha3Code:   string;

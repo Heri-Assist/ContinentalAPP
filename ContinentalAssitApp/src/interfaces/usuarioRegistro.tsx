@@ -4,7 +4,7 @@ import { id } from 'date-fns/locale';
 
 export interface UsuarioRegistro {
     ps: string;
-        id?: number;
+    id?: number;
     nombre?:   string;
     email?:    string;
     nacimiento?: Date ;
@@ -27,7 +27,7 @@ export interface ErrorUsuario {
 }
 
 export interface CodigoRegistro {
-    idUsuario: string;
+    idUsuario: number;
 }
 
 export interface usuarioRegistro {
