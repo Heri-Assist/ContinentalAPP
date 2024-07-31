@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const baseURL = 'https://continentalassist.co/backmin/restapp';
+const baseURL = 'https://testapiseva.testingcontinentalassist.tech/api';
 
 const continentalApi = axios.create({baseURL})
 

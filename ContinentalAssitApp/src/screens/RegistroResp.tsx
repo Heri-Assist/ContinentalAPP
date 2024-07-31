@@ -34,7 +34,38 @@ export const RegistroResp = ({navigation} : Props) => {
 
   
   const data = formData as UsuarioRegistro;
- 
+
+  const convertirFecha = (fecha: string): string => {
+    const meses: { [key: string]: string } = {
+      Ene: '01',
+      Feb: '02',
+      Mar: '03',
+      Abr: '04',
+      May: '05',
+      Jun: '06',
+      Jul: '07',
+      Ago: '08',
+      Sep: '09',
+      Oct: '10',
+      Nov: '11',
+      Dic: '12',
+    };
+  
+    const partes = fecha.split('-'); // Separar la fecha en [año, mes, día]
+    const mes = meses[partes[1] as keyof typeof meses]; // Convertir el mes de texto a número usando aserción de tipo
+    return `${partes[2]}-${mes}-${partes[0]}`; // Construir la nueva fecha
+  };
+  
+  // Verificación de undefined y conversión de Date a string
+  if (data.nacimiento !== undefined) {
+    // Asumiendo que convertirFecha espera una fecha en formato string 'YYYY-MM-DD'
+    const fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('T')[0] : data.nacimiento;
+    const fechaFormateada = convertirFecha(fechaComoString);
+    console.log('Fecha formateada:', fechaFormateada);
+  } else {
+    console.log('La fecha de nacimiento no está definida.');
+  }
+
   
   const onContinuar = async () => {
     // Obtener los datos del formulario del estado global
@@ -51,7 +82,7 @@ export const RegistroResp = ({navigation} : Props) => {
 
   const headers = {
     'Content-Type': 'application/json',
-    'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+    'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
   };
 
 
@@ -72,12 +103,22 @@ export const RegistroResp = ({navigation} : Props) => {
   }
 
   const SiEnviarCodigo = async () => {
+    let fechaComoString ='';
+    let fechaFormateada ='';
+    if (data.nacimiento !== undefined) {
+      // Asumiendo que convertirFecha espera una fecha en formato string 'YYYY-MM-DD'
+      fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('T')[0] : data.nacimiento;
+      fechaFormateada = convertirFecha(fechaComoString);
+      console.log('Fecha formateada:', fechaFormateada);
+    } else {
+      console.log('La fecha de nacimiento no está definida.');
+    }
     try {
         setIsLoading(true); // Activar el indicador de carga
         const dataConfirmar= {
           ps: data.ps,
           nombre: data.nombre,
-          nacimiento: data.nacimiento,
+          nacimiento: fechaFormateada, // dar formato de fecha a la fecha de nacimiento 2021-09-01
           email: data.email,
           pais_name: data.pais_name,
           pais_flag:data.pais_flag,
@@ -85,12 +126,13 @@ export const RegistroResp = ({navigation} : Props) => {
           localCelular: data.telefono,
           id_emision: data.idEmision
         }
-        console.log('dataConfirmar', dataConfirmar.pais_name);
+        console.log('dataConfirmar', dataConfirmar);
         // console.log('dataConfirmar', dataConfirmar);
         
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });
         const id_usuario = resp.data.resultado.id_usuario;
-        // console.log('id_usuario', id_usuario);
+        console.log('resp', resp.data.resultado);
+        console.log('-----id_usuario------', id_usuario);
         updateIdUsuario(id_usuario); 
         await enviarCodigo(id_usuario);
 

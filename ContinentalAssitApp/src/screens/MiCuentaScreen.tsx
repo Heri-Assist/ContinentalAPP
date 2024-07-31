@@ -49,7 +49,7 @@ export const MiCuentaScreen = () => {
    
     const headers = {
         'Content-Type': 'application/json',
-        'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+        'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
     };
 
     // Alerta para eliminar teléfono

@@ -29,7 +29,7 @@ import { ActualizarSession, UsuarioActualizarSession } from "../interfaces/Actua
 * @property {() => void} removeError: la función para eliminar cualquier mensaje de error. 
 * @property {(UsuarioRegistro: UsuarioRegistro) => void} signUp - La función para registrar un nuevo usuario. 
 * @property {boolean} isLoading - Un indicador que indica si el proceso de autenticación se está cargando actualmente. 
-* @property {(newIdUsuario: string) => void} updateIdUsuario - La función para actualizar el ID del usuario autenticado. 
+* @property {(newIdUsuario: number) => void} updateIdUsuario - La función para actualizar el ID del usuario autenticado. 
  * */ 
 
 // Defina la forma del objeto de contexto de autenticación.
@@ -62,7 +62,7 @@ type AuthContextProps = {
  * @property {string} token: el token de autenticación del usuario.
  * @property {boolean} isLoading: si el proceso de autenticación se está cargando actualmente.
  * @property {Object} formData: los datos del formulario del usuario.
- * @property {string} idUsuario - El ID del usuario.
+ * @property {number} idUsuario - El ID del usuario.
  */
 
 // Estado inicial para el contexto de autenticación
@@ -95,7 +95,7 @@ export const AuthProvider = ({children}:any) => {
     // Configurar las cabeceras de la solicitud
     const headers = {
         'Content-Type': 'application/json',
-        'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+        'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
     };
 
     // Obtener el estado de autenticación y la función de despacho del reductor de autenticación
@@ -281,7 +281,7 @@ export const AuthProvider = ({children}:any) => {
             const month = months[nacimiento===undefined? 1 : nacimiento.getMonth()];
             const year = nacimiento?.getFullYear();
             const formattedDay = String(day).padStart(2, '0');
-            const formattedDate = `${formattedDay}-${month}-${year}`;
+            const formattedDate = `${year}-${month}-${formattedDay}`;
 
             const datosRegistro = {
                 ps: 'www.continentalassist.com',
@@ -300,13 +300,14 @@ export const AuthProvider = ({children}:any) => {
             // console.log(resp.data.resultado[0].mensaje_error)
             // console.log('resp.data========>',resp.data)
             if (resp.data.error === false ) {
-                const usuarios: Usuario[] = resp.data.resultado as Usuario[];
-                datosRegistro.idEmision = usuarios[0].id;  
+                const usuarios: Usuario = resp.data.resultado as Usuario;
+                console.log('usuarios-------->>>',usuarios.id);
+                datosRegistro.idEmision = usuarios.id;  
                 
                 // Guardar la sesión en AsyncStorage
                 const guardarSesionRegistroUsuario = async () => {
                     try {
-                        await AsyncStorage.setItem('registroUsuario', JSON.stringify(usuarios[0]));
+                        await AsyncStorage.setItem('registroUsuario', JSON.stringify(usuarios));
                         console.log('Sesión guardada en AsyncStorage');
                     } catch (error) {
                         console.error('Error al guardar la sesión en AsyncStorage', error);
@@ -318,8 +319,8 @@ export const AuthProvider = ({children}:any) => {
                 dispatch({
                     type: 'signUp',
                     payload: {
-                        token: '356964e2f8c0811ead9d1529fbae58127379054e',
-                        usuarioRegistro: usuarios[0],
+                        token: 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
+                        usuarioRegistro: usuarios,
                         session: null,  
                         formData: datosRegistro,
                         isGeolocation: { location, error},

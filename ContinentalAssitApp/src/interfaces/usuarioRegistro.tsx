@@ -4,13 +4,13 @@ import { id } from 'date-fns/locale';
 
 export interface UsuarioRegistro {
     ps: string;
-    id?: string;
+    id?: number;
     nombre?:   string;
     email?:    string;
     nacimiento?: Date ;
     telefono?: string;
-    id_usuario?: string;
-    idEmision?: string;
+    id_usuario?: number;
+    idEmision?: number;
     codigo?: string;
     fecha?: string;
     pais_callingCode?:string;
@@ -27,17 +27,17 @@ export interface ErrorUsuario {
 }
 
 export interface CodigoRegistro {
-    idUsuario: string;
+    idUsuario: number;
 }
 
 export interface usuarioRegistro {
-    resultado:  [] | ErrorUsuario[];
+    resultado:  {} | ErrorUsuario ;
     cantidad:  number;
     error:     boolean;
 }
 
 export interface Usuario {
-    id:              string;
+    id:              number;
     id_emision:      null;
     codigo:          string;
     fecha:           string;
@@ -53,7 +53,7 @@ export interface Usuario {
 }
 
 export interface Beneficiario {
-    id:                  string;
+    id:                  number;
     nombre:              string;
     apellido:            string;
     email:               string;

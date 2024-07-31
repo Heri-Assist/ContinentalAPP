@@ -15,11 +15,11 @@ export interface LoginRespuesta {
 
 
 export interface UsuarioLogin {
-	id_usuario?: 					string;
-	nombre?:     					string;
-	nacimiento: 					string;
-	email?:      					string;
-	avatar?:     					null;	
+	id_usuario?: 		number;
+	nombre?:     		string;
+	nacimiento: 		string;
+	email?:      		string;
+	avatar?:     		null;	
 	password?:            string;
 	status?:              string;
 	codigo_registro?:     string;
@@ -33,7 +33,7 @@ export interface UsuarioLogin {
 }
 
 export interface Telefono {
-	id:               string;
+	id:               number;
 	id_usuario:       string;
 	pais_name:        string;
 	pais_callingCode: string;
@@ -54,8 +54,8 @@ export interface TelefonosRespuesta {
 }
 
 export interface RespuestaTelefonos {
-	id:               string;
-	id_usuario:       string;
+	id:               number;
+	id_usuario:       number;
 	pais_name:        string;
 	pais_callingCode: string;
 	telefono:         string;

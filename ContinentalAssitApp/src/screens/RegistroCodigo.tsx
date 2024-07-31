@@ -27,7 +27,7 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
   // console.log('dataForm', dataForm)
 
   const IDUsuario = idUsuario;
-
+  console.log('<----IDUsuario---->', IDUsuario )
   useEffect(() => {
     if (errorMessage.length === 0) return;
 
@@ -43,7 +43,7 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
   const onValidarCodigo = async (data: UsuarioRegistro) => {
       const headers = {
         'Content-Type': 'application/json',
-        'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+        'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
       };
 
       try {
@@ -79,7 +79,7 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
 
   const headers = {
     'Content-Type': 'application/json',
-    'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+    'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
   };
 
   const onReenviarValidarCodigo = async () => {
