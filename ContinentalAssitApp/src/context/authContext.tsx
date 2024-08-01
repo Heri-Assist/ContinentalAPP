@@ -265,45 +265,39 @@ export const AuthProvider = ({children}:any) => {
     };
     
     //Registrar un nuevo usuario
-    const signUp = async( data:UsuarioRegistro ) => {
-        
+    const signUp = async (data: UsuarioRegistro) => {
         const { nombre, nacimiento, email, telefono } = data;
-        // console.log('Datos Registro',data);
-        const months = [
-            'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
-        ];
-
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+    
         try {
-             
             // Formatear la fecha manualmente
-            const fechaActual = new Date();
             const day = nacimiento?.getDate();
-            const month = months[nacimiento===undefined? 1 : nacimiento.getMonth()];
+            const month = months[nacimiento === undefined ? 1 : nacimiento.getMonth()];
             const year = nacimiento?.getFullYear();
             const formattedDay = String(day).padStart(2, '0');
             const formattedDate = `${year}-${month}-${formattedDay}`;
-
+    
             const datosRegistro = {
                 ps: 'www.continentalassist.com',
                 nombre,
                 nacimiento: formattedDate,
                 email,
-                telefono:telefono,
+                telefono: telefono,
                 pais_callingCode: data.pais_callingCode,
                 pais_name: data.pais_name,
                 pais_flag: data.pais_flag,
                 idEmision: data.idEmision,
-            }
-            console.log('datosRegistro',datosRegistro);
-
-            const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario',  datosRegistro, { headers });
-            // console.log(resp.data.resultado[0].mensaje_error)
-            // console.log('resp.data========>',resp.data)
-            if (resp.data.error === false ) {
+            };
+            console.log('Datos de registro:', datosRegistro);
+    
+            const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario', datosRegistro, { headers });
+            console.log('Respuesta de la API:', resp.data);
+    
+            if (resp.data.error === false) {
                 const usuarios: Usuario = resp.data.resultado as Usuario;
-                console.log('usuarios-------->>>',usuarios.id);
-                datosRegistro.idEmision = usuarios.id;  
-                
+                console.log('Usuario registrado:', usuarios.id);
+                datosRegistro.idEmision = usuarios.id;
+    
                 // Guardar la sesión en AsyncStorage
                 const guardarSesionRegistroUsuario = async () => {
                     try {
@@ -313,33 +307,36 @@ export const AuthProvider = ({children}:any) => {
                         console.error('Error al guardar la sesión en AsyncStorage', error);
                     }
                 };
-
+    
                 await guardarSesionRegistroUsuario();
-               
+    
                 dispatch({
                     type: 'signUp',
                     payload: {
                         token: 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
                         usuarioRegistro: usuarios,
-                        session: null,  
+                        session: null,
                         formData: datosRegistro,
-                        isGeolocation: { location, error},
+                        isGeolocation: { location, error },
                         idioma: NativeModules.I18nManager.localeIdentifier,
-                    }
+                    },
                 });
+                return usuarios; // Asegurarse de devolver el objeto usuarios
             } else {
                 const errorUsuarios: ErrorUsuario[] = resp.data.resultado as ErrorUsuario[];
                 const errorMessage = errorUsuarios[0]?.mensaje_error || 'Información incorrecta';
+                console.error('Error en el registro:', errorMessage);
                 dispatch({
                     type: 'addError',
                     payload: errorMessage,
                 });
-                return resp.data.error;
-            }        
+                return undefined;
+            }
         } catch (error) {
-            console.error(error)
+            console.error('Error en la solicitud de registro:', error);
+            return undefined;
         }
-    }
+    };
     
     // Cerrar sesión
     const logout = () => {

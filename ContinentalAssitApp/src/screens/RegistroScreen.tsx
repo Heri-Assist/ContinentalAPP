@@ -71,29 +71,26 @@ export const RegistroScreen = ({navigation}: Props) => {
   // ...
   const onRegistro = async (data: UsuarioRegistro) => {
     Keyboard.dismiss();
-   
-      setIsLoading(true); // Activar el indicador de carga
+    setIsLoading(true); // Activar el indicador de carga
 
-      data.pais_callingCode = selectedCountryData.pais_callingCode;
-      data.pais_flag = selectedCountryData.pais_flag;
-      data.pais_name = selectedCountryData.pais_name;
-      try {
-        
-      const resp = await signUp(data);
-       
+    data.pais_callingCode = selectedCountryData.pais_callingCode;
+    data.pais_flag = selectedCountryData.pais_flag;
+    data.pais_name = selectedCountryData.pais_name;
+
+    try {
+        await signUp(data);
         setIsLoading(false); // Desactivar el indicador de carga
-        console.log('........resp.......', resp);
-        
-        if(resp === undefined){
-          navigation.navigate('Respuesta');
-        }else{
-          return
-        }
 
-      } catch (error) {
+        console.log('Registro exitoso');
+        // Navegar a la pantalla de respuesta exitosa
+        navigation.navigate('Respuesta');
+    } catch (error) {
         setIsLoading(false); // Desactivar el indicador de carga en caso de error
-      }
-  };
+        console.error('Error en onRegistro:', error);
+        // Navegar a una pantalla de error o mostrar un mensaje de error
+        navigation.navigate('Error', { mensaje: 'Error en el proceso de registro' });
+    }
+  }; 
 
   const [selectedCountryData, setSelectedCountryData] = useState<{
     pais_callingCode: string;

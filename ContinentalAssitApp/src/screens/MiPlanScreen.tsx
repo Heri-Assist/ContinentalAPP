@@ -124,9 +124,13 @@ export const MiPlanScreen = () => {
                 </View>
                 <View style={Style.container3}>
                     <Swiper  containerStyle={Style.slider} height={300}>
-                        {beneficiarios.map((beneficiario, index) => (
-                            <CardSliderComponent key={index} beneficiario={beneficiario} />
-                        ))}
+                            {beneficiarios && beneficiarios.length > 0 ? (
+                            beneficiarios.map((beneficiario, index) => (
+                                <CardSliderComponent key={index} beneficiario={beneficiario} />
+                            ))
+                            ) : (
+                                <Text>No hay beneficiarios disponibles.</Text>
+                            )}
                     </Swiper>
                 </View>
                             

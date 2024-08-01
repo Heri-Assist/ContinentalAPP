@@ -117,14 +117,14 @@ export const RegistroResp = ({navigation} : Props) => {
         setIsLoading(true); // Activar el indicador de carga
         const dataConfirmar= {
           ps: data.ps,
-          nombre: data.nombre,
-          nacimiento: fechaFormateada, // dar formato de fecha a la fecha de nacimiento 2021-09-01
-          email: data.email,
+          nombre: 'Javier Prieto',
+          nacimiento: "15-Mar-1991", // dar formato de fecha a la fecha de nacimiento 2021-09-01
+          email: 'hvhvalencia3@gmail.com',
           pais_name: data.pais_name,
           pais_flag:data.pais_flag,
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
-          id_emision: data.idEmision
+          idOrden: data.idEmision
         }
         console.log('dataConfirmar', dataConfirmar);
         // console.log('dataConfirmar', dataConfirmar);
