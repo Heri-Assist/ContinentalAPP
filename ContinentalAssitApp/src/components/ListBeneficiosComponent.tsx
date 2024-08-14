@@ -19,7 +19,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
     // Agrupar los beneficios por tipo
     const groupedBeneficios: { [key: string]: Beneficios[] } = {};
     beneficiosRespuesta.resultado.forEach((beneficio) => {
-      const tipoBeneficioId = beneficio.id_tipo_beneficio;
+      const tipoBeneficioId = beneficio.idfamilia;
       if (!groupedBeneficios[tipoBeneficioId]) {
         groupedBeneficios[tipoBeneficioId] = [];
       }
@@ -48,7 +48,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
           />
         </View>
         <View style={Style.textContainer}>
-          <Text style={Style.titleBoldList}>{item.nombre_tipo_beneficio}</Text>
+          <Text style={Style.titleBoldList}>{item.nombre}</Text>
         </View>
         <View style={{ alignContent: 'flex-end' }}>
           {isExpanded(index) ? (
@@ -63,7 +63,6 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
 
   const renderContent = (item: TiposBeneficio, index: number) => {
     const beneficiosDelTipo = beneficiosPorTipo[item.id_tipo_beneficio] || [];
-
     return (
       <View>
         {beneficiosDelTipo.map((beneficio, innerIndex) => (
@@ -75,7 +74,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
                       <Text style={ Style.textItem }>{beneficio.nombre}</Text>
                     </View>
                     <View style={ Style.column2} >
-                      <Text style={ Style.textItem2 }>{ beneficio.valor} </Text>
+                      <Text style={ Style.textItem2 }>{ beneficio.cobertura} </Text>
                     </View>
                 </View>
               </View>       

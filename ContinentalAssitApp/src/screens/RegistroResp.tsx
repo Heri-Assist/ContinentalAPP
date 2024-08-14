@@ -61,17 +61,13 @@ export const RegistroResp = ({navigation} : Props) => {
     // Asumiendo que convertirFecha espera una fecha en formato string 'YYYY-MM-DD'
     const fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('T')[0] : data.nacimiento;
     const fechaFormateada = convertirFecha(fechaComoString);
-    console.log('Fecha formateada:', fechaFormateada);
   } else {
     console.log('La fecha de nacimiento no está definida.');
   }
 
   
   const onContinuar = async () => {
-    // Obtener los datos del formulario del estado global
-  
-    // console.log('ladata', data.email);
-
+    // Obtener los datos del formulario del estado global  
     Alert.alert('Registro Correcto', t('registroCodigo.texto1',{ correo: data.email }), [
       { text: 'si', onPress: () => SiEnviarCodigo() },
       { text: 'no', onPress: () => navigation.replace('Inicio')}
@@ -87,14 +83,13 @@ export const RegistroResp = ({navigation} : Props) => {
 
 
   const enviarCodigo = async (id_usuario: CodigoRegistro) => {
-    // console.log('id_usuario', id_usuario);
+
     try {
       const dataRespuesta = {
         ps: data.ps,
         id_usuario: id_usuario,
       }
       const enviarCodigo = await continentalApi.post('/app_enviar_codigo_registro', dataRespuesta, { headers })
-      // console.log('enviarCodigo', enviarCodigo.data);
       navigation.navigate('Codigo')
     }
     catch (error) {
@@ -109,7 +104,6 @@ export const RegistroResp = ({navigation} : Props) => {
       // Asumiendo que convertirFecha espera una fecha en formato string 'YYYY-MM-DD'
       fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('T')[0] : data.nacimiento;
       fechaFormateada = convertirFecha(fechaComoString);
-      console.log('Fecha formateada:', fechaFormateada);
     } else {
       console.log('La fecha de nacimiento no está definida.');
     }
@@ -124,18 +118,14 @@ export const RegistroResp = ({navigation} : Props) => {
           pais_flag:data.pais_flag,
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
-          id_emision: data.idEmision
-        }
-        console.log('dataConfirmar', dataConfirmar);
-        // console.log('dataConfirmar', dataConfirmar);
-        
+          id_emision: null,
+          idOrden: data.idEmision,
+          
+        }        
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });
         const id_usuario = resp.data.resultado.id_usuario;
-        console.log('resp', resp.data.resultado);
-        console.log('-----id_usuario------', id_usuario);
         updateIdUsuario(id_usuario); 
         await enviarCodigo(id_usuario);
-
         setIsLoading(false); // Desactivar el indicador de carga
     } catch (error) {
         console.log('error', error);

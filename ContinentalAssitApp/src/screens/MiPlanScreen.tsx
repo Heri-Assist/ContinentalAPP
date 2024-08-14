@@ -32,9 +32,9 @@ const { t } = useTranslation();
 export const MiPlanScreen = () => {
     const {  usuarioRegistro, idioma, usuarioLogin } = useContext(AuthContext);
     const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
+
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
     
-    // console.log('beneficiosRespuesta',beneficiosRespuesta)
 
     useEffect(() => {
         // console.log('usuarioRegistro====>',usuarioRegistro)
@@ -72,8 +72,6 @@ export const MiPlanScreen = () => {
         };
 
         const resp = await continentalApi.post<BeneficiosRespuesta>('/app_consulta_beneficios_voucher',  datosRegistro, { headers });
-        // console.log('Beneficios',resp.data)
-
         return resp.data;
     }
 

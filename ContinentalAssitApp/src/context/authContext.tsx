@@ -136,6 +136,7 @@ export const AuthProvider = ({children}:any) => {
                     if (resp.data.error === false ) {
                         
                         const dataUsuario = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin;
+                        console.log('---Usuario logueado:---', dataUsuario);
                         const guardarSesion = async () => {
                             try {
                                 await AsyncStorage.setItem('session', JSON.stringify(resp.data));
@@ -288,22 +289,23 @@ export const AuthProvider = ({children}:any) => {
                 pais_flag: data.pais_flag,
                 idEmision: data.idEmision,
             };
-            console.log('Datos de registro:', datosRegistro);
+            // console.log('Datos de registro:', datosRegistro);
     
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario', datosRegistro, { headers });
            
             
             if (resp.data.error === false) {
-                console.log('Respuesta de la API-------:', resp.data.resultado);
+                // console.log('Respuesta de la API-------:', resp.data.resultado);
                 const usuarios: Usuario = resp.data.resultado as Usuario;
-                console.log('Usuario registrado:', usuarios.id);
+                // console.log('Usuario registrado:', usuarios.id);
                 datosRegistro.idEmision = usuarios.id;
     
                 // Guardar la sesión en AsyncStorage
                 const guardarSesionRegistroUsuario = async () => {
                     try {
                         await AsyncStorage.setItem('registroUsuario', JSON.stringify(usuarios));
-                        console.log('Sesión guardada en AsyncStorage');
+                        const valorGuardado = await AsyncStorage.getItem('registroUsuario');
+                        console.log('Sesión guardada en AsyncStorage', valorGuardado);
                     } catch (error) {
                         console.error('Error al guardar la sesión en AsyncStorage', error);
                     }

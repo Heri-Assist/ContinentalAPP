@@ -34,7 +34,7 @@ export interface UsuarioLogin {
 
 export interface Telefono {
 	id:               number;
-	id_usuario:       string;
+	id_usuario:       number;
 	pais_name:        string;
 	pais_callingCode: string;
 	telefono:         string;

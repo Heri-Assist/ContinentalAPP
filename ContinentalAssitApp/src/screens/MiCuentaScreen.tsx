@@ -39,8 +39,8 @@ export const MiCuentaScreen = () => {
 
     // actuliza el estado de los teléfonos
     useEffect(() => {
-        // console.log('usuarioRegistro====>',usuarioRegistro?.id)
-        // console.log("Ejecutando UsuarioLogin en MiCuentaScreen", usuarioLogin);
+        console.log('usuarioRegistro====>',usuarioRegistro?.id)
+        console.log("Ejecutando UsuarioLogin en MiCuentaScreen", usuarioLogin);
         if (usuarioLogin) {
           setTelefonos(usuarioLogin.telefonos);
         }

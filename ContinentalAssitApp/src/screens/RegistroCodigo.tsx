@@ -59,6 +59,8 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
             { headers }
         );
         
+        console.log('----enviarCodigo---', enviarCodigo.data)
+
         if(enviarCodigo.data.error === false){
           await login(dataForm as UsuarioRegistro)
           setIsLoading(false);
