@@ -53,9 +53,8 @@ export const RegistroScreen = ({navigation}: Props) => {
   
 
   useEffect(() => {
-    console.log('errorUseEfect===========>>>', errorMessage);
-    if(errorMessage.length === 0) return;
 
+    if(errorMessage.length === 0) return;
       Alert.alert('Registro Incorrecto', errorMessage, [
         { text: 'Ok', onPress: () => AccionErrror()},
       ]);
@@ -65,30 +64,32 @@ export const RegistroScreen = ({navigation}: Props) => {
 
   const AccionErrror = () => {
     removeError();
-    navigation.replace('Registro');
+    // navigation.replace('Registro');
+      setValue('nombre', '');
+      setValue('email', '');
+      setValue('telefono', '');
   }
 
   // ...
   const onRegistro = async (data: UsuarioRegistro) => {
     Keyboard.dismiss();
-    setIsLoading(true); // Activar el indicador de carga
-
+    setIsLoading(true);
+  
     data.pais_callingCode = selectedCountryData.pais_callingCode;
     data.pais_flag = selectedCountryData.pais_flag;
     data.pais_name = selectedCountryData.pais_name;
-
+    
     try {
-        await signUp(data);
-        setIsLoading(false); // Desactivar el indicador de carga
-
-        console.log('Registro exitoso');
-        // Navegar a la pantalla de respuesta exitosa
+      const repuesta = await signUp(data);
+      // Si signUp no lanza un error, asumimos que el registro fue exitoso
+      if (repuesta != undefined) {
         navigation.navigate('Respuesta');
+      }
     } catch (error) {
-        setIsLoading(false); // Desactivar el indicador de carga en caso de error
-        console.error('Error en onRegistro:', error);
-        // Navegar a una pantalla de error o mostrar un mensaje de error
-        navigation.navigate('Error', { mensaje: 'Error en el proceso de registro' });
+      // Aquí manejas el error específico de signUp
+      console.error('Error en onRegistro:', error);
+    } finally {
+      setIsLoading(false);
     }
   }; 
 

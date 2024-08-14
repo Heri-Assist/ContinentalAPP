@@ -117,14 +117,14 @@ export const RegistroResp = ({navigation} : Props) => {
         setIsLoading(true); // Activar el indicador de carga
         const dataConfirmar= {
           ps: data.ps,
-          nombre: 'Javier Prieto',
-          nacimiento: "15-Mar-1991", // dar formato de fecha a la fecha de nacimiento 2021-09-01
-          email: 'hvhvalencia3@gmail.com',
+          nombre: data.nombre,
+          nacimiento: fechaFormateada, // dar formato de fecha a la fecha de nacimiento 2021-09-01
+          email: data.email,
           pais_name: data.pais_name,
           pais_flag:data.pais_flag,
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
-          idOrden: data.idEmision
+          id_emision: data.idEmision
         }
         console.log('dataConfirmar', dataConfirmar);
         // console.log('dataConfirmar', dataConfirmar);
@@ -146,8 +146,7 @@ export const RegistroResp = ({navigation} : Props) => {
 
   return (
     <ScrollView 
-        style={ Style.scrollView} > 
-       
+      style={ Style.scrollView} > 
       <View style={{paddingTop:40}}>
         <Animatable.View animation="fadeInDown" duration={1200} style={Style.container}>
           <Image 
@@ -215,7 +214,7 @@ export const RegistroResp = ({navigation} : Props) => {
                 <Icon name='calendar' size={20} style={Style.containerIconos}></Icon>
               <Text style={Style.textoIcons}>
                   {t('registro.fechaRetorno')}
-              </Text>
+              </Text>  
               <Text style={Style.textIconBold}>{usuarioRegistro?.retorno}</Text>
             </View>
           </View>

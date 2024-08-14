@@ -118,7 +118,7 @@ export const AuthProvider = ({children}:any) => {
     };
 
     // Iniciar sesión
-    const login = async (data?:UsuarioRegistro) => {
+    const login = async (data?:UsuarioRegistro)  => {
         if (data) { 
             const { email, nombre, nacimiento, idEmision} = data;
             try {
@@ -291,9 +291,10 @@ export const AuthProvider = ({children}:any) => {
             console.log('Datos de registro:', datosRegistro);
     
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario', datosRegistro, { headers });
-            console.log('Respuesta de la API:', resp.data);
-    
+           
+            
             if (resp.data.error === false) {
+                console.log('Respuesta de la API-------:', resp.data.resultado);
                 const usuarios: Usuario = resp.data.resultado as Usuario;
                 console.log('Usuario registrado:', usuarios.id);
                 datosRegistro.idEmision = usuarios.id;
@@ -323,9 +324,10 @@ export const AuthProvider = ({children}:any) => {
                 });
                 return usuarios; // Asegurarse de devolver el objeto usuarios
             } else {
+                console.log('Respuesta de la API Error:', resp.data.error);
                 const errorUsuarios: ErrorUsuario[] = resp.data.resultado as ErrorUsuario[];
                 const errorMessage = errorUsuarios[0]?.mensaje_error || 'Información incorrecta';
-                console.error('Error en el registro:', errorMessage);
+                console.error('Respuesta de la API Error:', errorMessage);
                 dispatch({
                     type: 'addError',
                     payload: errorMessage,
@@ -334,7 +336,7 @@ export const AuthProvider = ({children}:any) => {
             }
         } catch (error) {
             console.error('Error en la solicitud de registro:', error);
-            return undefined;
+            return error;
         }
     };
     
