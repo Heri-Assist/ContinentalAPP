@@ -34,18 +34,18 @@ export const EmergenciaScreen = ({navigation}: Props) => {
 
 
 
-    const getMotivosChat = async () => {
-       await motivosChat()
-    }
     const hideModal = () => setVisible(false);
     const [selectedMotivo, setSelectedMotivo] = useState(null);
-
+    
     // Obtiene los motivos de chat al cargar la pantalla
     const { motivosChatData, motivosChat, entrarChat } = useContext(firebaseContext);
     useEffect(() => {
         getMotivosChat();
     }, []);
-
+    
+    const getMotivosChat = async () => {
+       await motivosChat()
+    }
     
     // Abre el enlace de correo electrónico
     const openEmailLink = async (email: string) => {

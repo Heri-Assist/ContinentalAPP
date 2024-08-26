@@ -20,8 +20,8 @@ export interface UsuarioLogin {
 	nacimiento: 		string;
 	email?:      		string;
 	avatar?:     		null;	
-	password?:            string;
-	status?:              string;
+	password?:          string;
+	idstatus?:          string;
 	codigo_registro?:     string;
 	fecha_registro?:      string;
 	pais_name?:           string;
@@ -29,7 +29,7 @@ export interface UsuarioLogin {
 	pais_flag?:           string;
 	pais_callingCode?:    string;
 	numero_beneficiario?: number;
-	telefonos:  					Telefono[];
+	telefonos:		Telefono[];
 }
 
 export interface Telefono {

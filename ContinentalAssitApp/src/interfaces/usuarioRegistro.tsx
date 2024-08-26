@@ -10,7 +10,26 @@ export interface UsuarioRegistro {
     nacimiento?: Date ;
     telefono?: string;
     id_usuario?: number;
-    idEmision?: number;
+    idOrden?: number;
+    codigo?: string;
+    fecha?: string;
+    pais_callingCode?:string;
+    pais_name?:string,
+    pais_flag?:string,
+    idioma?:string,
+    codigo_voucher?:string,
+    limite_beneficios?:number,
+}
+
+export interface UsuarioRegistroData{
+    ps: string;
+    id?: number;
+    nombre?:   string;
+    email?:    string;
+    nacimiento?: string ;
+    telefono?: string;
+    id_usuario?: number;
+    idOrden?: number;
     codigo?: string;
     fecha?: string;
     pais_callingCode?:string;

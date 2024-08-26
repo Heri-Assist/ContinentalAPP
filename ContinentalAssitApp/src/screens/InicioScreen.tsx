@@ -17,7 +17,7 @@ export const InicioScreen = ( {navigation} : Props ) => {
   
   const { t } = useTranslation();
   const { session, isGeolocation, idioma, logout, login } = useContext(AuthContext);
-  const [obtenerSession, setLoadSession] = useState(null || session);
+  const [obtenerSession, setLoadSession] = useState(session);
 
   
   

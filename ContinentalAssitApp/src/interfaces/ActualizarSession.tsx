@@ -18,7 +18,7 @@
 		nombre:              string;
 		nacimiento:          string;
 		password:            string;
-		status:              string;
+		idstatus:            string;
 		codigo_registro:     string;
 		fecha_registro:      string;
 		avatar:              null;

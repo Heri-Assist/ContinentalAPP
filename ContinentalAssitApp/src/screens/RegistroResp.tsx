@@ -118,10 +118,10 @@ export const RegistroResp = ({navigation} : Props) => {
           pais_flag:data.pais_flag,
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
-          id_emision: null,
-          idOrden: data.idEmision,
+          idOrden: data.idOrden,
           
-        }        
+        }      
+        console.log('-------dataConfirmar--------', dataConfirmar);  
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });
         const id_usuario = resp.data.resultado.id_usuario;
         updateIdUsuario(id_usuario); 

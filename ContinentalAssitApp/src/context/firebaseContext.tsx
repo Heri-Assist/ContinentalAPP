@@ -61,6 +61,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 		const { location, error } = useGeolocation();
 		const headers = {
 			'Content-Type': 'application/json',
+			'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
 		};
 
 
@@ -211,7 +212,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 			});
 		};
 		
-
+		
 		return (
 			<firebaseContext.Provider value={{ 
 				...state,

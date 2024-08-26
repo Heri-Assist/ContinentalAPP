@@ -87,6 +87,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
 
   return (
     <View style={{}}>
+      
       {tipos_beneficios.map((content, index) => (
         <ListItem.Accordion
           icon={{ disabled: false }}

@@ -119,20 +119,44 @@ export const AuthProvider = ({children}:any) => {
 
     // Iniciar sesión
     const login = async (data?:UsuarioRegistro)  => {
+        let fechaORdenada=''
         if (data) { 
-            const { email, nombre, nacimiento, idEmision} = data;
+            const { email, nombre, nacimiento,idOrden} = data;
+            //separa  la fecha de nacimiento por guion esta en formato Date 1975-Jul-08 y lo necesitamos en formato 08-Jul-1975
+            
+             //   let fechaORdenada ='';
+          // console.log('DataForm====================', dataForm)
+          // Mapeo de nombres de meses abreviados a números
+          let partes:any ='';
+          const dateNacimieto  = data?.nacimiento || new Date(); 
+          //convertirFecha(fechaComoString);
+          const fechaFormateada = dateNacimieto;
+          console.log('fechaFormateada', typeof fechaFormateada)  
+          //separar la fecha en dia, mes y año - separador -
+          if(fechaFormateada !== undefined){
+            //@ts-ignore
+            const partes = fechaFormateada.split('-');
+            fechaORdenada = `${partes[2]}-${partes[1]}-${partes[0]}`;
+            console.log('<<------ fechaFormateada ----->>', fechaORdenada)
+          }else{
+            console.log('La fecha de nacimiento no está definida.');
+          }
+
             try {
                 setIsLoading(true);
                 const datosLogin = {
-                    ps: 'www.continentalassist.com',
+                    // ps: 'www.continentalassist.com',
                     nombre,
                     email,
-                    nacimiento,
-                    idEmision,
+                    nacimiento: fechaORdenada,
+                    idOrden: idOrden,
+                    // idEmision:"0",
                 }
-    
+                
                 const resp = await continentalApi.post<Data>('/app_login',  datosLogin, { headers })
-                           
+                    console.log('----------Inicio validacion respuesta login ----------');
+                    console.log(resp.data);
+                    console.log('----------Fin validacion respuesta login ----------');
                     if (resp.data.error === false ) {
                         
                         const dataUsuario = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin;
@@ -173,15 +197,12 @@ export const AuthProvider = ({children}:any) => {
                         });
                        
                     } else {
-
                         const errorUsuariosLogin: ErrorUsuarioLogin[] = resp.data.resultado as ErrorUsuarioLogin[];
                         const errorMessage = errorUsuariosLogin[0]?.mensaje_error || 'Información incorrecta';
                         dispatch({
                             type: 'addError',
                             payload: errorMessage,
-                        });
-
-                        
+                        });                        
                     }
             } catch (error) {
                 console.log(error)
@@ -236,6 +257,7 @@ export const AuthProvider = ({children}:any) => {
                         const usuarios = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin; 
                         if (session) {
                             const dataUsuario = (session.resultado as LoginRespuesta).usuario as UsuarioLogin;
+                            console.log('---Usuario logueado:---', dataUsuario);
                             dispatch({
                                 type: 'login',
                                 payload: {
@@ -287,7 +309,7 @@ export const AuthProvider = ({children}:any) => {
                 pais_callingCode: data.pais_callingCode,
                 pais_name: data.pais_name,
                 pais_flag: data.pais_flag,
-                idEmision: data.idEmision,
+                idOrden: data.idOrden,
             };
             // console.log('Datos de registro:', datosRegistro);
     
@@ -298,7 +320,7 @@ export const AuthProvider = ({children}:any) => {
                 // console.log('Respuesta de la API-------:', resp.data.resultado);
                 const usuarios: Usuario = resp.data.resultado as Usuario;
                 // console.log('Usuario registrado:', usuarios.id);
-                datosRegistro.idEmision = usuarios.id;
+                datosRegistro.idOrden = usuarios.id;
     
                 // Guardar la sesión en AsyncStorage
                 const guardarSesionRegistroUsuario = async () => {

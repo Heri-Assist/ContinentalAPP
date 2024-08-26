@@ -5,10 +5,11 @@ import { Controller, useForm } from 'react-hook-form';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../context/authContext';
-import { UsuarioRegistro, CodigoRegistro, Usuario } from '../interfaces/usuarioRegistro';
+import { UsuarioRegistro, CodigoRegistro, Usuario, UsuarioRegistroData } from '../interfaces/usuarioRegistro';
 import continentalApi from '../api/continentalApi';
 import LoadingCompoment from '../components/LoadingComponent';
 import { InicioBackgroundComponent } from '../components/InicioBackgroundComponent';
+import { da } from 'date-fns/locale';
 
  
 interface PropsStack extends StackScreenProps <any, any> { } 
@@ -62,6 +63,9 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
         console.log('----enviarCodigo---', enviarCodigo.data)
 
         if(enviarCodigo.data.error === false){
+   
+          console.log('-------------------', dataForm)  
+
           await login(dataForm as UsuarioRegistro)
           setIsLoading(false);
           
