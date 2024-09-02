@@ -32,11 +32,11 @@ const { t } = useTranslation();
 export const MiPlanScreen = () => {
     const {  usuarioRegistro, idioma, usuarioLogin } = useContext(AuthContext);
     const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
-
     const [beneficiosRespuesta, setBeneficioRespuesta] = useState({} as BeneficiosRespuesta);
     
 
     useEffect(() => {
+        
         // console.log('usuarioRegistro====>',usuarioRegistro)
         if (usuarioRegistro?.codigo === undefined) {
             return;

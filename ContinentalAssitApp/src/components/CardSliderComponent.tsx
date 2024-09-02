@@ -12,7 +12,11 @@ interface TarjetaBeneficiarioProps {
 	beneficiario: Beneficiario;
   }
 
+
+
+
 const CardSliderComponent : React.FC<TarjetaBeneficiarioProps> = ({ beneficiario }) => {
+
 	return (
 		<View style={Style.sliderContainer}>
 
@@ -36,7 +40,7 @@ const CardSliderComponent : React.FC<TarjetaBeneficiarioProps> = ({ beneficiario
 				<Icon name="calendar" size={20} style={Style.icon3}></Icon>
 				<View style={Style.textContainer}>
 					<Text style={Style.textBold}>{t('miPlan.nacimientoBeneficiario')}</Text>
-					<Text style={Style.textBold}>{beneficiario.nacimiento}</Text>
+					<Text style={Style.textBold}>{beneficiario.fechanacimiento}</Text>
 				</View>
 				<Icon name="calendar" size={20} style={Style.icon3}></Icon>
 				<View style={Style.textContainer}>

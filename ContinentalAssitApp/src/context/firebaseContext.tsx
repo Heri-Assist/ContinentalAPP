@@ -21,8 +21,8 @@ type FirebaseContextProps = {
 	userFirebaseData: UserFirebase | null;
 	motivosChatData: ChatMotivo[] | null;
 	sendMessage: (message: MessageChat) => void;
-  getMessages: () => void;
-  logoutChat: () => void;
+	getMessages: () => void;
+	logoutChat: () => void;
 	motivosChat:() => void;
 	entrarChat: (motivo: string) => void;
 	messages: MessageChat[];
@@ -97,16 +97,20 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 				
 				let voucher:any = usuarioRegistro?.codigo.split('-')
 				const  longitud:number = voucher?.length;
-				voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro.cantidad+'-'+voucher[3] 
-																 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[2];			
-				const ordenRegistrada = voucher;
 
+				// CA-MJ9MAF-1-MX
+				//CA-3905L3-1-MX
+				//CA-WE4X18-3-VE
+				//CA-
+				console.log('---beneficiarios----', beneficiarios)
+				voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[3] 
+																 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro.cantidad+'-'+voucher[2];				
+				const ordenRegistrada = voucher;
+				console.log('---longitud----', longitud)
+				console.log('---voucher----', voucher)
+				console.log('---codigo----', usuarioRegistro?.codigo)
+				console.log('---ordenRegistrada----', ordenRegistrada)
 				const beneficiarioNombre = beneficiarios.find(item => item.voucherBeneficiario === ordenRegistrada);
-			
-				// validar que ubicar no sea null y si lo es que solicite los permites para obtener la ubicacion
-				
-					// Verifica si los valores son undefined o null antes de llamar a set()
-					// console.log('ubicar***************===>>>>', ubicar)
 					
 					set(ref(database, 'users/' + ordenRegistrada),{
 						chatEnviarAdjunto: false,
@@ -133,10 +137,9 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 
 	  	let voucher:any = usuarioRegistro?.codigo.split('-')
 			const longitud:any = voucher?.length;
-			voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro?.cantidad+'-'+voucher[3] 
+			voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro?.cantidad+'-'+voucher[3] 
 															 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro?.cantidad+'-'+voucher[2];
 			const ordenRegistrada = voucher;
-		
 			// Guarda el mensaje en la base de datos y obtén su clave
 			const newMessageRef = push(ref(database, 'mensajes/' + ordenRegistrada));
   		set(newMessageRef, message);
@@ -173,7 +176,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 
 			let voucher:any = usuarioRegistro?.codigo.split('-')
 			const  longitud:any = voucher?.length;
-			voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+voucher[2]+'-'+usuarioRegistro?.cantidad+'-'+voucher[3] 
+			voucher = (longitud > 3) ? voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro?.cantidad+'-'+voucher[3] 
 	  														 : voucher[0]+'-'+voucher[1]+'-'+usuarioRegistro?.cantidad+'-'+voucher[2];		
 			const ordenRegistrada = voucher;
 			const refStorage = storageRef(storage, `adjuntos/${ordenRegistrada}/${file.name}`);
@@ -212,7 +215,7 @@ export const firebaseContext = createContext({} as FirebaseContextProps);
 			});
 		};
 		
-		
+
 		return (
 			<firebaseContext.Provider value={{ 
 				...state,

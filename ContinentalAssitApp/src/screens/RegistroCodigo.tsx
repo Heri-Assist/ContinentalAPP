@@ -28,7 +28,7 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
   // console.log('dataForm', dataForm)
 
   const IDUsuario = idUsuario;
-  console.log('<----IDUsuario---->', IDUsuario )
+  // console.log('<----IDUsuario---->', IDUsuario )
   useEffect(() => {
     if (errorMessage.length === 0) return;
 
@@ -60,13 +60,21 @@ export const RegistroCodigo = ({navigation} : PropsStack) => {
             { headers }
         );
         
-        console.log('----enviarCodigo---', enviarCodigo.data)
+        // console.log('----enviarCodigo---', enviarCodigo.data)
 
         if(enviarCodigo.data.error === false){
    
-          console.log('-------------------', dataForm)  
+          // console.log('-------------------', dataForm)  
 
-          await login(dataForm as UsuarioRegistro)
+          const loginResta  = await login(dataForm as UsuarioRegistro)
+          console.log('-----loginResta-----', loginResta)
+          // if(loginResta ==  undefined){
+          //   setIsLoading(false);
+          //   Alert.alert('Error', 'Error al iniciar sesión', [
+          //     { text: 'Ok', onPress: () => navigation.replace('Registro')},
+          //   ]);
+          //   return;
+          // }
           setIsLoading(false);
           
           navigation.replace('Dashboard') 

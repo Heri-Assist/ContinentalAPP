@@ -71,9 +71,7 @@ export const RegistroResp = ({navigation} : Props) => {
     Alert.alert('Registro Correcto', t('registroCodigo.texto1',{ correo: data.email }), [
       { text: 'si', onPress: () => SiEnviarCodigo() },
       { text: 'no', onPress: () => navigation.replace('Inicio')}
-
     ]);
-
   }
 
   const headers = {
@@ -99,11 +97,18 @@ export const RegistroResp = ({navigation} : Props) => {
 
   const SiEnviarCodigo = async () => {
     let fechaComoString ='';
+    let anio = '';
+    let mes = '';
+    let dia = '';
     let fechaFormateada ='';
     if (data.nacimiento !== undefined) {
       // Asumiendo que convertirFecha espera una fecha en formato string 'YYYY-MM-DD'
-      fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('T')[0] : data.nacimiento;
-      fechaFormateada = convertirFecha(fechaComoString);
+      fechaComoString = data.nacimiento instanceof Date ? data.nacimiento.toISOString().split('-')[0] : data.nacimiento;
+      anio = fechaComoString.split('-')[0];
+      mes = fechaComoString.split('-')[1];
+      dia = fechaComoString.split('-')[2];
+      fechaFormateada = `${dia}-${mes}-${anio}`; // Construir la nueva fecha  
+      console.log('fechaFormateada->>>>>>>>>', fechaFormateada);
     } else {
       console.log('La fecha de nacimiento no está definida.');
     }
@@ -119,9 +124,8 @@ export const RegistroResp = ({navigation} : Props) => {
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
           idOrden: data.idOrden,
-          
         }      
-        console.log('-------dataConfirmar--------', dataConfirmar);  
+
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });
         const id_usuario = resp.data.resultado.id_usuario;
         updateIdUsuario(id_usuario); 
@@ -132,7 +136,6 @@ export const RegistroResp = ({navigation} : Props) => {
         setIsLoading(false); // Desactivar el indicador de carga en caso de error
     }
   };
-
 
   return (
     <ScrollView 

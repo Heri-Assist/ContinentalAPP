@@ -77,7 +77,7 @@ export interface Beneficiario {
     apellido:            string;
     email:               string;
     telefono:            string;
-    nacimiento:          string;
+    fechanacimiento:     string;
     edad:                string;
     documento:           string;
     voucherBeneficiario: string;

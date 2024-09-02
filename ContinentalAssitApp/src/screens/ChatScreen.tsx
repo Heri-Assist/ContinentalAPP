@@ -46,6 +46,8 @@ export const ChatScreen = ({navigation}: Props) => {
   };
   
 
+  
+
 
   const inicializarChat = async () => {
     

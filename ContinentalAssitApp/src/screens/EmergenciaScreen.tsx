@@ -235,7 +235,7 @@ export const EmergenciaScreen = ({navigation}: Props) => {
                                                     placeholder={{ label: 'Select a reason', value: null }}
                                                     onValueChange={(value) => {
                                                     // Realiza acciones según el motivo seleccionado
-                                                    console.log('Motivo seleccionado:', value);
+                                                    // console.log('Motivo seleccionado:', value);
                                                     // hideModal(); // Cierra el modal después de la selección
                                                     }}
                                                     items={motivosChatData?.map((motivo: ChatMotivo) => ({
