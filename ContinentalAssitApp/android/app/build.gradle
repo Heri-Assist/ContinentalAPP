@@ -95,8 +95,8 @@ android {
             applicationId "com.continentalassitapp"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 212 
-            versionName "2.2.2"
+            versionCode 213 
+            versionName "2.2.3"
             resConfigs "en", "es"
         }
     signingConfigs {
@@ -117,7 +117,7 @@ android {
     }
     buildTypes {
         debug {
-            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
