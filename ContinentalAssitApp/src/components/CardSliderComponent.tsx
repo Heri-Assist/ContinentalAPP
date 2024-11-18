@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Swiper from 'react-native-swiper';
 import { Beneficiario } from '../interfaces/usuarioRegistro';
 import { Style } from '../theme/componentCSS';
 import { useTranslation } from 'react-i18next';
@@ -19,8 +18,6 @@ const CardSliderComponent : React.FC<TarjetaBeneficiarioProps> = ({ beneficiario
 
 	return (
 		<View style={Style.sliderContainer}>
-
-
 			<View style={Style.sliderRow}>
 				<Icon name="file" size={20} style={Style.icon2}></Icon>
 				<View style={Style.textContainer}>

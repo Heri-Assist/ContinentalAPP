@@ -2,6 +2,6 @@ module.exports = {
   root: true,
   extends: '@react-native',
   rules: {
-    'prettier/prettier': number,
-  }
+    'prettier/prettier': 1,
+  },
 };

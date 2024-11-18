@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Beneficiario } from '../interfaces/usuarioRegistro';
 import { Style } from '../theme/componentCSS';
@@ -39,7 +39,7 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario 
         <Icon name="calendar" size={20} style={Style.icon}></Icon>
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.nacimientoTitular')}</Text>
-          <Text style={Style.content}>{beneficiario.nacimiento}</Text>
+          <Text style={Style.content}>{beneficiario.fechanacimiento}</Text>
         </View>
       </View>
     </View>

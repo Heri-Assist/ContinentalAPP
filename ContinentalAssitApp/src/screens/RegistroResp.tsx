@@ -3,22 +3,21 @@
  * @param navigation - StackScreenProps navigation object.
  * @returns JSX element that displays the registration screen for a user's beneficiaries.
  */
-import React, { useContext, useEffect, useState } from 'react'
-import { ScrollView, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
-import { Style } from '../theme/registroCSS';
+import React, {useContext, useState} from 'react';
+import {ScrollView, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
+import {Style} from '../theme/registroCSS';
 import * as Animatable from 'react-native-animatable';
-import { useTranslation } from 'react-i18next';
-import Icon  from 'react-native-vector-icons/FontAwesome';
-import { TitleComponent } from '../components/TitleComponent';
+import {useTranslation} from 'react-i18next';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {TitleComponent} from '../components/TitleComponent';
 import BeneficiarioComponent from '../components/BeneficiarioComponent';
-import { Beneficiario, UsuarioRegistro, CodigoRegistro } from '../interfaces/usuarioRegistro';
-import { StackScreenProps } from '@react-navigation/stack';
-import { AuthContext } from '../context/authContext';
+import {Beneficiario, UsuarioRegistro, CodigoRegistro } from '../interfaces/usuarioRegistro';
+import {StackScreenProps} from '@react-navigation/stack';
+import {AuthContext} from '../context/authContext';
 import LoadingCompoment from '../components/LoadingComponent';
 import continentalApi from '../api/continentalApi';
-import { use } from 'i18next';
-import { useForm } from 'react-hook-form';
-import { is, te } from 'date-fns/locale';
+import {useForm} from 'react-hook-form';
+
 
 
 interface Props extends StackScreenProps <any, any> { } 
@@ -26,17 +25,17 @@ interface Props extends StackScreenProps <any, any> { }
 export const RegistroResp = ({navigation} : Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
-  const { idUsuario, updateIdUsuario, usuarioRegistro, formData } = useContext(AuthContext);
+  const {idUsuario, updateIdUsuario, usuarioRegistro, formData} = useContext(AuthContext);
   const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
-  const { control, handleSubmit } = useForm<UsuarioRegistro>()
+  const {control, handleSubmit } = useForm<UsuarioRegistro>()
 
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   
   const data = formData as UsuarioRegistro;
 
   const convertirFecha = (fecha: string): string => {
-    const meses: { [key: string]: string } = {
+    const meses: {[key: string]: string} = {
       Ene: '01',
       Feb: '02',
       Mar: '03',
@@ -65,7 +64,6 @@ export const RegistroResp = ({navigation} : Props) => {
     console.log('La fecha de nacimiento no está definida.');
   }
 
-  
   const onContinuar = async () => {
     // Obtener los datos del formulario del estado global  
     Alert.alert('Registro Correcto', t('registroCodigo.texto1',{ correo: data.email }), [
@@ -88,7 +86,7 @@ export const RegistroResp = ({navigation} : Props) => {
         id_usuario: id_usuario,
       }
       const enviarCodigo = await continentalApi.post('/app_enviar_codigo_registro', dataRespuesta, { headers })
-      navigation.navigate('Codigo')
+      navigation.navigate('Codigo');
     }
     catch (error) {
       setIsLoading(false); // Desactivar el indicador de carga en caso de error
@@ -131,6 +129,7 @@ export const RegistroResp = ({navigation} : Props) => {
         updateIdUsuario(id_usuario); 
         await enviarCodigo(id_usuario);
         setIsLoading(false); // Desactivar el indicador de carga
+        navigation.navigate('Codigo');
     } catch (error) {
         console.log('error', error);
         setIsLoading(false); // Desactivar el indicador de carga en caso de error

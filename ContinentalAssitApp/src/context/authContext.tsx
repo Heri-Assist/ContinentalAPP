@@ -4,25 +4,24 @@
  * @requires reaccionar, reaccionar-router-dom, usuarioRegistro, authReducer, continentalApi.
  * @exports AuthContext, AuthProvider.
  */
-import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
-import { Usuario, usuarioRegistro, UsuarioRegistro, ErrorUsuario, CodigoRegistro } from '../interfaces/usuarioRegistro';
-import { Data, UsuarioLogin, ErrorUsuarioLogin, LoginRespuesta } from '../interfaces/login';
-import { AuthState, authReducer } from "./authReducer";
-import continentalApi from "../api/continentalApi";
-import { ca, id } from 'date-fns/locale';
-import { Alert, DeviceEventEmitter, NativeModules } from "react-native";
-import { useGeolocation } from '../hooks/useGeolocation'; 
+import React, {createContext, useReducer, useState} from 'react';
+import {Usuario, usuarioRegistro, UsuarioRegistro, ErrorUsuario, CodigoRegistro} from '../interfaces/usuarioRegistro';
+import {Data, UsuarioLogin, ErrorUsuarioLogin, LoginRespuesta } from '../interfaces/login';
+import {AuthState, authReducer} from './authReducer';
+import continentalApi from '../api/continentalApi';
+
+import {NativeModules} from 'react-native';
+import {useGeolocation} from '../hooks/useGeolocation';
 import * as RNLocalize from 'react-native-localize';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ActualizarSession, UsuarioActualizarSession } from "../interfaces/ActualizarSession";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /** * Define la forma del objeto de contexto de autenticación. 
-* @typedef {Object} AuthContextProps 
-* @property {string} errorMessage: el mensaje de error, si lo hay. 
-* @property {cadena | null} sesión: el ID de la sesión, si está autenticado. 
-* @property {cadena | null} token: el token de autenticación, si está autenticado. 
-* @property {"comprobando" | "autenticado" | Estado "no autenticado"}: el estado de autenticación. 
-* @property {Usuario | null} usuario: el objeto de usuario autenticado, si está autenticado. 
+* @typedef {Object} AuthContextProps
+* @property {string} errorMessage: el mensaje de error, si lo hay.
+* @property {cadena | null} sesión: el ID de la sesión, si está autenticado.
+* @property {cadena | null} token: el token de autenticación, si está autenticado.
+* @property {"comprobando" | "autenticado" | Estado "no autenticado"}: el estado de autenticación.
+* @property {Usuario | null} usuario: el objeto de usuario autenticado, si está autenticado.
 * @propiedad {{} | null} formData: los datos del formulario, si los hay. * @property {cadena | null} idUsuario: el ID del usuario autenticado, si está autenticado. 
 * @property {() => void} login - La función de inicio de sesión. 
 * @property {() => void} cerrar sesión: la función de cerrar sesión. 
@@ -38,8 +37,8 @@ type AuthContextProps = {
     session: string | null;
     token: string | null;
     status: "checking" | "authenticated" | "not-authenticated";
-    usuarioRegistro?:Usuario | null;   
-    usuarioLogin: UsuarioLogin | null;   
+    usuarioRegistro?:Usuario | null;
+    usuarioLogin: UsuarioLogin | null;
     formData: {} | null;
     idUsuario:CodigoRegistro | null;
     isLoading: boolean;
@@ -79,14 +78,13 @@ const authInitialState: AuthState = {
     idioma: RNLocalize.getLocales()[0].languageCode, // Inicializa el idioma con el idioma del dispositivo
     isGeolocation: { location: null, error: null },
 }
-
 /**
  * Proporciona contexto de autenticación para la aplicación.
  * @param children Los componentes secundarios que el proveedor empaquetará.
  * @returns El proveedor de contexto de autenticación.
  */
 
-// Crear el contexto de autenticación
+    // Crear el contexto de autenticación
 export const AuthContext = createContext({} as AuthContextProps);
 
 // Hook para acceder al contexto de autenticación
@@ -123,14 +121,10 @@ export const AuthProvider = ({children}:any) => {
         let fechaORdenada=''
         if (data) { 
             const { email, nombre, nacimiento,idOrden} = data;
-   
-            
-          
-            let partes:any ='';
-            const dateNacimieto  = nacimiento || new Date(); 
+
             //convertirFecha(fechaComoString);
-            const fechaFormateada = dateNacimieto;
-            
+            const fechaFormateada  = nacimiento || new Date();
+
             //separar la fecha en dia, mes y año - separador -
             if(fechaFormateada !== undefined){
                 //@ts-ignore
@@ -140,7 +134,6 @@ export const AuthProvider = ({children}:any) => {
             }else{
                 console.log('La fecha de nacimiento no está definida.');
             }
-
             try {
                 setIsLoading(true);
                 const datosLogin = {
@@ -149,12 +142,10 @@ export const AuthProvider = ({children}:any) => {
                     email,
                     idOrden: idOrden,
                 }
-                
                 const resp = await continentalApi.post<Data>('/app_login',  datosLogin, { headers })
-               
-                    if (resp.data.error === false ) {      
+                    if (resp.data.error === false ) {
                         const dataUsuario = (resp.data.resultado as LoginRespuesta).usuario as UsuarioLogin;
-                        console.log('Usuario logueado:', dataUsuario);       
+                        console.log('Usuario logueado:', dataUsuario);
                         const guardarSesion = async () => {
                             try {
                                 await AsyncStorage.setItem('session', JSON.stringify(resp.data));
@@ -200,8 +191,7 @@ export const AuthProvider = ({children}:any) => {
                     }
             } catch (error) {
                 console.log(error)
-            }  
-
+            }
         }else{
             // Obtener la sesión de AsyncStorage
             const obtenerSesion = async () => {
@@ -228,7 +218,6 @@ export const AuthProvider = ({children}:any) => {
                   return null;
                 }
             }
-
             const registroUsuario = await obtenerRegistroUsuario();
             const registro = registroUsuario;
             // console.log('registro++++++++++++>>>>>>>>', registro.codigo);
@@ -241,8 +230,6 @@ export const AuthProvider = ({children}:any) => {
                 idEmision: registro.id,
                 idioma : idioma === 'es' ? 'spa' : 'eng',
             }
-
-      
             const actulizarSession = async () => {
                 try{
                     const resp = await continentalApi.post<Data>('/app_actualiza_session',  dataSession, { headers });
@@ -308,8 +295,6 @@ export const AuthProvider = ({children}:any) => {
             // console.log('Datos de registro:', datosRegistro);
     
             const resp = await continentalApi.post<usuarioRegistro>('/app_registro_usuario', datosRegistro, { headers });
-           
-            
             if (resp.data.error === false) {
                 // console.log('Respuesta de la API-------:', resp.data.resultado);
                 const usuarios: Usuario = resp.data.resultado as Usuario;
@@ -326,9 +311,7 @@ export const AuthProvider = ({children}:any) => {
                         console.error('Error al guardar la sesión en AsyncStorage', error);
                     }
                 };
-    
                 await guardarSesionRegistroUsuario();
-    
                 dispatch({
                     type: 'signUp',
                     payload: {
@@ -357,7 +340,6 @@ export const AuthProvider = ({children}:any) => {
             return error;
         }
     };
-    
     // Cerrar sesión
     const logout = () => {
         // borra la session de AsyncStorage
@@ -368,14 +350,12 @@ export const AuthProvider = ({children}:any) => {
             type: 'logout',  
         });
     };
-
     // Eliminar errores
     const removeError = () => {
         dispatch({
             type: 'removeError',
         });
     };
-
     // Comprobar si el usuario está autenticado
     return (
         <AuthContext.Provider value={{
@@ -389,7 +369,6 @@ export const AuthProvider = ({children}:any) => {
             isGeolocation: { location, error},
             idioma: RNLocalize.getLocales()[0].languageCode,
         }}>
-            {children}  
+            {children}
       </AuthContext.Provider>
-    )
-};
+    )};
