@@ -1,11 +1,9 @@
-import { id } from 'date-fns/locale';
-
 export interface UserFirebase {
   nombre: string;
   ipLatitude: string;
   ipLongitude: string;
   email: string;
-  language: string; 
+  language: string;
 }
 
 export interface MessageChat {
@@ -13,9 +11,9 @@ export interface MessageChat {
   de?: string;
   fecha?: object | { seconds: number; nanoseconds: number } | number;
   mensaje?: string;
-  tipo?:string | null;
+  tipo?: string | null;
   nombreArchivo?: string;
-  isSent?: boolean,
+  isSent?: boolean;
 }
 
 export interface MensajeRespuesta {
@@ -25,5 +23,4 @@ export interface MensajeRespuesta {
   mensaje: string;
   tipo: string;
   usuario_sia: number;
-
 }

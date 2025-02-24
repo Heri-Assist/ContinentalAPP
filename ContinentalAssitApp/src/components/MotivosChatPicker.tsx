@@ -14,7 +14,7 @@ const MotivosChatPicker: React.FC<MotivosChatPickerProps> = ({ onClose }) => {
   return (
     <View>
       <RNPickerSelect
-        onValueChange={(value) => setSelectedValue(value)}
+        onValueChange={value => setSelectedValue(value)}
         // @ts-ignore
         items={motivosChat} // Usa los motivos obtenidos de tu contexto
         value={selectedValue}

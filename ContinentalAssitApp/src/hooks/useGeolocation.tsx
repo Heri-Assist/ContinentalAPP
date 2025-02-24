@@ -21,36 +21,39 @@ export const useGeolocation = () => {
 
   useEffect(() => {
     const checkLocationPermission = async () => {
-      const permission = Platform.OS === 'ios' ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
+      const permission =
+        Platform.OS === 'ios'
+          ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
+          : PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION;
       const locationPermissionStatus = await check(permission);
-     
+
       if (locationPermissionStatus === 'denied') {
         const requestLocationPermissionStatus = await request(permission);
 
         if (requestLocationPermissionStatus === 'granted') {
           // Ahora puedes llamar a Geolocation.getCurrentPosition
           Geolocation.getCurrentPosition(
-            (position) => {
+            position => {
               const { latitude, longitude } = position.coords;
               setLocation({ latitude, longitude });
             },
-            (error) => {
+            error => {
               setError(error);
             },
-            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
           );
         }
       } else if (locationPermissionStatus === 'granted') {
         // Ya tienes permiso, puedes llamar a Geolocation.getCurrentPosition directamente
         Geolocation.getCurrentPosition(
-          (position) => {
+          position => {
             const { latitude, longitude } = position.coords;
             setLocation({ latitude, longitude });
           },
-          (error) => {
+          error => {
             setError(error);
           },
-          { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+          { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
         );
       }
     };

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import PhoneInput, { ICountry } from 'react-native-international-phone-number';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { Style } from '../theme/registroCSS';
-import { Text, TextInput, TouchableOpacity, Keyboard } from 'react-native'; // Importa Keyboard y TouchableOpacity
+import { Text, Keyboard } from 'react-native'; // Importa Keyboard y TouchableOpacity
 import { useTranslation } from 'react-i18next';
-import { UsuarioRegistro, usuarioRegistro } from '../interfaces/usuarioRegistro';
-
 
 interface PhoneProps {
   control: any;
@@ -13,15 +11,21 @@ interface PhoneProps {
   onCountryChange?: (country: ICountry) => void;
 }
 
-export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneProps) => {
+export const usePhone = ({
+  control,
+  defaultValue = '',
+  onCountryChange,
+}: PhoneProps) => {
   const { t } = useTranslation();
-  const [selectedCountry, setSelectedCountry] = useState<undefined | ICountry>(undefined);
+  const [selectedCountry, setSelectedCountry] = useState<undefined | ICountry>(
+    undefined,
+  );
 
   const handleSelectedCountry = (country: ICountry) => {
     setSelectedCountry(country);
     if (onCountryChange) {
       onCountryChange(country);
-    } 
+    }
   };
 
   const handleDonePress = () => {
@@ -33,7 +37,7 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
       name="telefono"
       control={control}
       rules={{
-        required: t('registro.errorRequerido')
+        required: t('registro.errorRequerido'),
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <React.Fragment>
@@ -42,7 +46,7 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
               container: {
                 borderRadius: 30,
               },
-              
+
               flagContainer: {
                 borderTopLeftRadius: 30,
                 borderBottomLeftRadius: 30,
@@ -59,7 +63,6 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
                 color: '#00184C',
               },
             }}
-       
             language="es"
             defaultCountry="CO"
             defaultValue={defaultValue}
@@ -73,12 +76,8 @@ export const usePhone = ({ control, defaultValue = '', onCountryChange }: PhoneP
             onSubmitEditing={handleDonePress} // Maneja la presión de "Done"
             theme="light"
           />
-         
-          {error && (
-            <Text style={Style.errorText}>
-              {error.message}
-            </Text>
-          )}
+
+          {error && <Text style={Style.errorText}>{error.message}</Text>}
         </React.Fragment>
       )}
     />
