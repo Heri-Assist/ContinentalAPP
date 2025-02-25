@@ -18,20 +18,17 @@ import LoadingCompoment from '../components/LoadingComponent';
 import continentalApi from '../api/continentalApi';
 import {useForm} from 'react-hook-form';
 
-
-
 interface Props extends StackScreenProps <any, any> { } 
 
 export const RegistroResp = ({navigation} : Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
-  const {idUsuario, updateIdUsuario, usuarioRegistro, formData} = useContext(AuthContext);
+  const { idUsuario, updateIdUsuario, usuarioRegistro, formData } = useContext(AuthContext);
   const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
   const {control, handleSubmit } = useForm<UsuarioRegistro>()
 
   const {t} = useTranslation();
 
-  
   const data = formData as UsuarioRegistro;
 
   const convertirFecha = (fecha: string): string => {
@@ -49,7 +46,7 @@ export const RegistroResp = ({navigation} : Props) => {
       Nov: '11',
       Dic: '12',
     };
-  
+
     const partes = fecha.split('-'); // Separar la fecha en [año, mes, día]
     const mes = meses[partes[1] as keyof typeof meses]; // Convertir el mes de texto a número usando aserción de tipo
     return `${partes[2]}-${mes}-${partes[0]}`; // Construir la nueva fecha
@@ -85,7 +82,11 @@ export const RegistroResp = ({navigation} : Props) => {
         ps: data.ps,
         id_usuario: id_usuario,
       }
-      const enviarCodigo = await continentalApi.post('/app_enviar_codigo_registro', dataRespuesta, { headers })
+      const enviarCodigo = await continentalApi.post(
+        '/app_enviar_codigo_registro',
+        dataRespuesta,
+        { headers },
+      );
       navigation.navigate('Codigo');
     }
     catch (error) {
@@ -105,8 +106,7 @@ export const RegistroResp = ({navigation} : Props) => {
       anio = fechaComoString.split('-')[0];
       mes = fechaComoString.split('-')[1];
       dia = fechaComoString.split('-')[2];
-      fechaFormateada = `${dia}-${mes}-${anio}`; // Construir la nueva fecha  
-      console.log('fechaFormateada->>>>>>>>>', fechaFormateada);
+      fechaFormateada = `${dia}-${mes}-${anio}`; // Construir la nueva fecha
     } else {
       console.log('La fecha de nacimiento no está definida.');
     }
@@ -118,12 +118,11 @@ export const RegistroResp = ({navigation} : Props) => {
           nacimiento: fechaFormateada, // dar formato de fecha a la fecha de nacimiento 2021-09-01
           email: data.email,
           pais_name: data.pais_name,
-          pais_flag:data.pais_flag,
+          pais_flag: 'CO',
           pais_callingCode: data.pais_callingCode,
           localCelular: data.telefono,
           idOrden: data.idOrden,
-        }      
-
+        }
         const resp = await continentalApi.post('/app_confirmar_registro_usuario', dataConfirmar, { headers });
         const id_usuario = resp.data.resultado.id_usuario;
         updateIdUsuario(id_usuario); 

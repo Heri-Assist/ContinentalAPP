@@ -92,8 +92,9 @@ export const AuthProvider = ({children}:any) => {
 
     // Configurar las cabeceras de la solicitud
     const headers = {
-        'Content-Type': 'application/json',
-        'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
+      'Content-Type': 'application/json',
+      'EVA-AUTH-USER':
+        'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
     };
 
     // Obtener el estado de autenticación y la función de despacho del reductor de autenticación
@@ -261,10 +262,7 @@ export const AuthProvider = ({children}:any) => {
                     console.log(error)
                 }
             }
-
             await actulizarSession();
-
-            
         }        
     };
     

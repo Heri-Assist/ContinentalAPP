@@ -1,16 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import continentalApi from '../api/continentalApi'
+import React, { useContext, useEffect, useState } from 'react';
+import continentalApi from '../api/continentalApi';
 import { AuthContext } from '../context/authContext';
 import { ListaTelefonos, Telefonos } from '../interfaces/listaTelefonos';
 import { Style } from '../theme/componentCSS';
 import { Text, View } from 'react-native';
 
-
 export const ListaTelefonosComponent = () => {
-
-	useEffect(() => {
+  useEffect(() => {
 		consultarTelefonos();
-	}, [])
+		}, []);
 
 	const { idioma } = useContext(AuthContext);
 	const [listaTelefonos, setListaTelefonos] = useState({} as ListaTelefonos);

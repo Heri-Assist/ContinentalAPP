@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 // import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Style } from '../theme/componentCSS';
-import { BeneficiosRespuesta, Beneficios, TiposBeneficio } from '../interfaces/Beneficios';
+import {
+  BeneficiosRespuesta,
+  Beneficios,
+  TiposBeneficio,
+} from '../interfaces/Beneficios';
 import { ListItem } from '@rneui/themed';
 
 interface ListBeneficiosProps {
   beneficiosRespuesta: BeneficiosRespuesta;
 }
 
-export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosProps) => {
+export const ListBeneficiosComponent = ({
+  beneficiosRespuesta,
+}: ListBeneficiosProps) => {
   const { tipos_beneficios } = beneficiosRespuesta;
   const [expandedIndices, setExpandedIndices] = useState<number[]>([]);
-  const [beneficiosPorTipo, setBeneficiosPorTipo] = useState<{ [key: string]: Beneficios[] }>({});
+  const [beneficiosPorTipo, setBeneficiosPorTipo] = useState<{
+    [key: string]: Beneficios[];
+  }>({});
 
   useEffect(() => {
     // Agrupar los beneficios por tipo
     const groupedBeneficios: { [key: string]: Beneficios[] } = {};
-    beneficiosRespuesta.resultado.forEach((beneficio) => {
+    beneficiosRespuesta.resultado.forEach(beneficio => {
       const tipoBeneficioId = beneficio.idfamilia;
       if (!groupedBeneficios[tipoBeneficioId]) {
         groupedBeneficios[tipoBeneficioId] = [];
@@ -30,7 +38,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
 
   const toggleExpansion = (index: number) => {
     if (expandedIndices.includes(index)) {
-      setExpandedIndices(expandedIndices.filter((i) => i !== index));
+      setExpandedIndices(expandedIndices.filter(i => i !== index));
     } else {
       setExpandedIndices([...expandedIndices, index]);
     }
@@ -39,18 +47,18 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
   const isExpanded = (index: number) => expandedIndices.includes(index);
 
   const renderHeader = (item: TiposBeneficio, index: number) => {
-    return (     
+    return (
       <View style={Style.listRow}>
         <View>
-          <Image 
-            source={require('../../assets/iconos/icon-08.png')} 
+          <Image
+            source={require('../../assets/iconos/icon-08.png')}
             style={Style.imgList}
           />
         </View>
         <View style={Style.textContainer}>
           <Text style={Style.titleBoldList}>{item.nombre}</Text>
         </View>
-        <View style={{ alignContent: 'flex-end' }}>
+        <View style={Style.alignEnd}>
           {isExpanded(index) ? (
             <Icon name="arrow-up" size={18} color="white" />
           ) : (
@@ -69,16 +77,16 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
           <View key={innerIndex}>
             <TouchableOpacity onPress={() => toggleExpansion(index)}>
               <View style={Style.itemContent}>
-                <View style={Style.listRow2} >
-                    <View style={Style.column}>
-                      <Text style={ Style.textItem }>{beneficio.nombre}</Text>
-                    </View>
-                    <View style={ Style.column2} >
-                      <Text style={ Style.textItem2 }>{ beneficio.cobertura} </Text>
-                    </View>
+                <View style={Style.listRow2}>
+                  <View style={Style.column}>
+                    <Text style={Style.textItem}>{beneficio.nombre}</Text>
+                  </View>
+                  <View style={Style.column2}>
+                    <Text style={Style.textItem2}>{beneficio.cobertura} </Text>
+                  </View>
                 </View>
-              </View>       
-          </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           </View>
         ))}
       </View>
@@ -87,7 +95,6 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
 
   return (
     <View style={{}}>
-      
       {tipos_beneficios.map((content, index) => (
         <ListItem.Accordion
           icon={{ disabled: false }}
@@ -95,8 +102,7 @@ export const ListBeneficiosComponent = ({ beneficiosRespuesta }: ListBeneficiosP
           content={renderHeader(content, index)}
           isExpanded={isExpanded(index)}
           onPress={() => toggleExpansion(index)}
-          containerStyle={Style.listContainer}
-        >
+          containerStyle={Style.listContainer}>
           {renderContent(content, index)}
         </ListItem.Accordion>
       ))}
