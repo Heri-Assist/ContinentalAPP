@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" afterDir="false" />
-    </list>
+    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="Remove .DS_Store from repository" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,9 +13,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Heri-Assist"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Heri-Assist/ContinentalAPP.git",
+    "accountId": "0564d339-47c7-420b-93c7-387902f1d473"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2p1Wg77SXn2vHkPVlyRuZfk1Mfm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,8 +37,13 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "hvalenciaMain",
+    "git-widget-placeholder": "#1 on hvalenciaMain",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -45,10 +63,61 @@
       <option name="presentableId" value="Default" />
       <updated>1731934169709</updated>
       <workItem from="1731934170853" duration="17000" />
+      <workItem from="1740435225033" duration="8140000" />
     </task>
+    <task id="LOCAL-00001" summary="cambios">
+      <option name="closed" value="true" />
+      <created>1740442510123</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740442510123</updated>
+    </task>
+    <task id="LOCAL-00002" summary="cambios">
+      <option name="closed" value="true" />
+      <created>1740442554947</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740442554947</updated>
+    </task>
+    <task id="LOCAL-00003" summary="cambios">
+      <option name="closed" value="true" />
+      <created>1740442762643</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740442762643</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Remove .DS_Store from repository">
+      <option name="closed" value="true" />
+      <created>1740443037843</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740443037843</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cambios" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/hvalenciaMain' into hvalenciaMain" />
+    <MESSAGE value="Remove .DS_Store from repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove .DS_Store from repository" />
   </component>
 </project>

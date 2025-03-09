@@ -5,7 +5,6 @@ import { Style } from '../theme/componentCSS';
 import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
 const { t } = useTranslation();
 
 interface TarjetaBeneficiarioProps {

@@ -12,7 +12,6 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({
   beneficiario,
 }) => {
   const { t } = useTranslation();
-
   return (
     <View style={Style.cardContainer}>
       <View style={Style.row}>

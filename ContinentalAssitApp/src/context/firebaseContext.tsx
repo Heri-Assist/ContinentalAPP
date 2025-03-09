@@ -113,14 +113,14 @@ export const FirebaseProvider = ({ children }: any) => {
             '-' +
             voucher[1] +
             '-' +
-            usuarioRegistro.cantidad +
+            '1' +
             '-' +
             voucher[3]
           : voucher[0] +
             '-' +
             voucher[1] +
             '-' +
-            usuarioRegistro.cantidad +
+            '1' +
             '-' +
             voucher[2];
       const ordenRegistrada = voucher;
@@ -162,14 +162,14 @@ export const FirebaseProvider = ({ children }: any) => {
           '-' +
           voucher[1] +
           '-' +
-          usuarioRegistro?.cantidad +
+          '1' +
           '-' +
           voucher[3]
         : voucher[0] +
           '-' +
           voucher[1] +
           '-' +
-          usuarioRegistro?.cantidad +
+          '1' +
           '-' +
           voucher[2];
     const ordenRegistrada = voucher;

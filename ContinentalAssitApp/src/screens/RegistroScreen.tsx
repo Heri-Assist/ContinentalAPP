@@ -36,8 +36,7 @@ import i18next from 'i18next';
 interface Props extends StackScreenProps<any, any> {}
 
 export const RegistroScreen = ({ navigation }: Props) => {
-  const { signUp, errorMessage, removeError, usuarioRegistro, idioma } =
-    useContext(AuthContext);
+  const { signUp, errorMessage, removeError, usuarioRegistro, idioma } = useContext(AuthContext);
   // Inicializa selectedCountry con valores vacíos o los valores adecuados
 
   const { t } = useTranslation();
