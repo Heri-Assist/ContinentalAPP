@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="Remove .DS_Store from repository" />
+    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="Cambios app ajuste chat y registro usuarios">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,18 +20,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Heri-Assist"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Heri-Assist&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Heri-Assist/ContinentalAPP.git",
-    "accountId": "0564d339-47c7-420b-93c7-387902f1d473"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Heri-Assist/ContinentalAPP.git&quot;,
+    &quot;accountId&quot;: &quot;0564d339-47c7-420b-93c7-387902f1d473&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/components/CardSliderComponent.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/context/authContext.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/context/firebaseContext.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/interfaces/usuarioRegistro.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/screens/RegistroScreen.tsx" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -33,24 +48,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#1 on hvalenciaMain",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#1 on hvalenciaMain&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/heribertovalencia/Documents/GitHub/ContinentalAPP/ContinentalAssitApp/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
       </set>
     </attachedChunks>
   </component>
@@ -64,6 +80,9 @@
       <updated>1731934169709</updated>
       <workItem from="1731934170853" duration="17000" />
       <workItem from="1740435225033" duration="8140000" />
+      <workItem from="1741209169289" duration="11835000" />
+      <workItem from="1741692774539" duration="32000" />
+      <workItem from="1741692814303" duration="3356000" />
     </task>
     <task id="LOCAL-00001" summary="cambios">
       <option name="closed" value="true" />
@@ -97,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740443037843</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cambios app ajuste chat y registro usuarios">
+      <option name="closed" value="true" />
+      <created>1741542042026</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741542042026</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +145,24 @@
     <MESSAGE value="cambios" />
     <MESSAGE value="Merge remote-tracking branch 'origin/hvalenciaMain' into hvalenciaMain" />
     <MESSAGE value="Remove .DS_Store from repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove .DS_Store from repository" />
+    <MESSAGE value="Cambios app ajuste chat y registro usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios app ajuste chat y registro usuarios" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/components/CardSliderComponent.tsx</url>
+          <line>5</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

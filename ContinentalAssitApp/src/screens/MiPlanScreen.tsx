@@ -20,8 +20,9 @@ import { BeneficiosRespuesta } from '../interfaces/Beneficios';
 
 export const MiPlanScreen = () => {
   const { t } = useTranslation();
-  const { usuarioRegistro, idioma } = useContext(AuthContext);
-  const beneficiarios: Beneficiario[] = usuarioRegistro?.beneficiarios || [];
+  const { usuarioRegistro, idioma, session } = useContext(AuthContext);
+  const parseBeneficiarios = JSON.parse(session || '{}');
+  const beneficiarios: Beneficiario[] = parseBeneficiarios.resultado.beneficiario || [];
   const [beneficiosRespuesta, setBeneficioRespuesta] = useState(
     {} as BeneficiosRespuesta,
   );
