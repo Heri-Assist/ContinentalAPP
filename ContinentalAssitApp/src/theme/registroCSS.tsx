@@ -1,17 +1,14 @@
+import { StyleSheet } from 'react-native';
 
-import { StyleSheet } from "react-native";
-
-const PRIMARY_COLOR = "#00184C";
-const SECONDARY_COLOR = "#F2DB85";
-const BACKGROUND_COLOR = "#FFFFFF";
-const BORDER_COLOR = "#D4D4D4";
+const PRIMARY_COLOR = '#00184C';
+const SECONDARY_COLOR = '#F2DB85';
+const BACKGROUND_COLOR = '#FFFFFF';
+const BORDER_COLOR = '#D4D4D4';
 
 export const Style = StyleSheet.create({
-
   scrollView: {
     flex: 1,
     paddingHorizontal: 10,
-
   },
 
   containerCenter2: {
@@ -32,11 +29,11 @@ export const Style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  
+
   container2: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 30,  
+    marginTop: 30,
   },
 
   containerIconos: {
@@ -63,25 +60,25 @@ export const Style = StyleSheet.create({
     backgroundColor: SECONDARY_COLOR,
     width: '100%',
     height: 80,
-    marginVertical:10,
+    marginVertical: 10,
     borderRadius: 10,
   },
-  
-  texto:{
+
+  texto: {
     marginVertical: 10,
     fontSize: 16,
     textAlign: 'center',
     color: PRIMARY_COLOR,
   },
 
-  textoIcons:{
+  textoIcons: {
     fontSize: 14,
     textAlign: 'center',
     color: PRIMARY_COLOR,
     marginBottom: 5,
   },
 
-  textIconBold:{
+  textIconBold: {
     fontSize: 16,
     textAlign: 'center',
     color: PRIMARY_COLOR,
@@ -92,7 +89,7 @@ export const Style = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     fontWeight: 'bold',
-  }, 
+  },
 
   textInicio: {
     paddingTop: 40,
@@ -102,7 +99,7 @@ export const Style = StyleSheet.create({
     textAlign: 'center',
   },
 
-  textBold:{
+  textBold: {
     fontWeight: 'bold',
   },
 
@@ -115,7 +112,6 @@ export const Style = StyleSheet.create({
     textAlign: 'center',
   },
 
-  
   textButton: {
     color: PRIMARY_COLOR,
     fontSize: 16,
@@ -123,14 +119,13 @@ export const Style = StyleSheet.create({
     textAlign: 'center',
   },
 
-
   formContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 5
+    marginTop: 5,
   },
 
-  label: {    
+  label: {
     color: PRIMARY_COLOR,
     fontSize: 12,
     fontWeight: 'bold',
@@ -142,14 +137,14 @@ export const Style = StyleSheet.create({
     backgroundColor: BACKGROUND_COLOR,
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: BORDER_COLOR, 
+    borderColor: BORDER_COLOR,
     color: PRIMARY_COLOR,
     fontSize: 14,
     height: 50,
     textAlign: 'center',
-    width: '100%',   
+    width: '100%',
     justifyContent: 'center',
-    alignItems: 'center',   
+    alignItems: 'center',
   },
 
   columnas: {
@@ -180,13 +175,12 @@ export const Style = StyleSheet.create({
     backgroundColor: SECONDARY_COLOR,
     borderRadius: 30,
     fontWeight: 'bold',
-    marginBottom: 10,  
+    marginBottom: 10,
     alignItems: 'center',
     width: '100%',
     paddingVertical: 16,
     textAlign: 'center',
   },
-
 
   buttonCancelar: {
     color: PRIMARY_COLOR,
@@ -194,7 +188,7 @@ export const Style = StyleSheet.create({
     borderRadius: 30,
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 10, 
+    marginBottom: 10,
     alignItems: 'center',
     width: '100%',
     paddingVertical: 16,
@@ -203,9 +197,8 @@ export const Style = StyleSheet.create({
     borderColor: BACKGROUND_COLOR,
   },
 
-
   doneButtonText: {
-    backgroundColor: "#2196F3",
+    backgroundColor: '#2196F3',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -216,7 +209,7 @@ export const Style = StyleSheet.create({
     color: 'red',
     marginTop: 5,
     textAlign: 'center',
-	  fontStyle: 'italic',
+    fontStyle: 'italic',
   },
 
   hiddenInput: {
@@ -224,8 +217,4 @@ export const Style = StyleSheet.create({
     height: 0,
     opacity: 0,
   },
-
-  
-
 });
-

@@ -7,33 +7,40 @@
  * Pantalla de inicio de sesión de @exports
  */
 // Imports de dependencias
-import React, {useContext, useState, useEffect} from 'react';
-import {InicioBackgroundComponent} from '../components/InicioBackgroundComponent';
-import {View, Text, TextInput, TouchableOpacity, Linking, Platform, Keyboard, Image, Alert, ScrollView, ImageBackground } from 'react-native';
+import React, { useContext, useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Linking,
+  Platform,
+  Keyboard,
+  Image,
+  Alert,
+  ScrollView,
+  ImageBackground,
+} from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import {useForm, Controller} from 'react-hook-form';
-import {Style} from '../theme/registroCSS';
-import {StackScreenProps} from '@react-navigation/stack';
-import {usePhone} from '../hooks/usePhone';
-import {ErrorUsuario, UsuarioRegistro} from '../interfaces/usuarioRegistro';
-import {AuthContext} from '../context/authContext';
-import {useTranslation } from 'react-i18next';
+import { useForm, Controller } from 'react-hook-form';
+import { Style } from '../theme/registroCSS';
+import { StackScreenProps } from '@react-navigation/stack';
+import { usePhone } from '../hooks/usePhone';
+import { UsuarioRegistro } from '../interfaces/usuarioRegistro';
+import { AuthContext } from '../context/authContext';
+import { useTranslation } from 'react-i18next';
 import LoadingComponent from '../components/LoadingComponent';
 import { ICountry } from 'react-native-international-phone-number';
 import i18next from 'i18next';
 
-
 interface Props extends StackScreenProps<any, any> {}
 
-export const RegistroScreen = ({navigation}: Props) => {
-
+export const RegistroScreen = ({ navigation }: Props) => {
   const { signUp, errorMessage, removeError, usuarioRegistro, idioma } = useContext(AuthContext);
   // Inicializa selectedCountry con valores vacíos o los valores adecuados
 
   const { t } = useTranslation();
 
-  
-  
   const [fechaNacimiento, setFechaNacimiento] = useState<Date>(new Date());
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -43,73 +50,65 @@ export const RegistroScreen = ({navigation}: Props) => {
     control,
     handleSubmit,
     setValue,
-    getValues,
-    formState: {errors},
+    formState: { errors },
   } = useForm<UsuarioRegistro>({
     defaultValues: {
       nacimiento: new Date(), // Establece la fecha de nacimiento inicial como una fecha
     },
   });
-  
 
   useEffect(() => {
-    console.log('errorUseEfect===========>>>', errorMessage);
-    if(errorMessage.length === 0) return;
-
-      Alert.alert('Registro Incorrecto', errorMessage, [
-        { text: 'Ok', onPress: () => AccionErrror()},
-      ]);
-    
+    if (errorMessage.length === 0) return;
+    Alert.alert('Registro Incorrecto', errorMessage, [
+      { text: 'Ok', onPress: () => AccionErrror() },
+    ]);
   }, [errorMessage]);
-
 
   const AccionErrror = () => {
     removeError();
-    navigation.replace('Registro');
-  }
+    // navigation.replace('Registro');
+    setValue('nombre', '');
+    setValue('email', '');
+    setValue('telefono', '');
+  };
 
   // ...
   const onRegistro = async (data: UsuarioRegistro) => {
     Keyboard.dismiss();
-   
-      setIsLoading(true); // Activar el indicador de carga
+    setIsLoading(true);
 
-      data.pais_callingCode = selectedCountryData.pais_callingCode;
-      data.pais_flag = selectedCountryData.pais_flag;
-      data.pais_name = selectedCountryData.pais_name;
-      try {
-        
-      const resp = await signUp(data);
-       
-        setIsLoading(false); // Desactivar el indicador de carga
-        console.log('........resp.......', resp);
-        
-        if(resp === undefined){
-          navigation.navigate('Respuesta');
-        }else{
-          return
-        }
+    data.pais_callingCode = selectedCountryData.pais_callingCode;
+    data.pais_flag = selectedCountryData.pais_flag;
+    data.pais_name = selectedCountryData.pais_name;
 
-      } catch (error) {
-        setIsLoading(false); // Desactivar el indicador de carga en caso de error
+    try {
+      const repuesta = await signUp(data);
+      // Si signUp no lanza un error, asumimos que el registro fue exitoso
+      if (repuesta !== undefined) {
+        navigation.navigate('Respuesta');
       }
+    } catch (error) {
+      // Aquí manejas el error específico de signUp
+      console.error('Error en onRegistro:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const [selectedCountryData, setSelectedCountryData] = useState<{
     pais_callingCode: string;
     pais_flag: string;
-    pais_name: string ;
+    pais_name: string;
   }>({
     pais_callingCode: '',
     pais_flag: '',
-    pais_name: '' ,
+    pais_name: '',
   });
 
   const handleCountryChange = (country: ICountry) => {
-    // Aquí puedes hacer lo que necesites con el país seleccionado
     setSelectedCountryData({
       pais_callingCode: country.callingCode || '',
-      pais_flag: country.flag || '',
+      pais_flag: country.cca2 || '',
       pais_name: idioma === 'es' ? country.name.es : country.name.en || '',
     });
   };
@@ -117,23 +116,31 @@ export const RegistroScreen = ({navigation}: Props) => {
   return (
     <>
       {/* pantalla de Formulario de registro  */}
-      <ImageBackground source={image || null } style={{alignContent:'center', flex:1}}>
-        <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{paddingHorizontal:20, paddingVertical:10 , flex:1, justifyContent:'center'}} >
+      <ImageBackground
+        source={image || null}
+        style={{ alignContent: 'center', flex: 1 }}>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+            flex: 1,
+            justifyContent: 'center',
+          }}>
           {/* Indicador de carga */}
           {isLoading && <LoadingComponent />}
-          <View style={{ alignItems:'center', paddingTop:20}}>
+          <View style={{ alignItems: 'center', paddingTop: 20 }}>
             <Image
               source={require('../../assets/imagenes/logo.png')}
               style={Style.imgFondo}
             />
           </View>
-         
+
           {/* Boton de navegación Inicio */}
-          <View 
+          <View
             style={
               Platform.OS === 'ios' ? Style.regresarIOS : Style.regresarAndroid
             }>
-              
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => navigation.navigate('Inicio')}>
@@ -157,7 +164,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                       message: 'El nombre debe tener al menos 2 caracteres',
                     },
                   }}
-                  render={({field}) => (
+                  render={({ field }) => (
                     <TextInput
                       placeholder="Nombre"
                       placeholderTextColor="#00184C"
@@ -185,11 +192,16 @@ export const RegistroScreen = ({navigation}: Props) => {
                   onPress={() => setOpen(true)}
                   disabled={open} // Deshabilita el botón cuando el DatePicker está abierto
                 >
-                  <Text style={{color:'#00184C'}}>
-                      {new Date(fechaNacimiento).toLocaleDateString(
-                        i18next.language,
-                        { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
-                      )}
+                  <Text style={{ color: '#00184C' }}>
+                    {new Date(fechaNacimiento).toLocaleDateString(
+                      i18next.language,
+                      {
+                        weekday: 'short',
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      },
+                    )}
                   </Text>
                 </TouchableOpacity>
                 <DatePicker
@@ -203,7 +215,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                   onConfirm={newDate => {
                     setOpen(false);
                     setFechaNacimiento(newDate);
-                    setValue('nacimiento', newDate);       
+                    setValue('nacimiento', newDate);
                   }}
                   onCancel={() => {
                     setOpen(false);
@@ -227,7 +239,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                       message: 'Dirección de correo electrónico no válida',
                     },
                   }}
-                  render={({field}) => (
+                  render={({ field }) => (
                     <TextInput
                       placeholder="Email"
                       placeholderTextColor="#00184C"
@@ -244,7 +256,7 @@ export const RegistroScreen = ({navigation}: Props) => {
                   )}
                 />
                 {errors.email && (
-                    <Text style={Style.errorText}>{errors.email.message}</Text>
+                  <Text style={Style.errorText}>{errors.email.message}</Text>
                 )}
               </View>
             </View>
@@ -252,36 +264,46 @@ export const RegistroScreen = ({navigation}: Props) => {
             <View style={Style.formContainer}>
               <View style={Style.columnas}>
                 <Text style={Style.label}>{t('registro.telefono')}</Text>
-                {usePhone({ control, defaultValue: '', onCountryChange: handleCountryChange })}
+                {usePhone({
+                  control,
+                  defaultValue: '',
+                  onCountryChange: handleCountryChange,
+                })}
               </View>
             </View>
             {/* texto  */}
             <View style={Style.formContainer}>
               <View style={Style.columnas}>
-                <Text style={Style.textSuave}>
-                  {t('registro.texto4')}
-                </Text>
+                <Text style={Style.textSuave}>{t('registro.texto4')}</Text>
               </View>
             </View>
             <View style={Style.formContainer}>
               <View style={Style.columnas}>
                 <Text style={Style.textSuave}>
                   {t('registro.texto1')}
-                  <Text style={Style.textBold} onPress={() => { Linking.openURL('https://continentalassist.com/general-conditions') }}>
+                  <Text
+                    style={Style.textBold}
+                    onPress={() => {
+                      Linking.openURL(
+                        'https://continentalassist.com/general-conditions',
+                      );
+                    }}>
                     {t('registro.texto2')}
                   </Text>
                   {t('registro.texto3')}
-                  <Text  style={Style.textBold} 
-                    onPress={() => 
-                      { Linking.openURL('https://continentalassist.com/information-treatment-privacy-policies/') 
-                        }
-                      }>
+                  <Text
+                    style={Style.textBold}
+                    onPress={() => {
+                      Linking.openURL(
+                        'https://continentalassist.com/information-treatment-privacy-policies/',
+                      );
+                    }}>
                     {t('registro.texto5')}
                   </Text>
                 </Text>
               </View>
             </View>
-          
+
             {/* Boton Continuar */}
             <View style={Style.formContainer}>
               <View style={Style.columnas}>
@@ -291,11 +313,12 @@ export const RegistroScreen = ({navigation}: Props) => {
                   onPress={handleSubmit(onRegistro)}
                   disabled={isLoading} // Deshabilita el botón cuando el indicador de carga está activo
                 >
-                  <Text style={Style.textButton}>{t('registro.botonContinuar')}</Text>
+                  <Text style={Style.textButton}>
+                    {t('registro.botonContinuar')}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
-              
           </View>
         </ScrollView>
       </ImageBackground>

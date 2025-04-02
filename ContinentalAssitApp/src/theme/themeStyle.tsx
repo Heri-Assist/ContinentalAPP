@@ -1,19 +1,16 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
-const PRIMARY_COLOR = "#00184C";
-const SECONDARY_COLOR = "#F2DB85";
-const BACKGROUND_COLOR = "#FFFFFF";
-
+const PRIMARY_COLOR = '#00184C';
+const SECONDARY_COLOR = '#F2DB85';
+const BACKGROUND_COLOR = '#FFFFFF';
 
 export const Style = StyleSheet.create({
-
-
   container: {
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 10,
   },
-  
+
   containerBtn: {
     flex: 1,
     alignItems: 'center',
@@ -24,15 +21,14 @@ export const Style = StyleSheet.create({
   container2: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 30,  
-  },    
+    marginTop: 30,
+  },
 
   imgFondo: {
     width: 200,
     height: 80,
     resizeMode: 'contain',
     marginTop: 60,
-
   },
 
   textInicio: {
@@ -43,7 +39,7 @@ export const Style = StyleSheet.create({
     textAlign: 'center',
   },
 
-  textBold:{
+  textBold: {
     fontWeight: 'bold',
   },
 
@@ -57,8 +53,8 @@ export const Style = StyleSheet.create({
   },
 
   textInicioSuave: {
-    fontWeight: 'normal',  
-    color: PRIMARY_COLOR, 
+    fontWeight: 'normal',
+    color: PRIMARY_COLOR,
   },
 
   textButton: {
@@ -69,27 +65,27 @@ export const Style = StyleSheet.create({
   },
 
   buttonRegistro: {
-    marginBottom: 10, 
-    width:'100%',
+    marginBottom: 10,
+    width: '100%',
     paddingVertical: 12,
     backgroundColor: SECONDARY_COLOR,
-    borderRadius: 100,   
+    borderRadius: 100,
   },
 
   buttonInicio: {
-    marginBottom: 10, 
-    width:'100%',
+    marginBottom: 10,
+    width: '100%',
     paddingVertical: 12,
     backgroundColor: BACKGROUND_COLOR,
     borderRadius: 100,
   },
 
   buttonCerrar: {
-    marginBottom: 10, 
-    width:'100%',
+    marginBottom: 10,
+    width: '100%',
     paddingVertical: 12,
     backgroundColor: SECONDARY_COLOR,
-    borderRadius: 100,   
+    borderRadius: 100,
   },
 
   containerCenter: {
@@ -98,5 +94,4 @@ export const Style = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-
 });

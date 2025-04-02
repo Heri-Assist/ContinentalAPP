@@ -1,16 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import continentalApi from '../api/continentalApi'
+import React, { useContext, useEffect, useState } from 'react';
+import continentalApi from '../api/continentalApi';
 import { AuthContext } from '../context/authContext';
 import { ListaTelefonos, Telefonos } from '../interfaces/listaTelefonos';
 import { Style } from '../theme/componentCSS';
 import { Text, View } from 'react-native';
 
-
 export const ListaTelefonosComponent = () => {
-
-	useEffect(() => {
+  useEffect(() => {
 		consultarTelefonos();
-	}, [])
+		}, []);
 
 	const { idioma } = useContext(AuthContext);
 	const [listaTelefonos, setListaTelefonos] = useState({} as ListaTelefonos);
@@ -19,7 +17,7 @@ export const ListaTelefonosComponent = () => {
 		
 		const headers = {
 			'Content-Type': 'application/json',
-			'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+			'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
 		}
 		const datosRegistro = {
 			ps: 'www.continentalassist.com',

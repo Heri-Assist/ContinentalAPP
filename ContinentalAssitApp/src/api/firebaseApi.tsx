@@ -16,7 +16,7 @@ const firebaseConfig = {
         storageBucket: "continentalchat-9d236.appspot.com",
         messagingSenderId: "657181137880",
         appId: "1:657181137880:android:dadc12457d3817d37af0ad"
-    //---------
+    // ---------
 
     // //--------- Conexion Firebase de Desarrollo -----------
     //     apiKey: "AIzaSyABIhi0uBbFttP-cN_kGxUCG6IKqAIAOi0",

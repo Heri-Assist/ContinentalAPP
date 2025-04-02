@@ -15,13 +15,13 @@ export interface LoginRespuesta {
 
 
 export interface UsuarioLogin {
-	id_usuario?: 					string;
-	nombre?:     					string;
-	nacimiento: 					string;
-	email?:      					string;
-	avatar?:     					null;	
-	password?:            string;
-	status?:              string;
+	id_usuario?: 		number;
+	nombre?:     		string;
+	nacimiento: 		string;
+	email?:      		string;
+	avatar?:     		null;	
+	password?:          string;
+	idstatus?:          string;
 	codigo_registro?:     string;
 	fecha_registro?:      string;
 	pais_name?:           string;
@@ -29,12 +29,12 @@ export interface UsuarioLogin {
 	pais_flag?:           string;
 	pais_callingCode?:    string;
 	numero_beneficiario?: number;
-	telefonos:  					Telefono[];
+	telefonos:		Telefono[];
 }
 
 export interface Telefono {
-	id:               string;
-	id_usuario:       string;
+	id:               number;
+	id_usuario:       number;
 	pais_name:        string;
 	pais_callingCode: string;
 	telefono:         string;
@@ -54,8 +54,8 @@ export interface TelefonosRespuesta {
 }
 
 export interface RespuestaTelefonos {
-	id:               string;
-	id_usuario:       string;
+	id:               number;
+	id_usuario:       number;
 	pais_name:        string;
 	pais_callingCode: string;
 	telefono:         string;

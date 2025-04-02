@@ -13,7 +13,7 @@ export const consultarRegistro = async (datosUsuario:{}) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': '356964e2f8c0811ead9d1529fbae58127379054e',
+      'EVA-AUTH-USER': 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=',
     };
 
     const response = await axios.post(API_URL, datosUsuario, { headers });
@@ -40,11 +40,11 @@ export const apiConsultaMotivosChat = async () => {
 // api para Validar los chat
 export const ApiValidarVigenciaVoucher = async (codigoVoucher: string) => {
     const baseURL = 'https://continentalassist.co/backmin/restapp/app_validar_vigencia_voucher';
-    const authToken = '356964e2f8c0811ead9d1529fbae58127379054e';
+    const authToken = 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=';
 
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': authToken,
+      'EVA-AUTH-USER': authToken,
     };
 
     const data = {
@@ -65,11 +65,11 @@ export const ApiValidarVigenciaVoucher = async (codigoVoucher: string) => {
 // api para Eliminar los telefonos
 export const apiEliminarTelefono = async (idTelefono: number) => {
     const baseURL = 'https://continentalassist.co/backmin/restapp/app_eliminar_telefono';
-    const authToken = '356964e2f8c0811ead9d1529fbae58127379054e';
+    const authToken = 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=';
 
     const headers = {
         'Content-Type': 'application/json',
-        'PHP-AUTH-USER': authToken,
+        'EVA-AUTH-USER': authToken,
     };
 
     const data = {
@@ -90,11 +90,11 @@ export const apiEliminarTelefono = async (idTelefono: number) => {
 // api Para consultar los beneficiarios de los vahuchers
 export const apiConsultaBeneficiosVoucher = async (limiteBeneficios: number, idioma: string, codigoVoucher?: string) => {
     const baseURL = 'https://continentalassist.co/backmin/restapp/app_consulta_beneficios_voucher';
-    const authToken = '356964e2f8c0811ead9d1529fbae58127379054e';
+    const authToken = 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=';
 
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': authToken,
+      'EVA-AUTH-USER': authToken,
     };
 
     const data = {
@@ -227,11 +227,11 @@ export const apiEnviarNotificacionReembolsoEnviado = async (idUsuario:string) =>
 // api para consultar las preguntas frecuentes
 export const apiConsultaPreguntasFrecuentes = async (idioma: string) => {
     const baseURL = 'https://continentalassist.co/backmin/restapp/app_consulta_preguntas_frecuentes';
-    const authToken = '356964e2f8c0811ead9d1529fbae58127379054e';
+    const authToken = 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=';
 
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': authToken,
+      'EVA-AUTH-USER': authToken,
     };
 
     const data = {
@@ -252,11 +252,11 @@ export const apiConsultaPreguntasFrecuentes = async (idioma: string) => {
 // api Registrar usuario Nuevo
 export const apiRegistrarUsuario = async (usuarioData:{}) => {
     const baseURL = 'https://continentalassist.co/backmin/restapp/app_registro_usuario';
-    const authToken = '356964e2f8c0811ead9d1529fbae58127379054e';
+    const authToken = 'eyJpdiI6Ik1tTTh3My9NMFdTUUtROGNMb3ZXTHc9PSIsInZhbHVlIjoiVmlySXEwOElhQ0hYS1I3eE1QdGFGM0t5Ulh0SHhub3ljUFVlczA1bWVIUT0iLCJtYWMiOiI2YTZkMzBmMjlmOTA4NGE1ZDc0ZWZmNTgyZDI4MTgxM2UzMTMxODQwMWMwNTNmZWQwNTk2ZjMzODhkMDc3YzY5IiwidGFnIjoiIn0=';
 
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': authToken,
+      'EVA-AUTH-USER': authToken,
     };
 
     try {
@@ -274,7 +274,7 @@ export const apiRegistrarUsuario = async (usuarioData:{}) => {
 
     const headers = {
       'Content-Type': 'application/json',
-      'PHP-AUTH-USER': token,
+      'EVA-AUTH-USER': token,
     };
 
     const data = {

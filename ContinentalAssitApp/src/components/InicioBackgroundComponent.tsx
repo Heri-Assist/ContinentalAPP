@@ -8,16 +8,16 @@ interface InicioBackgroundComponentProps {
   children: ReactNode;
 }
 
-export const InicioBackgroundComponent = ({ children }: InicioBackgroundComponentProps ) => {
+export const InicioBackgroundComponent = ({
+  children,
+}: InicioBackgroundComponentProps) => {
   return (
-
-    <ImageBackground source={image || null }  style={Style.container}>
+    <ImageBackground source={image || null} style={Style.container}>
       <KeyboardAvoidingView
         style={Style.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
-      {children}
-     </KeyboardAvoidingView>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        {children}
+      </KeyboardAvoidingView>
     </ImageBackground>
-  )
-}
+  );
+};

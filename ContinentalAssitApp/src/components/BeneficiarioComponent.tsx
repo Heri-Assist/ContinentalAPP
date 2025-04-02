@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Beneficiario } from '../interfaces/usuarioRegistro';
 import { Style } from '../theme/componentCSS';
@@ -8,22 +8,24 @@ import { useTranslation } from 'react-i18next';
 interface TarjetaBeneficiarioProps {
   beneficiario: Beneficiario;
 }
-const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario }) => {
-
+const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({
+  beneficiario,
+}) => {
   const { t } = useTranslation();
-
   return (
     <View style={Style.cardContainer}>
       <View style={Style.row}>
-        <Icon name="user" size={25} style={Style.icon}></Icon>
+        <Icon name="user" size={25} style={Style.icon} />
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.nombreApellido')}</Text>
-          <Text style={Style.content}>{beneficiario.nombre} {beneficiario.apellido}</Text>
+          <Text style={Style.content}>
+            {beneficiario.nombre} {beneficiario.apellido}
+          </Text>
         </View>
       </View>
 
       <View style={Style.row}>
-        <Icon name="envelope" size={20} style={Style.icon}></Icon>
+        <Icon name="envelope" size={20} style={Style.icon} />
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.correo')}</Text>
           <Text style={Style.content}>{beneficiario.email}</Text>
@@ -31,20 +33,19 @@ const TarjetaBeneficiario: React.FC<TarjetaBeneficiarioProps> = ({ beneficiario 
       </View>
 
       <View style={Style.row}>
-        <Icon name="phone" size={25} style={Style.icon}></Icon>
+        <Icon name="phone" size={25} style={Style.icon} />
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.telefono')}</Text>
           <Text style={Style.content}>{beneficiario.telefono}</Text>
         </View>
-        <Icon name="calendar" size={20} style={Style.icon}></Icon>
+        <Icon name="calendar" size={20} style={Style.icon} />
         <View style={Style.textContainer}>
           <Text style={Style.title}>{t('registro.nacimientoTitular')}</Text>
-          <Text style={Style.content}>{beneficiario.nacimiento}</Text>
+          <Text style={Style.content}>{beneficiario.fechanacimiento}</Text>
         </View>
       </View>
     </View>
   );
 };
 
- 
 export default TarjetaBeneficiario;

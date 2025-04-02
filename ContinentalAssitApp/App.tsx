@@ -1,6 +1,5 @@
-
-import 'react-native-gesture-handler';
 import React from 'react';
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { NavigatorDashboard } from './src/navigation/NavigationStack';
 import { AuthProvider } from './src/context/authContext';
@@ -12,26 +11,21 @@ import 'intl-pluralrules';
 import { FirebaseProvider } from './src/context/firebaseContext';
 import 'react-native-localize';
 
-const AppState = ({children}:any) => {
-  return(
-      <AuthProvider>
-          {children}
-      </AuthProvider>
-  )
-}
-
+const AppState = ({ children }: any) => {
+  return <AuthProvider>{children}</AuthProvider>;
+};
 
 const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <NavigationContainer>
-          <AppState>
-            <FirebaseProvider>
-              <SafeAreaProvider>
-                <NavigatorDashboard />
-              </SafeAreaProvider>
-            </FirebaseProvider>
-          </AppState>
+        <AppState>
+          <FirebaseProvider>
+            <SafeAreaProvider>
+              <NavigatorDashboard />
+            </SafeAreaProvider>
+          </FirebaseProvider>
+        </AppState>
       </NavigationContainer>
     </I18nextProvider>
   );
