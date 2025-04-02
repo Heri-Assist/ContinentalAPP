@@ -22,7 +22,7 @@ export const MiPlanScreen = () => {
   const { t } = useTranslation();
   const { usuarioRegistro, idioma, session } = useContext(AuthContext);
   const parseBeneficiarios = JSON.parse(session || '{}');
-  const beneficiarios: Beneficiario[] = parseBeneficiarios.resultado.beneficiario || [];
+  const beneficiarios: Beneficiario[] = parseBeneficiarios.resultado.beneficiarios || [];
   const [beneficiosRespuesta, setBeneficioRespuesta] = useState(
     {} as BeneficiosRespuesta,
   );

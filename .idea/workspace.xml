@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/api/firebaseApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/api/firebaseApi.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,11 +34,13 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/api/firebaseApi.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/components/CardSliderComponent.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/context/authContext.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/context/firebaseContext.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/interfaces/usuarioRegistro.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/screens/RegistroResp.tsx" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ContinentalAssitApp/src/screens/RegistroScreen.tsx" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
@@ -82,7 +85,10 @@
       <workItem from="1740435225033" duration="8140000" />
       <workItem from="1741209169289" duration="11835000" />
       <workItem from="1741692774539" duration="32000" />
-      <workItem from="1741692814303" duration="3356000" />
+      <workItem from="1741692814303" duration="8155000" />
+      <workItem from="1741791078311" duration="9000" />
+      <workItem from="1743469452861" duration="32000" />
+      <workItem from="1743469491665" duration="13397000" />
     </task>
     <task id="LOCAL-00001" summary="cambios">
       <option name="closed" value="true" />
@@ -124,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741542042026</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cambios app ajuste chat y registro usuarios">
+      <option name="closed" value="true" />
+      <created>1741696642414</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741696642414</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,8 +173,19 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/components/CardSliderComponent.tsx</url>
           <line>5</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/context/authContext.tsx</url>
+          <line>270</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/components/BeneficiarioComponent.tsx</url>
+          <line>3</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

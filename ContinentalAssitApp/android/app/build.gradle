@@ -61,7 +61,7 @@ react {
 /**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
-// def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = false
 
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
@@ -75,7 +75,7 @@ react {
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
-def enableHermes = true
+
 android {
     packagingOptions {
         pickFirst 'lib/x86/libc++_shared.so'
