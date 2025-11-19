@@ -11,13 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3BA7C5E0CDA106A0352D3013 /* libPods-ContinentalAssitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B157D197F88D2730B32D0A41 /* libPods-ContinentalAssitApp.a */; };
+		7C68957230B9C44C8747757A /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6335AA5639162631E2C48E9 /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B05F4F3E2B0678F2003D71A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B05F4F3D2B0678F2003D71A7 /* GoogleService-Info.plist */; };
 		B0D87E0F2ABEAB4800E4DA77 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B0D87E0D2ABEAB4800E4DA77 /* logo.png */; };
 		B0D87E102ABEAB4800E4DA77 /* bg-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0D87E0E2ABEAB4800E4DA77 /* bg-01.jpg */; };
 		C5DC0A67D7EF317978F87EBA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F17A2795BC1CEF8C21AA05A3 /* PrivacyInfo.xcprivacy */; };
-		C621B22B14755DFE0299C473 /* libPods-ContinentalAssitApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC2BE0801F0C26A586489EF /* libPods-ContinentalAssitApp.a */; };
-		ED4C5E2C76E257AAEE6ED8BD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464D97C7FE1EE376D853F2CD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -54,11 +54,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ContinentalAssitApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ContinentalAssitApp/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ContinentalAssitApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1FAAFA986F2F6427EAFA959F /* Pods-ContinentalAssitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.debug.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.debug.xcconfig"; sourceTree = "<group>"; };
-		244700F67912DF46A5E2B2E4 /* Pods-ContinentalAssitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.release.xcconfig"; sourceTree = "<group>"; };
-		464D97C7FE1EE376D853F2CD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContinentalAssitApp-ContinentalAssitAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D0AF67C8A86325D28A2E5CF /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7BC2BE0801F0C26A586489EF /* libPods-ContinentalAssitApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContinentalAssitApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6850CFA9967DCA62A59A3E2C /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ContinentalAssitApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B05F4F3D2B0678F2003D71A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B06E5D502A82B74100F7FB98 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
@@ -70,9 +66,13 @@
 		B09633412ABD4771007C68F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D87E0D2ABEAB4800E4DA77 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../assets/imagenes/logo.png; sourceTree = "<group>"; };
 		B0D87E0E2ABEAB4800E4DA77 /* bg-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bg-01.jpg"; path = "../assets/imagenes/bg-01.jpg"; sourceTree = "<group>"; };
-		C6D45791FE114143932E9CDD /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		B157D197F88D2730B32D0A41 /* libPods-ContinentalAssitApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContinentalAssitApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6335AA5639162631E2C48E9 /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContinentalAssitApp-ContinentalAssitAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C18B7874801801B6855E99F3 /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC55D730ADE40FFF846490B4 /* Pods-ContinentalAssitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.release.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F17A2795BC1CEF8C21AA05A3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F184FDBB44F3B6D73265277D /* Pods-ContinentalAssitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinentalAssitApp.debug.xcconfig"; path = "Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4C5E2C76E257AAEE6ED8BD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a in Frameworks */,
+				7C68957230B9C44C8747757A /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C621B22B14755DFE0299C473 /* libPods-ContinentalAssitApp.a in Frameworks */,
+				3BA7C5E0CDA106A0352D3013 /* libPods-ContinentalAssitApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				7BC2BE0801F0C26A586489EF /* libPods-ContinentalAssitApp.a */,
-				464D97C7FE1EE376D853F2CD /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */,
+				B157D197F88D2730B32D0A41 /* libPods-ContinentalAssitApp.a */,
+				B6335AA5639162631E2C48E9 /* libPods-ContinentalAssitApp-ContinentalAssitAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,10 +188,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1FAAFA986F2F6427EAFA959F /* Pods-ContinentalAssitApp.debug.xcconfig */,
-				244700F67912DF46A5E2B2E4 /* Pods-ContinentalAssitApp.release.xcconfig */,
-				5D0AF67C8A86325D28A2E5CF /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */,
-				C6D45791FE114143932E9CDD /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */,
+				F184FDBB44F3B6D73265277D /* Pods-ContinentalAssitApp.debug.xcconfig */,
+				CC55D730ADE40FFF846490B4 /* Pods-ContinentalAssitApp.release.xcconfig */,
+				C18B7874801801B6855E99F3 /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */,
+				6850CFA9967DCA62A59A3E2C /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -203,12 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ContinentalAssitAppTests" */;
 			buildPhases = (
-				23E40C72B746DF47FAA5186B /* [CP] Check Pods Manifest.lock */,
+				450E7C48A82AB1F384C4CF14 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				78B688595ECC5915488141C1 /* [CP] Embed Pods Frameworks */,
-				7EC0B654E94703883DB73A24 /* [CP] Copy Pods Resources */,
+				84F6A3A72D1DAC1E47D36467 /* [CP] Embed Pods Frameworks */,
+				5A1C0248ECDC926E3D064520 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,13 +224,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ContinentalAssitApp" */;
 			buildPhases = (
-				9FB913B32CB4C2F9CD1A51F4 /* [CP] Check Pods Manifest.lock */,
+				7C6439BDEC209F1F1A6E47C5 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				37A17AA2EF9073BC4DFF2A6B /* [CP] Embed Pods Frameworks */,
-				4879C6D34565205185F92B41 /* [CP] Copy Pods Resources */,
+				530F5A57D6AD66846E5B31C1 /* [CP] Embed Pods Frameworks */,
+				E5E739550C66E7DE412957A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 				B01B5E3F2ABB87F9001D21C4 /* PBXBuildRule */,
@@ -318,9 +318,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		23E40C72B746DF47FAA5186B /* [CP] Check Pods Manifest.lock */ = {
+		450E7C48A82AB1F384C4CF14 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,7 +342,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		37A17AA2EF9073BC4DFF2A6B /* [CP] Embed Pods Frameworks */ = {
+		530F5A57D6AD66846E5B31C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,41 +359,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4879C6D34565205185F92B41 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78B688595ECC5915488141C1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7EC0B654E94703883DB73A24 /* [CP] Copy Pods Resources */ = {
+		5A1C0248ECDC926E3D064520 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,7 +376,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9FB913B32CB4C2F9CD1A51F4 /* [CP] Check Pods Manifest.lock */ = {
+		7C6439BDEC209F1F1A6E47C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,6 +396,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84F6A3A72D1DAC1E47D36467 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp-ContinentalAssitAppTests/Pods-ContinentalAssitApp-ContinentalAssitAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5E739550C66E7DE412957A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinentalAssitApp/Pods-ContinentalAssitApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -465,7 +465,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D0AF67C8A86325D28A2E5CF /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */;
+			baseConfigurationReference = C18B7874801801B6855E99F3 /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,7 +494,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6D45791FE114143932E9CDD /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */;
+			baseConfigurationReference = 6850CFA9967DCA62A59A3E2C /* Pods-ContinentalAssitApp-ContinentalAssitAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,13 +520,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1FAAFA986F2F6427EAFA959F /* Pods-ContinentalAssitApp.debug.xcconfig */;
+			baseConfigurationReference = F184FDBB44F3B6D73265277D /* Pods-ContinentalAssitApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.1.9;
+				CURRENT_PROJECT_VERSION = 2.2.1;
 				DEVELOPMENT_TEAM = 68258PG6DY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ContinentalAssitApp/Info.plist;
@@ -537,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.9;
+				MARKETING_VERSION = 2.20.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -554,11 +554,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244700F67912DF46A5E2B2E4 /* Pods-ContinentalAssitApp.release.xcconfig */;
+			baseConfigurationReference = CC55D730ADE40FFF846490B4 /* Pods-ContinentalAssitApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 2.1.9;
+				CURRENT_PROJECT_VERSION = 2.2.1;
 				DEVELOPMENT_TEAM = 68258PG6DY;
 				INFOPLIST_FILE = ContinentalAssitApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Continental Assist";
@@ -568,7 +568,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.9;
+				MARKETING_VERSION = 2.20.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

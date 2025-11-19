@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="Cambios app ajuste chat y registro usuarios">
+    <list default="true" id="2985d7ef-5017-4b3a-b57a-8e7f7386f739" name="Changes" comment="Add AppDelegate for React Native integration">
+      <change afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/CharTraitsFix.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/app/src/main/java/com/continentalassitapp/MainApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/app/src/main/java/com/continentalassitapp/MainApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/android/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/android/gradlew" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp.xcodeproj/xcshareddata/xcschemes/ContinentalAssitApp.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp/AppDelegate.mm" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/ContinentalAssitApp/AppDelegate.mm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/ios/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/api/continentalApi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/api/firebaseApi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/api/firebaseApi.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/src/screens/MiPlanScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContinentalAssitApp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ContinentalAssitApp/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +64,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#1 on hvalenciaMain&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;AppEstable&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,7 +78,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.32" />
       </set>
     </attachedChunks>
   </component>
@@ -89,6 +98,13 @@
       <workItem from="1741791078311" duration="9000" />
       <workItem from="1743469452861" duration="32000" />
       <workItem from="1743469491665" duration="13397000" />
+      <workItem from="1744636017925" duration="243000" />
+      <workItem from="1744636475448" duration="12645000" />
+      <workItem from="1746044146154" duration="831000" />
+      <workItem from="1747921750920" duration="205000" />
+      <workItem from="1747921965998" duration="610000" />
+      <workItem from="1747926632086" duration="4000" />
+      <workItem from="1755715858090" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="cambios">
       <option name="closed" value="true" />
@@ -157,10 +173,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cambios" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/hvalenciaMain' into hvalenciaMain" />
     <MESSAGE value="Remove .DS_Store from repository" />
     <MESSAGE value="Cambios app ajuste chat y registro usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios app ajuste chat y registro usuarios" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/hvalenciaMain' into hvalenciaMain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/hvalenciaMain' into hvalenciaMain" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -178,13 +194,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/context/authContext.tsx</url>
           <line>270</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/ContinentalAssitApp/src/components/BeneficiarioComponent.tsx</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

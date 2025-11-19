@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
-apply plugin: "com.facebook.react"
+
 
 project.ext.vectoricons = [
     iconFontNames: [ 'Ionicons.ttf', 'MaterialIcons.ttf','FontAwesome5.ttf', 'FontAwesome.ttf' ] // Name of the font files you want to copy
@@ -12,53 +12,7 @@ apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle");
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
- */
-react { 
-    /* Folders */
-    //   The root of your project, i.e. where "package.json" lives. Default is '..'
-    // root = file("../")
-    //   The folder where the react-native NPM package is. Default is ../node_modules/react-native
-    // reactNativeDir = file("../node_modules/react-native")
-    //   The folder where the react-native Codegen package is. Default is ../node_modules/@react-native/codegen
-    // codegenDir = file("../node_modules/@react-native/codegen")
-    //   The cli.js file which is the React Native CLI entrypoint. Default is ../node_modules/react-native/cli.js
-    // cliFile = file("../node_modules/react-native/cli.js")
 
-    /* Variants */
-    //   The list of variants to that are debuggable. For those we're going to
-    //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.
-    //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
-    // debuggableVariants = ["liteDebug", "prodDebug"]
-
-    /* Bundling */
-    //   A list containing the node command and its flags. Default is just 'node'.
-    // nodeExecutableAndArgs = ["node"]
-    //
-    //   The command to run when bundling. By default is 'bundle'
-    // bundleCommand = "ram-bundle"
-    //
-    //   The path to the CLI configuration file. Default is empty.
-    // bundleConfig = file(../rn-cli.config.js)
-    //
-    //   The name of the generated asset file containing your JS bundle
-    // bundleAssetName = "MyApplication.android.bundle"
-    //
-    //   The entry file for bundle generation. Default is 'index.android.js' or 'index.js'
-    // entryFile = file("../js/MyApplication.android.js")
-    //
-    //   A list of extra flags to pass to the 'bundle' commands.
-    //   See https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle
-    // extraPackagerArgs = []
-
-    /* Hermes Commands */
-    //   The hermes compiler command to run. By default it is 'hermesc'
-    // hermesCommand = "$rootDir/my-custom-hermesc/bin/hermesc"
-    //
-    //   The list of flags to pass to the Hermes compiler. By default is "-O", "-output-source-map"
-    // hermesFlags = ["-O", "-output-source-map"]
-}
-
-/**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
 def enableProguardInReleaseBuilds = false
@@ -86,19 +40,29 @@ android {
         pickFirst 'lib/armeabi-v7a/libc++_shared.so'
     }
     
-    ndkVersion rootProject.ext.ndkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-    compileSdk rootProject.ext.compileSdkVersion
+   ndkVersion rootProject.ext.ndkVersion
+   buildToolsVersion rootProject.ext.buildToolsVersion
+   compileSdkVersion rootProject.ext.compileSdkVersion
 
+    buildFeatures {
+           buildConfig true
+    }
+
+     defaultConfig {
+
+            buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "false")
+            buildConfigField("boolean", "IS_HERMES_ENABLED",
+                             "${project.getProperties().get("hermesEnabled") ?: true}")
+    }
     namespace "com.continentalassitapp"
-        defaultConfig {
-            applicationId "com.continentalassitapp"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 214
-            versionName "2.2.4"
-            resConfigs "en", "es"
-        }
+       defaultConfig {
+           applicationId "com.continentalassitapp"
+           minSdkVersion rootProject.ext.minSdkVersion
+           targetSdkVersion rootProject.ext.targetSdkVersion
+           versionCode 215
+           versionName "2.2.5"
+           resConfigs "en", "es"
+       }
     signingConfigs {
         release {
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
@@ -131,8 +95,8 @@ android {
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
-    implementation("com.facebook.react:react-android")
-    implementation("com.facebook.react:flipper-integration")
+    implementation("com.facebook.react:react-android:${rootProject.ext.reactNativeVersion}")
+//     implementation("com.facebook.react:flipper-integration")
     implementation project(":react-native-splash-screen")
     // debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     // debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
@@ -141,12 +105,11 @@ dependencies {
 
     // debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
     if (hermesEnabled.toBoolean()) {
-        implementation("com.facebook.react:hermes-android")
+        implementation("com.facebook.react:hermes-android:${rootProject.ext.reactNativeVersion}")
     } else {
         implementation jscFlavor
     }
-
-    
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+

@@ -1,68 +1,56 @@
-   
-   def node_require(script)
-     # Resolve script with node to allow for hoisting
-     require Pod::Executable.execute_command('node', ['-p',
-       "require.resolve(
-         '#{script}',
-         {paths: [process.argv[1]]},
-       )", __dir__]).strip
-   end
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+                  require_relative '../node_modules/react-native-permissions/scripts/setup'
 
+                  workspace 'ContinentalAssitApp.xcworkspace'
+                  platform :ios, min_ios_version_supported
+                  prepare_react_native_project!
 
-node_require('react-native/scripts/react_native_pods.rb')
-node_require('react-native-permissions/scripts/setup.rb')
+                  install! 'cocoapods', :deterministic_uuids => false
 
-platform :ios, min_ios_version_supported
-prepare_react_native_project!
+                  setup_permissions([
+                    'LocationAccuracy',
+                    'LocationAlways',
+                    'LocationWhenInUse',
+                  ])
 
-setup_permissions([
-  # 'AppTrackingTransparency',
-  # 'BluetoothPeripheral',
-  # 'Calendars',
-  # 'Camera',
-  # 'Contacts',
-  # 'FaceID',
-    'LocationAccuracy',
-    'LocationAlways',
-    'LocationWhenInUse',
-  # 'MediaLibrary',
-  # 'Microphone',
-  # 'Motion',
-  # 'Notifications',
-  # 'PhotoLibrary',
-  # 'PhotoLibraryAddOnly',
-  # 'Reminders',
-  # 'SpeechRecognition',
-  # 'StoreKit'
-])
+                  target 'ContinentalAssitApp' do
+                    config = use_native_modules!
 
+                    use_react_native!(
+                      :path => config[:reactNativePath],
+                      :app_path => "#{Pod::Config.instance.installation_root}/.."
+                    )
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
+                    target 'ContinentalAssitAppTests' do
+                      inherit! :complete
+                    end
 
-target 'ContinentalAssitApp' do
-  config = use_native_modules!
+                    post_install do |installer|
+                      # Aplicar configuraciones para solucionar el error std::char_traits<unsigned char>
+                      installer.pods_project.targets.each do |target|
+                        target.build_configurations.each do |config|
+                          # Asegurar que GCC_PREPROCESSOR_DEFINITIONS sea un array
+                          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
 
+                          # Añadir definiciones para arreglar el problema de char_traits
+                          fixes = [
+                            '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION',
+                            '_LIBCPP_DISABLE_AVAILABILITY',
+                            '_LIBCPP_ENABLE_CXX20_REMOVED_FEATURES'
+                          ]
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
+                          fixes.each do |fix|
+                            unless config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'].include?(fix)
+                              config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << fix
+                            end
+                          end
 
-  target 'ContinentalAssitAppTests' do
-    inherit! :complete
-    # Pods for testing
-  end
+                          # Configurar C++20 para compatibilidad con iOS 18.4
+                          config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++20'
+                        end
+                      end
 
-  post_install do |installer|
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false
-    )
-  end
-end
+                      # Aplicar configuración estándar de React Native
+                      react_native_post_install(installer, config[:reactNativePath], :mac_catalyst_enabled => false)
+                    end
+                  end
